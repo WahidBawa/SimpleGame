@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.2" tiledversion="1.2.1" orientation="orthogonal" renderorder="right-down" width="29" height="31" tilewidth="8" tileheight="8" infinite="0" nextlayerid="2" nextobjectid="1">
  <tileset firstgid="1" name="Arcade - Pac-Man - General Sprites" tilewidth="8" tileheight="8" tilecount="2635" columns="85">
-  <image source="../Arcade - Pac-Man - General Sprites.png" width="680" height="248"/>
+  <image source="Arcade - Pac-Man - General Sprites.png" width="680" height="248"/>
  </tileset>
  <layer id="1" name="Tile Layer 1" width="29" height="31">
   <data encoding="csv">
