@@ -1,0 +1,3 @@
+Hight=32
+Width=32
+Frames=1

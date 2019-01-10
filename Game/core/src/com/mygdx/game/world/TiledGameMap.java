@@ -11,7 +11,7 @@ public class TiledGameMap extends GameMap {
     OrthogonalTiledMapRenderer tiledMapRenderer;
 
     public TiledGameMap(){
-        tiledMap = new TmxMapLoader().load("Assets/MAPS/basicPacman1.tmx");
+        tiledMap = new TmxMapLoader().load("Assets/MAPS/test.tmx");
         tiledMapRenderer = new OrthogonalTiledMapRenderer(tiledMap);
     }
 
@@ -39,12 +39,12 @@ public class TiledGameMap extends GameMap {
 
     @Override
     public int getWidth() {
-        return 0;
+        return 640;
     }
 
     @Override
     public int getHeight() {
-        return 0;
+        return 480;
     }
 
     @Override
