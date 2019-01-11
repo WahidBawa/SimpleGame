@@ -23,6 +23,9 @@ public class Main extends ApplicationAdapter {
 
     GameMap gameMap;
 
+    public static final int WIDTH = 640;
+    public static final int HEIGHT = 480;
+
     private int x = 1;
     private int y = 1;
     private int speed = 5;
@@ -50,7 +53,7 @@ public class Main extends ApplicationAdapter {
     public void create() {
         batch = new SpriteBatch();
         img = new Texture("Assets/badlogic.jpg");
-        Gdx.graphics.setWindowedMode(640, 480);
+        Gdx.graphics.setWindowedMode(WIDTH, HEIGHT);
         cam1 = new OrthographicCamera();
         cam1.setToOrtho(false, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
         cam1.update();
@@ -105,10 +108,10 @@ public class Main extends ApplicationAdapter {
             pressed = true;
         }
         if (x - speed < 0) x = 0;
-        if (x + img.getWidth() + speed > 640) x = 640 - img.getWidth();
+        if (x + img.getWidth() + speed > WIDTH) x = WIDTH - img.getWidth();
 
         if (y - speed < 0) y = 0;
-        if (y + img.getHeight() + speed > 480) y = 480 - img.getHeight();
+        if (y + img.getHeight() + speed > HEIGHT) y = HEIGHT - img.getHeight();
 
         counter += 1;
         if (counter > animation_speed) {
@@ -125,12 +128,21 @@ public class Main extends ApplicationAdapter {
         y += yShift;
 
 
-        if (Gdx.input.justTouched()){
+//        TileType type = gameMap.getTileTypeByLocation(1, 15, 465);
+//        if (type != null)
+//            System.out.println("YOu clicked on a tile with id " + type.getId() + " " + type.getName() + " " + type.isCollideable() + " " + type.getDamage());
+//        else System.out.println("null tile");
+        if (Gdx.input.justTouched()) {
             Vector3 pos = cam1.unproject(new Vector3(Gdx.input.getX(), Gdx.input.getY(), 0));
-//            TileType type = gameMap.getTileTypeByLocation(1, pos.x, pos.y);
-            TileType type = gameMap.getTileTypeByLocation(1, 0, 0);
-            if (type != null){
+            shapeRenderer.setColor(Color.WHITE);
+            shapeRenderer.begin(ShapeRenderer.ShapeType.Filled);
+            shapeRenderer.circle(pos.x, pos.y, 5);
+            shapeRenderer.end();
+            TileType type = gameMap.getTileTypeByLocation(1, pos.x, pos.y);
+            if (type != null) {
                 System.out.println("YOu clicked on a tile with id " + type.getId() + " " + type.getName() + " " + type.isCollideable() + " " + type.getDamage());
+            }else{
+                System.out.println("shit");
             }
         }
 
@@ -138,11 +150,6 @@ public class Main extends ApplicationAdapter {
 //		batch.draw(img, x, y);
         batch.draw(img, x, y, img.getWidth() * 2, img.getHeight() * 2);
         batch.end();
-
-//		shapeRenderer.setColor(Color.WHITE);
-//		shapeRenderer.begin(ShapeRenderer.ShapeType.Filled);
-//		shapeRenderer.circle(x, y, 100);
-//		shapeRenderer.end();
     }
 
     @Override

@@ -9,8 +9,8 @@ public class DesktopLauncher {
 		LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
 		config.title = "ZayniZain";
 		config.foregroundFPS = 60;
-		config.width = 640;
-		config.height = 480;
+//		config.width = 640;
+//		config.height = 480;
 		new LwjglApplication(new Main(), config);
 	}
 }

@@ -4,12 +4,12 @@ import java.util.HashMap;
 
 public enum TileType {
 
-    TOP_LEFT_CORNER(0, true, "Top-Left Corner");
-//    DIRT(2, true, "Dirt"),
-//    SKY(3, false, "Sky"),
-//    LAVA(4, true, "Lava"),
-//    CLOUD(5, true, "Cloud"),
-//    STONE(6, true, "Stone");
+//    TOP_LEFT_CORNER(3, true, "Top-Left Corner");
+    DIRT(2, true, "Dirt"),
+    SKY(3, false, "Sky"),
+    LAVA(4, true, "Lava"),
+    CLOUD(5, true, "Cloud"),
+    STONE(6, true, "Stone");
 
     private int id;
     private String name;
