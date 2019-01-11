@@ -12,6 +12,7 @@ import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.mygdx.game.world.GameMap;
 import com.mygdx.game.world.TiledGameMap;
 
+import javax.xml.soap.Text;
 import java.util.ArrayList;
 
 public class Main extends ApplicationAdapter {
@@ -27,7 +28,7 @@ public class Main extends ApplicationAdapter {
 
 	private ShapeRenderer shapeRenderer;
 
-	ArrayList<ArrayList<Texture>> crow = new ArrayList<ArrayList<Texture>>();
+	ArrayList<ArrayList<Texture>> pacman = new ArrayList<ArrayList<Texture>>();
 
 	private final static int UP = 0;
 	private final static int DOWN = 1;
@@ -40,11 +41,15 @@ public class Main extends ApplicationAdapter {
 	private int animation_speed = 7;
 	private int counter = 0;
 
+	private boolean pressed = false;
+	private int xShift = 0;
+	private int yShift = 0;
 
 	@Override
 	public void create () {
 		batch = new SpriteBatch();
 		img = new Texture("Assets/badlogic.jpg");
+		Gdx.graphics.setWindowedMode(640, 480);
 		cam1 = new OrthographicCamera();
 		cam1.setToOrtho(false, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
 		cam1.update();
@@ -59,10 +64,10 @@ public class Main extends ApplicationAdapter {
 			for (int n = 0; n < 3; n++){
 				tmpSprite.add(new Texture("Assets/SPRITES/Pacman/" + i + "/" + n + ".png")); // change this to current sprites
 			}
-			crow.add(tmpSprite);
+			pacman.add(tmpSprite);
 		}
 
-		img = crow.get(RIGHT).get(1);
+		img = pacman.get(RIGHT).get(1);
 		shapeRenderer = new ShapeRenderer();
 	}
 
@@ -78,20 +83,28 @@ public class Main extends ApplicationAdapter {
 		batch.begin();
 
 		if(Gdx.input.isKeyPressed(Input.Keys.LEFT)){
-			x -= speed;
+			xShift = -speed;
+			yShift = 0;
 			dir = LEFT;
+			pressed = true;
 		}
 		else if(Gdx.input.isKeyPressed(Input.Keys.RIGHT)){
-			x += speed;
+			xShift = speed;
+			yShift = 0;
 			dir = RIGHT;
+			pressed = true;
 		}
 		else if(Gdx.input.isKeyPressed(Input.Keys.UP)){
-			y += speed;
+			yShift = speed;
+			xShift = 0;
 			dir = UP;
+			pressed = true;
 		}
 		else if(Gdx.input.isKeyPressed(Input.Keys.DOWN)){
-			y -= speed;
+			yShift = -speed;
+			xShift = 0;
 			dir = DOWN;
+			pressed = true;
 		}
 		if (x - speed < 0) x = 0;
 		if (x + img.getWidth() + speed > 640) x = 640 - img.getWidth();
@@ -99,7 +112,7 @@ public class Main extends ApplicationAdapter {
 		if (y - speed < 0) y = 0;
 		if (y + img.getHeight() + speed > 480) y = 480 - img.getHeight();
 
-		if (Gdx.input.isKeyPressed(Input.Keys.ANY_KEY)){
+		if (pressed){
 			counter += 1;
 			if (counter > animation_speed){
 				counter = 0;
@@ -109,9 +122,10 @@ public class Main extends ApplicationAdapter {
 				}
 			}
 		}
-
-		if (Gdx.input.isKeyPressed(Input.Keys.ANY_KEY)) img = crow.get(dir).get(pos);
-		else img = crow.get(dir).get(0);
+		if (Gdx.input.isKeyPressed(Input.Keys.ANY_KEY)) img = pacman.get(dir).get(pos);
+		else img = pacman.get(dir).get(1);
+		x += xShift;
+		y += yShift;
 //		batch.draw(img, x, y);
 		batch.draw(img, x, y, img.getWidth(	) * 2, img.getHeight() * 2);
 		batch.end();
