@@ -4,18 +4,18 @@ import java.util.HashMap;
 
 public enum TileType {
 
-    GRASS(1, true, "Grass"),
-    DIRT(2, true, "Dirt"),
-    SKY(3, false, "Sky"),
-    LAVA(4, true, "Lava"),
-    CLOUD(5, true, "Cloud"),
-    STONE(6, true, "Stone");
+    TOP_LEFT_CORNER(0, true, "Top-Left Corner");
+//    DIRT(2, true, "Dirt"),
+//    SKY(3, false, "Sky"),
+//    LAVA(4, true, "Lava"),
+//    CLOUD(5, true, "Cloud"),
+//    STONE(6, true, "Stone");
 
     private int id;
     private String name;
     private boolean collideable;
     private float damage;
-    public final static int TILE_SIZE = 16;
+    public final static int TILE_SIZE = 32;
 
     TileType (int id, boolean collideable, String name){
         this(id, collideable, name, 0);
@@ -47,6 +47,7 @@ public enum TileType {
     private static HashMap<Integer, TileType> tileMap;
 
     static{
+        tileMap = new HashMap<Integer, TileType>();
         for (TileType i : TileType.values()){
             tileMap.put(i.getId(), i);
         }

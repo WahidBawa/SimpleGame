@@ -9,10 +9,11 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
+import com.badlogic.gdx.math.Vector3;
 import com.mygdx.game.world.GameMap;
+import com.mygdx.game.world.TileType;
 import com.mygdx.game.world.TiledGameMap;
 
-import javax.xml.soap.Text;
 import java.util.ArrayList;
 
 public class Main extends ApplicationAdapter {
@@ -122,7 +123,18 @@ public class Main extends ApplicationAdapter {
 
         x += xShift;
         y += yShift;
-        
+
+
+        if (Gdx.input.justTouched()){
+            Vector3 pos = cam1.unproject(new Vector3(Gdx.input.getX(), Gdx.input.getY(), 0));
+//            TileType type = gameMap.getTileTypeByLocation(1, pos.x, pos.y);
+            TileType type = gameMap.getTileTypeByLocation(1, 0, 0);
+            if (type != null){
+                System.out.println("YOu clicked on a tile with id " + type.getId() + " " + type.getName() + " " + type.isCollideable() + " " + type.getDamage());
+            }
+        }
+
+
 //		batch.draw(img, x, y);
         batch.draw(img, x, y, img.getWidth() * 2, img.getHeight() * 2);
         batch.end();
