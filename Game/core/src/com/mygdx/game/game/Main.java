@@ -63,15 +63,18 @@ public class Main extends ApplicationAdapter {
         batch = new SpriteBatch();
         ArrayList<Texture> tmpSprite;
 
-        for (String i : new String[]{"Up", "Down", "Left", "Right"}) {
+//        for (String i : new String[]{"Up", "Down", "Left", "Right"}) {
+        for (String i : new String[]{"Zain"}) {
             tmpSprite = new ArrayList<Texture>();
             for (int n = 0; n < 3; n++) {
-                tmpSprite.add(new Texture("Assets/SPRITES/Pacman/" + i + "/" + n + ".png")); // change this to current sprites
+//                tmpSprite.add(new Texture("Assets/SPRITES/Pacman/" + i + "/" + n + ".png")); // change this to current sprites
+                tmpSprite.add(new Texture("Assets/SPRITES/" + i + "/" + n + ".png")); // change this to current sprites
             }
             pacman.add(tmpSprite);
         }
 
-        img = pacman.get(RIGHT).get(1);
+//        img = pacman.get(RIGHT).get(1);
+        img = pacman.get(0).get(1);
         shapeRenderer = new ShapeRenderer();
     }
 
@@ -122,7 +125,7 @@ public class Main extends ApplicationAdapter {
             }
         }
 
-        img = pacman.get(dir).get(pos);
+        img = pacman.get(0).get(pos);
 
         x += xShift;
         y += yShift;
@@ -138,7 +141,7 @@ public class Main extends ApplicationAdapter {
             shapeRenderer.begin(ShapeRenderer.ShapeType.Filled);
             shapeRenderer.circle(pos.x, pos.y, 5);
             shapeRenderer.end();
-            TileType type = gameMap.getTileTypeByLocation(1, pos.x, pos.y);
+            TileType type = gameMap.getTileTypeByLocation(2, pos.x, pos.y);
             if (type != null) {
                 System.out.println("YOu clicked on a tile with id " + type.getId() + " " + type.getName() + " " + type.isCollideable() + " " + type.getDamage());
             }else{
@@ -148,7 +151,8 @@ public class Main extends ApplicationAdapter {
 
 
 //		batch.draw(img, x, y);
-        batch.draw(img, x, y, img.getWidth() * 2, img.getHeight() * 2);
+        batch.draw(img, x, y, img.getWidth() * 4, img.getHeight() * 4);
+//        batch.draw(img, x, y, 100, 100);
         batch.end();
     }
 

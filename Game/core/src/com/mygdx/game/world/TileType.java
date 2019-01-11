@@ -4,18 +4,18 @@ import java.util.HashMap;
 
 public enum TileType {
 
-//    TOP_LEFT_CORNER(3, true, "Top-Left Corner");
-    DIRT(2, true, "Dirt"),
-    SKY(3, false, "Sky"),
-    LAVA(4, true, "Lava"),
-    CLOUD(5, true, "Cloud"),
-    STONE(6, true, "Stone");
+    TOP_LEFT_CORNER(30, true, "Top-Left Corner");
+//    DIRT(2, true, "Dirt"),
+//    SKY(3, false, "Sky"),
+//    LAVA(4, true, "Lava"),
+//    CLOUD(5, true, "Cloud"),
+//    STONE(6, true, "Stone");
 
     private int id;
     private String name;
     private boolean collideable;
     private float damage;
-    public final static int TILE_SIZE = 32;
+    public final static int TILE_SIZE = 16;
 
     TileType (int id, boolean collideable, String name){
         this(id, collideable, name, 0);
