@@ -152,7 +152,7 @@ public class Main extends ApplicationAdapter {
 
 //		batch.draw(img, x, y);
         batch.draw(img, x, y, img.getWidth() * 4, img.getHeight() * 4);
-//        batch.draw(img, x, y, 100, 100);
+//        batch.draw(img, x,  y, 100, 100);
         batch.end();
     }
 
