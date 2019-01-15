@@ -3,6 +3,7 @@ package com.mygdx.game.game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 public class Player {
     //stores x loc (start at 240)
@@ -17,15 +18,23 @@ public class Player {
     static final int LEFT = -1;
     static final int RIGHT = 1;
     static final int STANDING = 0;
-    int direction = 0;
+    int direction = LEFT;
 
     //initialization code
-    public Player(){}
+    public Player(){
+    }
 
     //updates character's position
-    public void update(){
-        if (direction == RIGHT){
+    public void render(SpriteBatch batch){
+        batch.draw(player_img, x, y, player_img.getWidth() * 2, player_img.getHeight() * 2);
 
+    }
+
+    public void update(int direction){
+        if (direction == RIGHT){
+            x += 10;
+        }else if (direction == LEFT){
+            x -= 10;
         }
     }
 

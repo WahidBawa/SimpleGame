@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.2" tiledversion="1.2.1" orientation="orthogonal" renderorder="right-down" width="40" height="30" tilewidth="16" tileheight="16" infinite="0" nextlayerid="4" nextobjectid="1">
  <tileset firstgid="1" source="s.tsx"/>
+ <tileset firstgid="32" name="NES - Mega Man - Bomb Man Stage" tilewidth="16" tileheight="16" tilecount="24320" columns="320">
+  <image source="MEGAMAN/NES - Mega Man - Bomb Man Stage.png" width="5134" height="1219"/>
+ </tileset>
  <layer id="2" name="base" width="40" height="30">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
