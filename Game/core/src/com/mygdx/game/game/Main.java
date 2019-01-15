@@ -108,6 +108,7 @@ public class Main<player> extends ApplicationAdapter {
         player.update(direction);
         cam1.update();
 
+        acr.render();
         player.render();
 
 
