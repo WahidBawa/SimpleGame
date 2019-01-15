@@ -14,6 +14,8 @@ public class Player {
     public Texture player_img = new Texture("Assets/SPRITES/Zain/0.png");
     //speed for our character in pixels/s
 
+    private String name;
+
     //defining constants for direction
     static final int LEFT = -1;
     static final int RIGHT = 1;
@@ -21,12 +23,14 @@ public class Player {
     int direction = LEFT;
 
     //initialization code
-    public Player(){
+    public Player(String name){
+        this.name = name;
+        Main.players.add(this);
     }
 
     //updates character's position
-    public void render(SpriteBatch batch){
-        batch.draw(player_img, x, y, player_img.getWidth() * 2, player_img.getHeight() * 2);
+    public void render(){
+        Main.batch.draw(player_img, x, y, player_img.getWidth() * 2, player_img.getHeight() * 2);
 
     }
 
@@ -51,6 +55,10 @@ public class Player {
     //changes character direction to standing
     public void setStanding(){
         direction = STANDING;
+    }
+
+    public String getName() {
+        return name;
     }
 
     public int getX(){
