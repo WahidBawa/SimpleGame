@@ -26,7 +26,7 @@ public class Main<player> extends ApplicationAdapter {
     public static final int WIDTH = 1280;
     public static final int HEIGHT = 720;
 
-    private ShapeRenderer shapeRenderer;
+    public static ShapeRenderer shapeRenderer;
 
     private int counter = 0;
     private int animation_speed = 2;
@@ -43,7 +43,7 @@ public class Main<player> extends ApplicationAdapter {
     int y = 0;
 
     public static ArrayList<Player> players = new ArrayList<Player>();
-    public static ArrayList<Object> walls = new ArrayList<Object>();
+    public static ArrayList<Walls> walls = new ArrayList<Walls>();
     public static ArrayList<Object> ladders = new ArrayList<Object>();
 
     Player player;
@@ -52,12 +52,14 @@ public class Main<player> extends ApplicationAdapter {
 
     @Override
     public void create() {
-        batch = new SpriteBatch();
         Gdx.graphics.setWindowedMode(WIDTH, HEIGHT);
+        img = new Texture("Assets/badlogic.jpg");
+        batch = new SpriteBatch();
         cam1 = new OrthographicCamera();
         cam1.setToOrtho(false, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
         cam1.translate(-185, -145);
-        cam1.zoom = 0.32000038f;
+//        cam1.rotate(100);
+//        cam1.zoom = 0.32000038f;
         cam1.update();
 
 //        player = new Player();
@@ -86,12 +88,12 @@ public class Main<player> extends ApplicationAdapter {
         else if (Gdx.input.isKeyPressed(Input.Keys.DOWN)) direction = DOWN;
         else direction = STANDING;
 
-//        if (Gdx.input.isKeyPressed(Input.Keys.A)){
-//            cam1.zoom += 0.02;
-//        }
-//        if (Gdx.input.isKeyPressed(Input.Keys.Q)) {
-//            cam1.zoom -= 0.02;
-//        }
+        if (Gdx.input.isKeyPressed(Input.Keys.A)){
+            cam1.zoom += 0.02;
+        }
+        if (Gdx.input.isKeyPressed(Input.Keys.Q)) {
+            cam1.zoom -= 0.02;
+        }
 
 
         if (Gdx.input.isKeyPressed(Input.Keys.D)){
@@ -122,8 +124,10 @@ public class Main<player> extends ApplicationAdapter {
                 pos = 0;
             }
         }
-
+        batch.draw(img, walls.get(0).getX(), walls.get(0).getY(), walls.get(0).getWidth(), walls.get(0).getHeight());
         batch.end();
+//        cam1.zoom = 0.32000038f;
+//        System.out.println(gameMap.);
     }
 
     @Override

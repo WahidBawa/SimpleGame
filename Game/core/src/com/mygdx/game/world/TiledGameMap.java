@@ -10,6 +10,7 @@ import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
+import com.mygdx.game.game.Walls;
 
 public class TiledGameMap extends GameMap {
 
@@ -18,9 +19,13 @@ public class TiledGameMap extends GameMap {
 
     public TiledGameMap(){
         tiledMap = new TmxMapLoader().load("Assets/MAPS/MEGAMAN/test1.tmx");
+
         MapLayer walls = tiledMap.getLayers().get("Walls");
         MapObjects objects = walls.getObjects();
-//        tiledMap = new TmxMapLoader().load("Assets/uhoh/map.tmx");
+        for (MapObject i : objects ){
+            new Walls(i);
+        }
+
         tiledMapRenderer = new OrthogonalTiledMapRenderer(tiledMap);
     }
 
