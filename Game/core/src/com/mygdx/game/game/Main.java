@@ -9,6 +9,7 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
+import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.mygdx.game.world.GameMap;
 import com.mygdx.game.world.TiledGameMap;
 
@@ -19,7 +20,8 @@ public class Main<player> extends ApplicationAdapter {
     Texture img;
     OrthographicCamera cam1;
 
-    GameMap gameMap;
+//    GameMap gameMap;
+    TiledGameMap gameMap;
 
     public static final int WIDTH = 1280;
     public static final int HEIGHT = 720;
@@ -46,7 +48,7 @@ public class Main<player> extends ApplicationAdapter {
 
     Player player;
 
-    public static AllClassRenderer acr = new AllClassRenderer(players, walls, ladders);
+//    public static AllClassRenderer acr = new AllClassRenderer(players, walls, ladders);
 
     @Override
     public void create() {
@@ -108,7 +110,7 @@ public class Main<player> extends ApplicationAdapter {
         player.update(direction);
         cam1.update();
 
-        acr.render();
+//        acr.render();
         player.render();
 
 

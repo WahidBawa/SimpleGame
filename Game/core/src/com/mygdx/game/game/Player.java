@@ -25,7 +25,8 @@ public class Player {
     //initialization code
     public Player(String name){
         this.name = name;
-        Main.acr.add(this);
+//        Main.acr.add(this);
+        Main.players.add(this);
     }
 
     //updates character's position

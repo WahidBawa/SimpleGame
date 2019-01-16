@@ -1,6 +1,10 @@
 package com.mygdx.game.world;
 
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.maps.MapLayer;
+import com.badlogic.gdx.maps.MapObject;
+import com.badlogic.gdx.maps.MapObjects;
 import com.badlogic.gdx.maps.tiled.TiledMapTile;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
@@ -14,6 +18,8 @@ public class TiledGameMap extends GameMap {
 
     public TiledGameMap(){
         tiledMap = new TmxMapLoader().load("Assets/MAPS/MEGAMAN/test1.tmx");
+        MapLayer walls = tiledMap.getLayers().get("Walls");
+        MapObjects objects = walls.getObjects();
 //        tiledMap = new TmxMapLoader().load("Assets/uhoh/map.tmx");
         tiledMapRenderer = new OrthogonalTiledMapRenderer(tiledMap);
     }
