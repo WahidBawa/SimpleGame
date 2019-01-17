@@ -59,7 +59,7 @@ public class Main<player> extends ApplicationAdapter {
         cam1.setToOrtho(false, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
         cam1.translate(-185, -145);
 //        cam1.rotate(100);
-//        cam1.zoom = 0.32000038f;
+        cam1.zoom = 0.32000038f;
         cam1.update();
 
 //        player = new Player();
@@ -88,7 +88,7 @@ public class Main<player> extends ApplicationAdapter {
         else if (Gdx.input.isKeyPressed(Input.Keys.DOWN)) direction = DOWN;
         else direction = STANDING;
 
-        if (Gdx.input.isKeyPressed(Input.Keys.A)){
+        if (Gdx.input.isKeyPressed(Input.Keys.E)){
             cam1.zoom += 0.02;
         }
         if (Gdx.input.isKeyPressed(Input.Keys.Q)) {
@@ -124,9 +124,10 @@ public class Main<player> extends ApplicationAdapter {
                 pos = 0;
             }
         }
-        batch.draw(img, walls.get(0).getX(), walls.get(0).getY(), walls.get(0).getWidth(), walls.get(0).getHeight());
-        batch.end();
 //        cam1.zoom = 0.32000038f;
+        System.out.println(cam1.position.x + " " + cam1.position.y);
+        batch.draw(img, walls.get(0).getX(), walls.get(0).getY(), walls.get(0).getWidth() / cam1.zoom, walls.get(0).getHeight() / cam1.zoom);
+        batch.end();
 //        System.out.println(gameMap.);
     }
 
