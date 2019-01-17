@@ -61,7 +61,6 @@ public class Main<player> extends ApplicationAdapter {
 //        xShift = -185;
 //        yShift = -145;
 //        cam1.rotate(100);
-        cam1.update();
 
         gameMap = new TiledGameMap();
 
@@ -96,7 +95,7 @@ public class Main<player> extends ApplicationAdapter {
 
 
         for (Walls i : walls)  i.update();
-        
+
         if (Gdx.input.isKeyPressed(Input.Keys.D)){
             xShift = 10;
         }else if (Gdx.input.isKeyPressed(Input.Keys.A)){
@@ -131,7 +130,8 @@ public class Main<player> extends ApplicationAdapter {
         batch.end();
         shapeRenderer.begin(ShapeRenderer.ShapeType.Filled);
         shapeRenderer.setColor(Color.BLACK);
-        for (Walls i : walls) shapeRenderer.rect(i.getX(), i.getY(), i.getWidth(), i.getHeight());
+//        System.out.println(TiledGameMap.tiledMap.);
+        for (Walls i : walls) shapeRenderer.rect(i.getX(), i.getY(), i.getWidth() / cam1.zoom, i.getHeight() / cam1.zoom);
         shapeRenderer.end();
 
     }

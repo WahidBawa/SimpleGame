@@ -18,7 +18,6 @@ public class TiledGameMap extends GameMap {
 
     public TiledGameMap(){
         tiledMap = new TmxMapLoader().load("Assets/MAPS/MEGAMAN/lvl1.tmx");
-
         MapLayer walls = tiledMap.getLayers().get("Walls");
         MapObjects objects = walls.getObjects();
         for (MapObject i : objects ){
