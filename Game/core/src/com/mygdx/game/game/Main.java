@@ -10,8 +10,6 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
-import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
-import com.mygdx.game.world.GameMap;
 import com.mygdx.game.world.TiledGameMap;
 
 import java.util.ArrayList;
@@ -19,10 +17,8 @@ import java.util.ArrayList;
 public class Main<player> extends ApplicationAdapter {
     public static SpriteBatch batch;
     Texture img;
-    OrthographicCamera cam1;
+    OrthographicCamera cam;
 
-//    GameMap gameMap;
-    TiledGameMap gameMap;
 
     public static final int WIDTH = 1280;
     public static final int HEIGHT = 720;
@@ -33,6 +29,7 @@ public class Main<player> extends ApplicationAdapter {
     private int animation_speed = 2;
     private int pos = 0;
 
+    TiledGameMap gameMap;
     public final static int RIGHT = 1;
     public final static int LEFT = -1;
     public final static int UP = 2;
@@ -56,20 +53,20 @@ public class Main<player> extends ApplicationAdapter {
         Gdx.graphics.setWindowedMode(WIDTH, HEIGHT);
         img = new Texture("Assets/badlogic.jpg");
         batch = new SpriteBatch();
-        cam1 = new OrthographicCamera();
-        cam1.setToOrtho(false, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-//        xShift = -185;
-//        yShift = -145;
-//        cam1.rotate(100);
+        cam = new OrthographicCamera();
+        cam.setToOrtho(false, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+//        xShift = -250;
+//        yShift = 1270;
+        System.out.println(xShift);
+        System.out.println(yShift);
+        cam.translate(xShift, yShift);
+//        cam.rotate(100);
 
         gameMap = new TiledGameMap();
 
         batch = new SpriteBatch();
         player = new Player("Yoh");
         shapeRenderer = new ShapeRenderer();
-
-        System.out.println();
-
     }
 
     @Override
@@ -77,7 +74,7 @@ public class Main<player> extends ApplicationAdapter {
         Gdx.gl.glClearColor(1, 0, 0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
-        gameMap.render(cam1);
+        gameMap.render(cam);
         batch.begin();
 
         if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) direction = RIGHT;
@@ -85,36 +82,38 @@ public class Main<player> extends ApplicationAdapter {
         else if (Gdx.input.isKeyPressed(Input.Keys.UP)) direction = UP;
         else if (Gdx.input.isKeyPressed(Input.Keys.DOWN)) direction = DOWN;
         else direction = STANDING;
-
-        if (Gdx.input.isKeyPressed(Input.Keys.E)){
-            cam1.zoom += 0.02;
+        System.out.println(cam.zoom);
+        if (Gdx.input.isKeyPressed(Input.Keys.E)) {
+            cam.zoom += 0.02;
         }
         if (Gdx.input.isKeyPressed(Input.Keys.Q)) {
-            cam1.zoom -= 0.02;
+            cam.zoom -= 0.02;
+        }
+        if (Gdx.input.isKeyPressed(Input.Keys.R)){
+            cam.zoom = 1;
         }
 
+        for (Walls i : walls) i.update();
 
-        for (Walls i : walls)  i.update();
-
-        if (Gdx.input.isKeyPressed(Input.Keys.D)){
+        if (Gdx.input.isKeyPressed(Input.Keys.D)) {
             xShift = 10;
-        }else if (Gdx.input.isKeyPressed(Input.Keys.A)){
+        } else if (Gdx.input.isKeyPressed(Input.Keys.A)) {
             xShift = -10;
-        }else if (Gdx.input.isKeyPressed(Input.Keys.W)){
+        } else if (Gdx.input.isKeyPressed(Input.Keys.W)) {
             yShift = 10;
-        }else if (Gdx.input.isKeyPressed(Input.Keys.S)){
+        } else if (Gdx.input.isKeyPressed(Input.Keys.S)) {
             yShift = -10;
-        }else{
+        } else {
             yShift = 0;
             xShift = 0;
         }
-        cam1.translate(xShift, yShift);
-        player.update(direction);
-        cam1.update();
 
+        cam.translate(xShift, yShift);
+        System.out.println(cam.position.x + " " + cam.position.y); // 640, 360 // 390, 1630
+        player.update(direction);
+        cam.update();
 
         player.render();
-
 
         counter += 1;
         if (counter > animation_speed) {
@@ -124,14 +123,11 @@ public class Main<player> extends ApplicationAdapter {
                 pos = 0;
             }
         }
-//        cam1.zoom = 0.32000038f;
-        System.out.println(cam1.position.x + " " + cam1.position.y);
-//        for (Walls i : walls) batch.draw(img, i.getX() - 5 * cam1.zoom, i.getY() - 5 * cam1.zoom, i.getWidth() / cam1.zoom, i.getHeight() / cam1.zoom);
         batch.end();
+
         shapeRenderer.begin(ShapeRenderer.ShapeType.Filled);
         shapeRenderer.setColor(Color.BLACK);
-//        System.out.println(TiledGameMap.tiledMap.);
-        for (Walls i : walls) shapeRenderer.rect(i.getX(), i.getY(), i.getWidth() / cam1.zoom, i.getHeight() / cam1.zoom);
+        for (Walls i : walls) shapeRenderer.rect(i.getX(), i.getY(), i.getWidth(), i.getHeight());
         shapeRenderer.end();
 
     }

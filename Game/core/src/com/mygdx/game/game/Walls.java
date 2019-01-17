@@ -6,7 +6,8 @@ import com.badlogic.gdx.maps.MapObject;
 
 public class Walls {
     private float x, y, width, height;
-    public Walls(MapObject wall){
+
+    public Walls(MapObject wall) {
         width = wall.getProperties().get("width", Float.class);
         height = wall.getProperties().get("height", Float.class);
         x = wall.getProperties().get("x", Float.class);
@@ -31,7 +32,7 @@ public class Walls {
         return height;
     }
 
-    public void update(){
+    public void update() {
         this.x -= Main.xShift;
         this.y -= Main.yShift;
     }
