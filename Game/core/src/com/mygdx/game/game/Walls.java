@@ -1,10 +1,11 @@
 package com.mygdx.game.game;
 
 
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.maps.MapObject;
 
 public class Walls {
-    float x, y, width, height;
+    private float x, y, width, height;
     public Walls(MapObject wall){
         width = wall.getProperties().get("width", Float.class);
         height = wall.getProperties().get("height", Float.class);
@@ -28,5 +29,10 @@ public class Walls {
 
     public float getHeight() {
         return height;
+    }
+
+    public void update(){
+        this.x -= Main.xShift;
+        this.y -= Main.yShift;
     }
 }

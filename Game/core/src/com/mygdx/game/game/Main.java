@@ -4,6 +4,7 @@ package com.mygdx.game.game;
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
@@ -39,8 +40,8 @@ public class Main<player> extends ApplicationAdapter {
     public final static int STANDING = 0;
     int direction = STANDING;
 
-    int x = 0;
-    int y = 0;
+    public static int xShift = 0;
+    public static int yShift = 0;
 
     public static ArrayList<Player> players = new ArrayList<Player>();
     public static ArrayList<Walls> walls = new ArrayList<Walls>();
@@ -57,12 +58,10 @@ public class Main<player> extends ApplicationAdapter {
         batch = new SpriteBatch();
         cam1 = new OrthographicCamera();
         cam1.setToOrtho(false, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-        cam1.translate(-185, -145);
+//        xShift = -185;
+//        yShift = -145;
 //        cam1.rotate(100);
-        cam1.zoom = 0.32000038f;
         cam1.update();
-
-//        player = new Player();
 
         gameMap = new TiledGameMap();
 
@@ -96,23 +95,25 @@ public class Main<player> extends ApplicationAdapter {
         }
 
 
+        for (Walls i : walls)  i.update();
+        
         if (Gdx.input.isKeyPressed(Input.Keys.D)){
-            x += 1;
+            xShift = 10;
         }else if (Gdx.input.isKeyPressed(Input.Keys.A)){
-            x -= 1;
+            xShift = -10;
         }else if (Gdx.input.isKeyPressed(Input.Keys.W)){
-            y += 1;
+            yShift = 10;
         }else if (Gdx.input.isKeyPressed(Input.Keys.S)){
-            y -= 1;
+            yShift = -10;
         }else{
-            y = 0;
-            x = 0;
+            yShift = 0;
+            xShift = 0;
         }
-        cam1.translate(x, y);
+        cam1.translate(xShift, yShift);
         player.update(direction);
         cam1.update();
 
-//        acr.render();
+
         player.render();
 
 
@@ -126,9 +127,13 @@ public class Main<player> extends ApplicationAdapter {
         }
 //        cam1.zoom = 0.32000038f;
         System.out.println(cam1.position.x + " " + cam1.position.y);
-        batch.draw(img, walls.get(0).getX(), walls.get(0).getY(), walls.get(0).getWidth() / cam1.zoom, walls.get(0).getHeight() / cam1.zoom);
+//        for (Walls i : walls) batch.draw(img, i.getX() - 5 * cam1.zoom, i.getY() - 5 * cam1.zoom, i.getWidth() / cam1.zoom, i.getHeight() / cam1.zoom);
         batch.end();
-//        System.out.println(gameMap.);
+        shapeRenderer.begin(ShapeRenderer.ShapeType.Filled);
+        shapeRenderer.setColor(Color.BLACK);
+        for (Walls i : walls) shapeRenderer.rect(i.getX(), i.getY(), i.getWidth(), i.getHeight());
+        shapeRenderer.end();
+
     }
 
     @Override

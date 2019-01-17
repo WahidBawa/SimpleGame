@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.1" orientation="orthogonal" renderorder="left-up" width="273" height="80" tilewidth="16" tileheight="16" infinite="0" nextlayerid="6" nextobjectid="5">
+<map version="1.2" tiledversion="1.2.1" orientation="orthogonal" renderorder="left-up" width="273" height="80" tilewidth="16" tileheight="16" infinite="0" nextlayerid="6" nextobjectid="9">
  <tileset firstgid="1" name="NES - Mega Man - Bomb Man Stage" tilewidth="16" tileheight="16" tilecount="24320" columns="320">
   <image source="NES - Mega Man - Bomb Man Stage.png" width="5134" height="1219"/>
  </tileset>
@@ -173,5 +173,8 @@
  </layer>
  <objectgroup id="2" name="Walls">
   <object id="3" x="77.5" y="1237.75" width="62.5" height="39.75"/>
+  <object id="5" x="91.5" y="1076" width="63" height="63.5"/>
+  <object id="6" x="193.5" y="1106.5" width="54" height="64.5"/>
+  <object id="7" x="216.5" y="1173" width="11" height="100"/>
  </objectgroup>
 </map>
