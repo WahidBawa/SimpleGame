@@ -11,7 +11,7 @@ public class Player {
     //stores y loc (start at 167)
     private int y = 167;
     //texture for our character
-    public Texture player_img = new Texture("Assets/SPRITES/Zain/0.png");
+    public Texture player_img = new Texture("Assets/SPRITES/Megaman/0.png");
     //speed for our character in pixels/s
 
     private String name;
