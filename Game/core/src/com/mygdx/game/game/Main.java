@@ -128,9 +128,8 @@ public class Main<player> extends ApplicationAdapter {
 
         cam.update();
         player.render();
-
         for (Walls i : walls){
-            i.isCollideWith(player);
+            System.out.println(i.getID() + ". " + i.isCollideWith(player));
         }
 
         counter += 1;
