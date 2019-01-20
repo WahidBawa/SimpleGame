@@ -130,6 +130,11 @@ public class Main<player> extends ApplicationAdapter {
         for (Walls i : walls) shapeRenderer.rect(i.getX(), i.getY(), i.getWidth(), i.getHeight());
         shapeRenderer.end();
 
+        shapeRenderer.begin(ShapeRenderer.ShapeType.Filled);
+        shapeRenderer.setColor(Color.BLACK);
+        shapeRenderer.circle(player.getX(), player.getY(), 1);
+        shapeRenderer.end();
+
     }
 
     @Override

@@ -19,8 +19,8 @@ public class TiledGameMap extends GameMap {
     OrthogonalTiledMapRenderer tiledMapRenderer;
 
     public TiledGameMap() {
-        tiledMap = new TmxMapLoader().load("Assets/MAPS/MEGAMAN/biggestboi.tmx");
-        tiledMap2 = new TmxMapLoader().load("Assets/MAPS/MEGAMAN/lvl1.tmx");
+        tiledMap = new TmxMapLoader().load("Assets/MAPS/MEGAMAN/level1_real.tmx");
+//        tiledMap2 = new TmxMapLoader().load("Assets/MAPS/MEGAMAN/lvl1.tmx");
         this.loadObjects();
 
         tiledMapRenderer = new OrthogonalTiledMapRenderer(tiledMap);

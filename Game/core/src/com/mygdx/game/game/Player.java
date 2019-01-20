@@ -19,6 +19,8 @@ public class Player {
     //defining constants for direction
     static final int LEFT = -1;
     static final int RIGHT = 1;
+    static final int UP = 2;
+    static final int DOWN = -2;
     static final int STANDING = 0;
     int direction = LEFT;
 
@@ -40,6 +42,10 @@ public class Player {
             x += 10;
         }else if (direction == LEFT){
             x -= 10;
+        }else if (direction == UP){
+            y += 10;
+        }else if (direction == DOWN){
+            y -= 10;
         }
     }
 
