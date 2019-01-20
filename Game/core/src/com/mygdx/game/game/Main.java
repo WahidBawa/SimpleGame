@@ -46,6 +46,8 @@ public class Main<player> extends ApplicationAdapter {
     public static ArrayList<Object> ladders = new ArrayList<Object>();
 
     Player player;
+    int count = 0;
+    boolean jump = false;
 
 //    public static AllClassRenderer acr = new AllClassRenderer(players, walls, ladders);
 
@@ -76,19 +78,33 @@ public class Main<player> extends ApplicationAdapter {
         gameMap.render(cam);
         batch.begin();
 
+
         if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) player.goRight();
         else if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) player.goLeft();
         else if (Gdx.input.isKeyPressed(Input.Keys.UP)) player.goUp();
         else if (Gdx.input.isKeyPressed(Input.Keys.DOWN)) player.goDown();
         else direction = STANDING;
-//        if (Gdx.input.isKeyPressed((Input.Keys.SPACE))) direction = player.jump();
+
+
+        if (Gdx.input.isKeyPressed((Input.Keys.SPACE)) && !jump){
+            count = 0;
+            jump = true;
+        }
+        if (jump && count < 50){
+            player.jump(count);
+            count++;
+        }else{
+            jump = false;
+        }
+
+
         if (Gdx.input.isKeyPressed(Input.Keys.E)) {
             cam.zoom += 0.02;
         }
         if (Gdx.input.isKeyPressed(Input.Keys.Q)) {
             cam.zoom -= 0.02;
         }
-        if (Gdx.input.isKeyPressed(Input.Keys.R)){
+        if (Gdx.input.isKeyPressed(Input.Keys.R)) {
             cam.zoom = 1;
         }
 
@@ -109,9 +125,13 @@ public class Main<player> extends ApplicationAdapter {
 
         cam.translate(xShift, yShift);
         player.update(direction);
-        cam.update();
 
+        cam.update();
         player.render();
+
+        for (Walls i : walls){
+            i.isCollideWith(player);
+        }
 
         counter += 1;
         if (counter > animation_speed) {

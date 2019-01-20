@@ -9,7 +9,6 @@ import com.badlogic.gdx.maps.tiled.TiledMapTile;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
-import com.mygdx.game.game.Main;
 import com.mygdx.game.game.Walls;
 
 public class TiledGameMap extends GameMap {
@@ -26,7 +25,7 @@ public class TiledGameMap extends GameMap {
         tiledMapRenderer = new OrthogonalTiledMapRenderer(tiledMap);
     }
 
-    private void loadObjects(){
+    private void loadObjects() {
         MapObjects objects;
         MapLayer walls = tiledMap.getLayers().get("Walls");
         objects = walls.getObjects();
