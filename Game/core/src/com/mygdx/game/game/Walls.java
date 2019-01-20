@@ -12,7 +12,7 @@ public class Walls {
         height = wall.getProperties().get("height", Float.class);
         x = wall.getProperties().get("x", Float.class);
         y = wall.getProperties().get("y", Float.class);
-        ID = wall.getProperties().get("id", Float.class);
+        ID = wall.getProperties().get("id", Integer.class);
         Main.walls.add(this);
 
     }
