@@ -34,6 +34,7 @@ public class Main<player> extends ApplicationAdapter {
     public final static int LEFT = -1;
     public final static int UP = 2;
     public final static int DOWN = -2;
+    public final static int JUMP = 100;
     public final static int STANDING = 0;
     int direction = STANDING;
 
@@ -55,10 +56,8 @@ public class Main<player> extends ApplicationAdapter {
         batch = new SpriteBatch();
         cam = new OrthographicCamera();
         cam.setToOrtho(false, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-//        xShift = -250;
-//        yShift = 1270;
-        System.out.println(xShift);
-        System.out.println(yShift);
+        xShift = -230;
+        yShift = 570;
         cam.translate(xShift, yShift);
 //        cam.rotate(100);
 
@@ -77,12 +76,12 @@ public class Main<player> extends ApplicationAdapter {
         gameMap.render(cam);
         batch.begin();
 
-        if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) direction = RIGHT;
-        else if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) direction = LEFT;
-        else if (Gdx.input.isKeyPressed(Input.Keys.UP)) direction = UP;
-        else if (Gdx.input.isKeyPressed(Input.Keys.DOWN)) direction = DOWN;
+        if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) player.goRight();
+        else if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) player.goLeft();
+        else if (Gdx.input.isKeyPressed(Input.Keys.UP)) player.goUp();
+        else if (Gdx.input.isKeyPressed(Input.Keys.DOWN)) player.goDown();
         else direction = STANDING;
-        System.out.println(cam.zoom);
+//        if (Gdx.input.isKeyPressed((Input.Keys.SPACE))) direction = player.jump();
         if (Gdx.input.isKeyPressed(Input.Keys.E)) {
             cam.zoom += 0.02;
         }
@@ -109,7 +108,6 @@ public class Main<player> extends ApplicationAdapter {
         }
 
         cam.translate(xShift, yShift);
-        System.out.println(cam.position.x + " " + cam.position.y); // 640, 360 // 390, 1630
         player.update(direction);
         cam.update();
 

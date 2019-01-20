@@ -17,17 +17,17 @@ public class Player {
     private String name;
 
     //defining constants for direction
-    static final int LEFT = -1;
-    static final int RIGHT = 1;
-    static final int UP = 2;
-    static final int DOWN = -2;
-    static final int STANDING = 0;
-    int direction = LEFT;
+    private static final int LEFT = -1;
+    private static final int RIGHT = 1;
+    private static final int UP = 2;
+    private static final int DOWN = -2;
+    private final static int JUMP = 100;
+    private static final int STANDING = 0;
+    private int direction = LEFT;
 
     //initialization code
     public Player(String name){
         this.name = name;
-//        Main.acr.add(this);
         Main.players.add(this);
     }
 
@@ -38,25 +38,47 @@ public class Player {
     }
 
     public void update(int direction){
-        if (direction == RIGHT){
-            x += 10;
-        }else if (direction == LEFT){
-            x -= 10;
-        }else if (direction == UP){
-            y += 10;
-        }else if (direction == DOWN){
-            y -= 10;
-        }
+//        if (direction == RIGHT){
+//            x += 10;
+//        }else if (direction == LEFT){
+//            x -= 10;
+//        }else if (direction == UP){
+//            y += 10;
+//        }else if (direction == DOWN){
+//            y -= 10;
+//        }
+//        if (direction == JUMP){
+//            for (int i = 0; i < 100; i ++){
+//                y += 1;
+//                this.render();
+//            }
+//            for (int i = 0; i < 100; i++){
+//                y -= 1;
+//                this.render();
+//            }
+//        }
     }
 
     //changes the character direction to right
     public void goRight(){
         direction = RIGHT;
+        x += 10;
     }
 
     //changes character direction to left
     public void goLeft(){
         direction = LEFT;
+        x -= 10;
+    }
+
+    public void goUp(){
+        direction = UP;
+        y += 10;
+    }
+
+    public void goDown(){
+        direction = RIGHT;
+        y -= 10;
     }
 
     //changes character direction to standing
