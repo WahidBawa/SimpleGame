@@ -55,7 +55,7 @@ public class Walls {
 //        if (player.getDir().equals("RIGHT") || player.getDir().equals("LEFT")){
 //            return thisX < (playerX + playerWidth) && (thisX + thisWidth) > playerX && thisY < (playerY + playerHeight) && (thisY + thisHeight) > playerY;
 //        }else{
-            return thisX < (playerX + playerWidth) && (thisX + thisWidth) > playerX && thisY < (playerY + playerHeight) && (thisY + thisHeight) > playerY && playerY > thisY;
+            return thisX < (playerX + playerWidth) && (thisX + thisWidth) > playerX && thisY < (playerY + playerHeight) && (thisY + thisHeight) > playerY;
 //        }
 
     }

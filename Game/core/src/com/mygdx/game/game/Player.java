@@ -27,16 +27,12 @@ public class Player {
 
     private int speed = 10;
 
-    private String dir = "STANDING";
-
     private boolean jump = false;
 
     private boolean isTouchingGround = false;
 
-    private boolean U = false;
-    private boolean R = false;
     private boolean L = false;
-    private boolean D = false;
+    private boolean R = false;
 
     //initialization code
     public Player(String name) {
@@ -91,6 +87,10 @@ public class Player {
         y -= speed;
         collidesWithGround(Main.walls);
     }
+    public void goUp(){
+        y += speed / 2;
+        collidesWithGround(Main.walls);
+    }
 
     public int getHeight() {
         return height;
@@ -116,10 +116,6 @@ public class Player {
         return y;
     }
 
-    public String getDir() {
-        return dir;
-    }
-
     public void collidesWith(ArrayList<Walls> walls){
         for (Walls i : walls){
             if (i.isCollideWith(this)){
@@ -143,7 +139,7 @@ public class Player {
     public void collidesWithGround(ArrayList<Walls> walls){
         for (Walls i : walls){
             if (i.isCollideWith(this)){
-                y += speed;
+                goUp();
                 this.setTouchingGround(true);
             }
         }
