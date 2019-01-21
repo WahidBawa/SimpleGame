@@ -13,7 +13,7 @@ public class Player {
     //stores y loc (start at 167)
     private int y = 167;
     //texture for our character
-    public Texture player_img = new Texture("Assets/SPRITES/Megaman/Zero/DashL/0.png");
+    public Texture player_img = new Texture("Assets/SPRITES/Megaman/Zero/Dash/0.png");
 
     //speed for our character in pixels/s
 
@@ -44,7 +44,13 @@ public class Player {
 
     //updates character's position
     public void render() {
-        Main.batch.draw(player_img, x, y, width, height);
+        if(L){
+            Main.batch.draw(player_img, x, y, -width, height);
+        }
+        else if(R){
+            Main.batch.draw(player_img, x, y, width, height);
+        }
+
 
     }
     public void update() {
@@ -85,7 +91,6 @@ public class Player {
     }
 
     public void goLeft() {
-
         if (this.getX() - this.getWidth() / 2 >= Main.WIDTH / 2){
             System.out.println("MIDDLE");
             Main.xShift -= speed;
