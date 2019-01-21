@@ -46,8 +46,10 @@ public class Player {
     public void render() {
         if(L){
             Main.batch.draw(player_img, x, y, -width, height);
+            System.out.println("Left");
         }
         else if(R){
+            System.out.println("Right");
             Main.batch.draw(player_img, x, y, width, height);
         }
 
@@ -78,27 +80,27 @@ public class Player {
     }
 
     public void goRight() {
-
+        R = true;
+        L = false;
         if (this.getX() - this.getWidth() / 2 >= Main.WIDTH / 2){
             System.out.println("MIDDLE");
             Main.xShift += speed;
             Main.cam.translate(Main.xShift, 0);
         }else{
             x += speed;
-            R = true;
-            L = false;
         }
     }
 
     public void goLeft() {
+        R = false;
+        L = true;
         if (this.getX() - this.getWidth() / 2 >= Main.WIDTH / 2){
             System.out.println("MIDDLE");
             Main.xShift -= speed;
             Main.cam.translate(Main.xShift, 0);
-        }else{
+        }
+        else{
             x -= speed;
-            L = true;
-            R = false;
         }
     }
 
