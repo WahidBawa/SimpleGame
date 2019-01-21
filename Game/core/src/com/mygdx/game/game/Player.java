@@ -9,9 +9,9 @@ import java.util.ArrayList;
 
 public class Player {
     //stores x loc (start at 240)
-    private int x = 240;
+    private int x = 340;
     //stores y loc (start at 167)
-    private int y = 267;
+    private int y = 167;
     //texture for our character
     public Texture player_img = new Texture("Assets/SPRITES/Megaman/Zero/DashL/0.png");
 
@@ -19,17 +19,7 @@ public class Player {
 
     private String name;
 
-    //defining constants for direction
-    private static final int LEFT = -1;
-    private static final int RIGHT = 1;
-    private static final int UP = 2;
-    private static final int DOWN = -2;
-    private final static int JUMP = 100;
-    private static final int STANDING = 0;
-    private int direction = LEFT;
-
-    private int height;
-    private int width;
+    private int width, height;
 
     private int counter = 0;
     private int pos = 0;
@@ -37,7 +27,16 @@ public class Player {
 
     private int speed = 10;
 
+    private String dir = "STANDING";
+
     private boolean jump = false;
+
+    private boolean isTouchingGround = false;
+
+    private boolean U = false;
+    private boolean R = false;
+    private boolean L = false;
+    private boolean D = false;
 
     //initialization code
     public Player(String name) {
@@ -52,23 +51,13 @@ public class Player {
         Main.batch.draw(player_img, x, y, width, height);
 
     }
-
-    public boolean getJump() {
-        return jump;
-    }
-
-    public void setJump(boolean jump) {
-        this.jump = jump;
-    }
-
     public void update() {
-        if (!jump) y -= speed;
+        if (!jump){
+            this.goDown();
+        }
 
         if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) this.goRight();
         else if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) this.goLeft();
-        else if (Gdx.input.isKeyPressed(Input.Keys.UP)) this.goUp();
-        else if (Gdx.input.isKeyPressed(Input.Keys.DOWN)) this.goDown();
-        else this.direction = STANDING;
 
         counter += 1;
         if (counter > animation_speed) {
@@ -81,26 +70,26 @@ public class Player {
 
     }
 
-    //changes the character direction to right
+
+    public void setJump(boolean jump) {
+        this.jump = jump;
+    }
+
     public void goRight() {
-        direction = RIGHT;
         x += speed;
+        R = true;
+        L = false;
     }
 
-    //changes character direction to left
     public void goLeft() {
-        direction = LEFT;
         x -= speed;
+        L = true;
+        R = false;
     }
 
-    public void goUp() {
-        direction = UP;
-        y += speed * 2;
-    }
-
-    public void goDown() {
-        direction = RIGHT;
+    public void goDown(){
         y -= speed;
+        collidesWithGround(Main.walls);
     }
 
     public int getHeight() {
@@ -112,22 +101,7 @@ public class Player {
     }
 
     public void jump(){
-        direction = JUMP;
         y += 5;
-//        for (int i = 0; i < 100; i++){
-//            y += 1;
-//            this.render();
-//
-//        }
-//        for (int i = 0; i < 100; i++){
-//            y -= 1;
-//            this.render();
-//        }
-    }
-
-    //changes character direction to standing
-    public void setStanding() {
-        direction = STANDING;
     }
 
     public String getName() {
@@ -142,10 +116,35 @@ public class Player {
         return y;
     }
 
+    public String getDir() {
+        return dir;
+    }
+
     public void collidesWith(ArrayList<Walls> walls){
         for (Walls i : walls){
             if (i.isCollideWith(this)){
+                if (R){
+                    x -= speed;
+                }else if (L){
+                    x += speed;
+                }
+            }
+        }
+    }
+
+    public boolean isTouchingGround() {
+        return isTouchingGround;
+    }
+
+    public void setTouchingGround(boolean touchingGround) {
+        isTouchingGround = touchingGround;
+    }
+
+    public void collidesWithGround(ArrayList<Walls> walls){
+        for (Walls i : walls){
+            if (i.isCollideWith(this)){
                 y += speed;
+                this.setTouchingGround(true);
             }
         }
     }

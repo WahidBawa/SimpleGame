@@ -25,18 +25,7 @@ public class Main extends ApplicationAdapter {
 
     public static ShapeRenderer shapeRenderer;
 
-    private int counter = 0;
-    private int animation_speed = 2;
-    private int pos = 0;
-
     TiledGameMap gameMap;
-    public final static int RIGHT = 1;
-    public final static int LEFT = -1;
-    public final static int UP = 2;
-    public final static int DOWN = -2;
-    public final static int JUMP = 100;
-    public final static int STANDING = 0;
-    int direction = STANDING;
 
     public static int xShift = 0;
     public static int yShift = 0;
@@ -46,10 +35,10 @@ public class Main extends ApplicationAdapter {
     public static ArrayList<Object> ladders = new ArrayList<Object>();
 
     Player player;
+
     int count = 0;
     boolean jump = false;
 
-//    public static AllClassRenderer acr = new AllClassRenderer(players, walls, ladders);
 
     @Override
     public void create() {
@@ -85,8 +74,8 @@ public class Main extends ApplicationAdapter {
 //        else if (Gdx.input.isKeyPressed(Input.Keys.DOWN)) player.goDown();
 //        else direction = STANDING;
 
-
-        if (Gdx.input.isKeyPressed((Input.Keys.SPACE)) && !jump){
+        System.out.println(player.isTouchingGround());
+        if (Gdx.input.isKeyPressed((Input.Keys.SPACE)) && !jump && player.isTouchingGround()){
             count = 0;
             jump = true;
             player.setJump(jump);
