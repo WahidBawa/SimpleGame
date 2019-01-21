@@ -17,7 +17,7 @@ import java.util.ArrayList;
 public class Main extends ApplicationAdapter {
     public static SpriteBatch batch;
     Texture img;
-    OrthographicCamera cam;
+    public static OrthographicCamera cam;
 
 
     public static final int WIDTH = 1280;

@@ -38,8 +38,8 @@ public class Player {
     public Player(String name) {
         this.name = name;
         Main.players.add(this);
-        height = player_img.getHeight() * 2;
-        width = player_img.getWidth() * 2;
+        height = player_img.getHeight();
+        width = player_img.getWidth();
     }
 
     //updates character's position
@@ -72,15 +72,29 @@ public class Player {
     }
 
     public void goRight() {
-        x += speed;
-        R = true;
-        L = false;
+
+        if (this.getX() - this.getWidth() / 2 >= Main.WIDTH / 2){
+            System.out.println("MIDDLE");
+            Main.xShift += speed;
+            Main.cam.translate(Main.xShift, 0);
+        }else{
+            x += speed;
+            R = true;
+            L = false;
+        }
     }
 
     public void goLeft() {
-        x -= speed;
-        L = true;
-        R = false;
+
+        if (this.getX() - this.getWidth() / 2 >= Main.WIDTH / 2){
+            System.out.println("MIDDLE");
+            Main.xShift -= speed;
+            Main.cam.translate(Main.xShift, 0);
+        }else{
+            x -= speed;
+            L = true;
+            R = false;
+        }
     }
 
     public void goDown(){
