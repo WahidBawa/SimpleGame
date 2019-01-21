@@ -52,7 +52,7 @@ public class Walls {
         int thisX = (int) this.getX();
         int thisY = (int) this.getY();
 
-        return thisX < (playerX + playerWidth) && (thisX + thisWidth) > playerX && thisY < (playerY + playerHeight) && (thisY + thisHeight) > playerY;
+        return thisX < (playerX + playerWidth) && (thisX + thisWidth) > playerX && thisY < (playerY + playerHeight) && (thisY + thisHeight) > playerY && playerY > thisY;
 
     }
 

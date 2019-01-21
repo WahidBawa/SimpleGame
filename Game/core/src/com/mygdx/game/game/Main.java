@@ -14,7 +14,7 @@ import com.mygdx.game.world.TiledGameMap;
 
 import java.util.ArrayList;
 
-public class Main<player> extends ApplicationAdapter {
+public class Main extends ApplicationAdapter {
     public static SpriteBatch batch;
     Texture img;
     OrthographicCamera cam;
@@ -79,22 +79,24 @@ public class Main<player> extends ApplicationAdapter {
         batch.begin();
 
 
-        if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) player.goRight();
-        else if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) player.goLeft();
-        else if (Gdx.input.isKeyPressed(Input.Keys.UP)) player.goUp();
-        else if (Gdx.input.isKeyPressed(Input.Keys.DOWN)) player.goDown();
-        else direction = STANDING;
+//        if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) player.goRight();
+//        else if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) player.goLeft();
+//        else if (Gdx.input.isKeyPressed(Input.Keys.UP)) player.goUp();
+//        else if (Gdx.input.isKeyPressed(Input.Keys.DOWN)) player.goDown();
+//        else direction = STANDING;
 
 
         if (Gdx.input.isKeyPressed((Input.Keys.SPACE)) && !jump){
             count = 0;
             jump = true;
+            player.setJump(jump);
         }
-        if (jump && count < 50){
-            player.jump(count);
+        if (jump && count < 25){
+            player.jump();
             count++;
         }else{
             jump = false;
+            player.setJump(jump);
         }
 
 
@@ -124,22 +126,21 @@ public class Main<player> extends ApplicationAdapter {
         }
 
         cam.translate(xShift, yShift);
-        player.update(direction);
+        player.update();
 
         cam.update();
         player.render();
-        for (Walls i : walls){
-            System.out.println(i.getID() + ". " + i.isCollideWith(player));
-        }
 
-        counter += 1;
-        if (counter > animation_speed) {
-            counter = 0;
-            pos += 1;
-            if (pos >= 3) {
-                pos = 0;
-            }
-        }
+        player.collidesWith(walls);
+
+//        counter += 1;
+//        if (counter > animation_speed) {
+//            counter = 0;
+//            pos += 1;
+//            if (pos >= 3) {
+//                pos = 0;
+//            }
+//        }
         batch.end();
 
         shapeRenderer.begin(ShapeRenderer.ShapeType.Filled);

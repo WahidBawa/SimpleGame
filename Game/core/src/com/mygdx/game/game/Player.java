@@ -1,13 +1,17 @@
 package com.mygdx.game.game;
 
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.Texture;
+
+import java.util.ArrayList;
 
 
 public class Player {
     //stores x loc (start at 240)
     private int x = 240;
     //stores y loc (start at 167)
-    private int y = 167;
+    private int y = 267;
     //texture for our character
     public Texture player_img = new Texture("Assets/SPRITES/Megaman/Zero/DashL/0.png");
 
@@ -27,6 +31,14 @@ public class Player {
     private int height;
     private int width;
 
+    private int counter = 0;
+    private int pos = 0;
+    private int animation_speed = 2;
+
+    private int speed = 10;
+
+    private boolean jump = false;
+
     //initialization code
     public Player(String name) {
         this.name = name;
@@ -41,20 +53,54 @@ public class Player {
 
     }
 
-    public void update(int direction) {
-//        y -= 2;
+    public boolean getJump() {
+        return jump;
+    }
+
+    public void setJump(boolean jump) {
+        this.jump = jump;
+    }
+
+    public void update() {
+        if (!jump) y -= speed;
+
+        if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) this.goRight();
+        else if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) this.goLeft();
+        else if (Gdx.input.isKeyPressed(Input.Keys.UP)) this.goUp();
+        else if (Gdx.input.isKeyPressed(Input.Keys.DOWN)) this.goDown();
+        else this.direction = STANDING;
+
+        counter += 1;
+        if (counter > animation_speed) {
+            counter = 0;
+            pos += 1;
+            if (pos >= 3) {
+                pos = 0;
+            }
+        }
+
     }
 
     //changes the character direction to right
     public void goRight() {
         direction = RIGHT;
-        x += 10;
+        x += speed;
     }
 
     //changes character direction to left
     public void goLeft() {
         direction = LEFT;
-        x -= 10;
+        x -= speed;
+    }
+
+    public void goUp() {
+        direction = UP;
+        y += speed * 2;
+    }
+
+    public void goDown() {
+        direction = RIGHT;
+        y -= speed;
     }
 
     public int getHeight() {
@@ -65,19 +111,9 @@ public class Player {
         return width;
     }
 
-    public void goUp() {
-        direction = UP;
-        y += 10;
-    }
-
-    public void goDown() {
-        direction = RIGHT;
-        y -= 10;
-    }
-
-    public void jump(int count){
+    public void jump(){
         direction = JUMP;
-        y += (count <= 25 ? 2 : -2);
+        y += 5;
 //        for (int i = 0; i < 100; i++){
 //            y += 1;
 //            this.render();
@@ -106,9 +142,13 @@ public class Player {
         return y;
     }
 
-
-    public int getDirection() {
-        return direction;
+    public void collidesWith(ArrayList<Walls> walls){
+        for (Walls i : walls){
+            if (i.isCollideWith(this)){
+                y += speed;
+            }
+        }
     }
+
 }
 

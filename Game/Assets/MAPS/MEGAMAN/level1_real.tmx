@@ -56,6 +56,13 @@
 </data>
  </layer>
  <objectgroup id="2" name="Walls">
-  <object id="10" x="197.333" y="2100.67" width="296" height="296"/>
+  <object id="1" x="154.333" y="2347.67" width="127" height="80.3333"/>
+  <object id="2" x="25.8182" y="2349.27" width="767.136" height="31.2727"/>
+  <object id="4" x="538" y="2284.5" width="256" height="29.5"/>
+  <object id="5" x="666.5" y="2220.5" width="127.5" height="64.5"/>
+  <object id="6" x="794" y="2154.67" width="126.667" height="274"/>
+  <object id="7" x="920.667" y="2220.67" width="64" height="29.3333"/>
+  <object id="8" x="921.333" y="2285.33" width="128" height="61.3333"/>
+  <object id="9" x="922" y="2347.33" width="704.667" height="29.3333"/>
  </objectgroup>
 </map>
