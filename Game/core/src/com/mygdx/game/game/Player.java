@@ -13,7 +13,7 @@ public class Player {
     //stores y loc (start at 167)
     private int y = 167;
     //texture for our character
-    public Texture player_img = new Texture("Assets/SPRITES/Megaman/Zero/Dash/0.png");
+    public Texture player_img = new Texture("Assets/SPRITES/Megaman/Zero/Walk/0.png");
 
     //speed for our character in pixels/s
 
@@ -46,14 +46,14 @@ public class Player {
     public void render() {
         if(L){
             for(int i=0;i<17;i++){
-                player_img = new Texture("Assets/SPRITES/Megaman/Zero/Dash/"+i+".png");
+                player_img = new Texture("Assets/SPRITES/Megaman/Zero/Walk/"+i+".png"); 
                 Main.batch.draw(player_img, x, y, -width, height);
                 System.out.println("Left");
             }
         }
         else if(R) {
             for (int i = 0; i < 17; i++) {
-                player_img = new Texture("Assets/SPRITES/Megaman/Zero/Dash/" + i + ".png");
+                player_img = new Texture("Assets/SPRITES/Megaman/Zero/Walk/" + i + ".png");
                 Main.batch.draw(player_img, x, y, width, height);
                 System.out.println("Right");
             }
