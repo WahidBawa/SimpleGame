@@ -45,12 +45,18 @@ public class Player {
     //updates character's position
     public void render() {
         if(L){
-            Main.batch.draw(player_img, x, y, -width, height);
-            System.out.println("Left");
+            for(int i=0;i<17;i++){
+                player_img = new Texture("Assets/SPRITES/Megaman/Zero/Dash/"+i+".png");
+                Main.batch.draw(player_img, x, y, -width, height);
+                System.out.println("Left");
+            }
         }
-        else if(R){
-            System.out.println("Right");
-            Main.batch.draw(player_img, x, y, width, height);
+        else if(R) {
+            for (int i = 0; i < 17; i++) {
+                player_img = new Texture("Assets/SPRITES/Megaman/Zero/Dash/" + i + ".png");
+                Main.batch.draw(player_img, x, y, width, height);
+                System.out.println("Right");
+            }
         }
 
 
