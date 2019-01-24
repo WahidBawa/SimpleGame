@@ -42,19 +42,26 @@ public class Player {
         width = player_img.getWidth();
     }
 
+
     //updates character's position
     public void render() {
+//        double ONE_OVER_FPS =(1.0f/60.0f);
+//        double g_SpikeGuardBreakpoint = 3.0f * ONE_OVER_FPS;
+//        double time=0;
+//        time=time * 0.9 +* 0.1;
         if(L){
             for(int i=0;i<17;i++){
-                player_img = new Texture("Assets/SPRITES/Megaman/Zero/Walk/"+i+".png"); 
-                Main.batch.draw(player_img, x, y, -width, height);
+                player_img = new Texture("Assets/SPRITES/Megaman/Zero/Walk/"+i+".png");
+//                if(time>g_SpikeGuardBreakpoint) {
+                    Main.batch.draw(player_img, x, y, -width, height);
                 System.out.println("Left");
             }
         }
         else if(R) {
             for (int i = 0; i < 17; i++) {
                 player_img = new Texture("Assets/SPRITES/Megaman/Zero/Walk/" + i + ".png");
-                Main.batch.draw(player_img, x, y, width, height);
+//                if(time>g_SpikeGuardBreakpoint) {
+                    Main.batch.draw(player_img, x, y, width, height);
                 System.out.println("Right");
             }
         }
