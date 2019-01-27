@@ -1,7 +1,7 @@
 package com.mygdx.game.game;
-
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
+import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.graphics.Texture;
 
 import java.util.ArrayList;
@@ -44,8 +44,72 @@ public class Player {
 
     //updates character's position
     public void render() {
-        Main.batch.draw(player_img, x, y, width, height);
+        if(L){
+            for(int i=0;i<17;i++){
+                player_img = new Texture("Assets/SPRITES/Megaman/Zero/Walk/"+i+".png");
+//                if(time>g_SpikeGuardBreakpoint) {
+                    Main.batch.draw(player_img, x, y, -width, height);
+                System.out.println("Left");
+            }
+        }
+        else if(R) {
+            for (int i = 0; i < 17; i++) {
+                player_img = new Texture("Assets/SPRITES/Megaman/Zero/Walk/" + i + ".png");
+//                if(time>g_SpikeGuardBreakpoint) {
+                    Main.batch.draw(player_img, x, y, width, height);
+                System.out.println("Right");
+            }
+        }
+    }
+    public class MyInputProcessor implements InputProcessor {
+        public boolean keyPressed;
+        @Override
+        public boolean keyDown(int key) {
+            if (key == Input.Keys.UP) {
+                keyPressed = true;
+            }
 
+            return false;
+        }
+
+        @Override
+        public boolean keyUp(int key) {
+            if (key == Input.Keys.UP) {
+                keyPressed = false;
+            }
+
+            return false;
+        }
+
+        @Override
+        public boolean keyTyped(char character) {
+            return false;
+        }
+
+        @Override
+        public boolean touchDown(int screenX, int screenY, int pointer, int button) {
+            return false;
+        }
+
+        @Override
+        public boolean touchUp(int screenX, int screenY, int pointer, int button) {
+            return false;
+        }
+
+        @Override
+        public boolean touchDragged(int screenX, int screenY, int pointer) {
+            return false;
+        }
+
+        @Override
+        public boolean mouseMoved(int screenX, int screenY) {
+            return false;
+        }
+
+        @Override
+        public boolean scrolled(int amount) {
+            return false;
+        }
     }
     public void update() {
         if (!jump){
@@ -54,6 +118,7 @@ public class Player {
 
         if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) this.goRight();
         else if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) this.goLeft();
+        else if(Gdx.input.isKeyPressed(Input.Keys.UP)) this.jump();
 
         counter += 1;
         if (counter > animation_speed) {
@@ -78,10 +143,11 @@ public class Player {
 //            Main.xShift += speed;
 //            Main.cam.translate(Main.xShift, 0);
 //        }else{
-            x += speed;
-            R = true;
-            L = false;
-//        }
+        x += speed;
+        R = true;
+        L = false;
+    //}
+
     }
 
     public void goLeft() {
@@ -102,8 +168,7 @@ public class Player {
         collidesWithGround(Main.walls);
     }
     public void goUp(){
-        y += speed / 2;
-        collidesWithGround(Main.walls);
+        y +=speed;
     }
 
     public int getHeight() {
@@ -115,7 +180,8 @@ public class Player {
     }
 
     public void jump(){
-        y += 5;
+        y +=speed*3;
+        Main.xShift += speed;
     }
 
     public String getName() {
