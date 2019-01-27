@@ -68,8 +68,8 @@ public class Main extends ApplicationAdapter {
         batch.begin();
 
 
-        if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) player.goRight();
-        else if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) player.goLeft();
+//        if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) player.goRight();
+//        else if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) player.goLeft();
 //        else if (Gdx.input.isKeyPressed(Input.Keys.UP)) player.goUp();
 //        else if (Gdx.input.isKeyPressed(Input.Keys.DOWN)) player.goDown();
 //        else direction = STANDING;

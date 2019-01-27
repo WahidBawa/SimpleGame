@@ -13,7 +13,7 @@ public class Player {
     //stores y loc (start at 167)
     private int y = 167;
     //texture for our character
-    public Texture player_img = new Texture("Assets/SPRITES/Megaman/Zero/Walk/0.png");
+    public Texture player_img = new Texture("Assets/SPRITES/Megaman/Zero/DashL/0.png");
 
     //speed for our character in pixels/s
 
@@ -42,30 +42,9 @@ public class Player {
         width = player_img.getWidth();
     }
 
-
     //updates character's position
     public void render() {
-//        double ONE_OVER_FPS =(1.0f/60.0f);
-//        double g_SpikeGuardBreakpoint = 3.0f * ONE_OVER_FPS;
-//        double time=0;
-//        time=time * 0.9 +* 0.1;
-        if(L){
-            for(int i=0;i<17;i++){
-                player_img = new Texture("Assets/SPRITES/Megaman/Zero/Walk/"+i+".png");
-//                if(time>g_SpikeGuardBreakpoint) {
-                    Main.batch.draw(player_img, x, y, -width, height);
-                System.out.println("Left");
-            }
-        }
-        else if(R) {
-            for (int i = 0; i < 17; i++) {
-                player_img = new Texture("Assets/SPRITES/Megaman/Zero/Walk/" + i + ".png");
-//                if(time>g_SpikeGuardBreakpoint) {
-                    Main.batch.draw(player_img, x, y, width, height);
-                System.out.println("Right");
-            }
-        }
-
+        Main.batch.draw(player_img, x, y, width, height);
 
     }
     public void update() {
@@ -93,28 +72,29 @@ public class Player {
     }
 
     public void goRight() {
-        R = true;
-        L = false;
-        if (this.getX() - this.getWidth() / 2 >= Main.WIDTH / 2){
-            System.out.println("MIDDLE");
-            Main.xShift += speed;
-            Main.cam.translate(Main.xShift, 0);
-        }else{
+
+//        if (this.getX() - this.getWidth() / 2 >= Main.WIDTH / 2){
+//            System.out.println("MIDDLE");
+//            Main.xShift += speed;
+//            Main.cam.translate(Main.xShift, 0);
+//        }else{
             x += speed;
-        }
+            R = true;
+            L = false;
+//        }
     }
 
     public void goLeft() {
-        R = false;
-        L = true;
-        if (this.getX() - this.getWidth() / 2 >= Main.WIDTH / 2){
-            System.out.println("MIDDLE");
-            Main.xShift -= speed;
-            Main.cam.translate(Main.xShift, 0);
-        }
-        else{
+
+//        if (this.getX() - this.getWidth() / 2 >= Main.WIDTH / 2){
+//            System.out.println("MIDDLE");
+//            Main.xShift -= speed;
+//            Main.cam.translate(Main.xShift, 0);
+//        }else{
             x -= speed;
-        }
+            L = true;
+            R = false;
+//        }
     }
 
     public void goDown(){
