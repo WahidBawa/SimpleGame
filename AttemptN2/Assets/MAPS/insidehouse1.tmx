@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" tiledversion="1.1.2" orientation="orthogonal" renderorder="right-down" width="20" height="20" tilewidth="16" tileheight="16" infinite="0" nextobjectid="27">
+ <tileset firstgid="1" name="hyptosis_tile-art-batch-1" tilewidth="16" tileheight="16" tilecount="3600" columns="60">
+  <image source="ART/Pack1/hyptosis_tile-art-batch-1.png" width="960" height="960"/>
+ </tileset>
+ <tileset firstgid="3601" name="hyptosis_tile-art-batch-3" tilewidth="16" tileheight="16" tilecount="3600" columns="60">
+  <image source="ART/Pack1/hyptosis_tile-art-batch-3.png" width="960" height="960"/>
+ </tileset>
+ <tileset firstgid="7201" name="rpg indoor tileset expansion 1 trans" tilewidth="16" tileheight="16" tilecount="132" columns="11">
+  <image source="ART/INDOOR/rpg indoor tileset expansion 1 trans.png" width="176" height="192"/>
+ </tileset>
+ <tileset firstgid="7333" name="tilesetformattedupdate1" tilewidth="16" tileheight="16" tilecount="84" columns="7">
+  <image source="ART/INDOOR/tilesetformattedupdate1.png" width="112" height="192"/>
+ </tileset>
+ <tileset firstgid="7417" name="rogueliketiles" tilewidth="16" tileheight="16" tilecount="60" columns="6">
+  <image source="ART/Pack3/rogueliketiles.png" width="96" height="160"/>
+ </tileset>
+ <tileset firstgid="7477" name="hyptosis_til-art-batch-2" tilewidth="16" tileheight="16" tilecount="3600" columns="60">
+  <image source="ART/Pack1/hyptosis_til-art-batch-2.png" width="960" height="960"/>
+ </tileset>
+ <tileset firstgid="11077" name="hyptosis_tile-art-batch-3" tilewidth="16" tileheight="16" tilecount="3600" columns="60">
+  <image source="ART/Pack1/hyptosis_tile-art-batch-3.png" width="960" height="960"/>
+ </tileset>
+ <tileset firstgid="14677" name="rpg indoor tileset expansion 1 trans" tilewidth="16" tileheight="16" tilecount="132" columns="11">
+  <image source="ART/INDOOR/rpg indoor tileset expansion 1 trans.png" width="176" height="192"/>
+ </tileset>
+ <tileset firstgid="14809" name="tilesetformattedupdate1" tilewidth="16" tileheight="16" tilecount="84" columns="7">
+  <image source="ART/INDOOR/tilesetformattedupdate1.png" width="112" height="192"/>
+ </tileset>
+ <tileset firstgid="14893" source="water.tsx"/>
+ <tileset firstgid="15037" name="revolution_snow" tilewidth="32" tileheight="32" tilecount="154" columns="11">
+  <image source="revolution_snow.png" trans="a349a4" width="352" height="448"/>
+ </tileset>
+ <tileset firstgid="15191" name="tilesetformattedupdate1" tilewidth="16" tileheight="16" tilecount="84" columns="7">
+  <image source="ART/INDOOR/tilesetformattedupdate1.png" trans="a349a4" width="112" height="192"/>
+ </tileset>
+ <tileset firstgid="15275" name="tilesetformattedupdate1" tilewidth="8" tileheight="8" tilecount="336" columns="14">
+  <image source="ART/INDOOR/tilesetformattedupdate1.png" trans="a349a4" width="112" height="192"/>
+ </tileset>
+ <layer name="Tile Layer 1" width="20" height="20">
+  <data encoding="csv">
+7274,7275,7275,7275,7275,7275,7275,7275,7275,7275,7275,7275,7275,7275,7275,7275,7275,7275,7276,7277,
+7285,3312,3312,3312,3312,3312,3312,3312,3312,3312,3312,3312,3312,3312,3312,3312,3312,3312,3312,7288,
+7296,3312,3312,3312,3312,3312,3312,3312,3312,3312,3312,3312,3312,3312,3312,3312,3312,3312,3312,7299,
+7296,3312,3312,3312,3312,3312,3312,3312,3312,3312,3312,3312,3312,3312,3312,3312,3312,3312,3312,7299,
+7285,3312,3312,3312,3312,3312,3312,3312,3312,3312,3312,3312,3312,3312,3312,3312,3312,3312,3312,7299,
+7296,3312,3312,3312,3312,3312,3312,3312,3312,3312,3312,3312,3312,3312,3312,3312,3312,3312,3312,7299,
+7285,3312,3312,3312,3312,3312,3312,3312,3312,3312,3312,3312,3312,3312,3312,3312,3312,3312,3312,7299,
+7296,3312,3312,3312,3312,3312,3312,3312,3312,3312,3312,3312,3312,3312,3312,3312,3312,3312,3312,7299,
+7285,3312,3312,3312,3312,3312,3312,3312,3312,3312,3312,3312,3312,3312,3312,3312,3312,3312,3312,7299,
+7296,3312,3312,3312,3312,3312,3312,3312,3312,3312,3312,3312,3312,3312,3312,3312,3312,3312,3312,7299,
+7285,3312,3312,3312,3312,3312,3312,3312,3312,3312,3312,3312,3312,3312,3312,3312,3312,3312,3312,7299,
+7296,3312,3312,3312,3312,3312,3312,3312,3312,3312,3312,3312,3312,3312,3312,3312,3312,3312,3312,7299,
+7285,3312,3312,3312,3312,3312,3312,3312,3312,3312,3312,3312,3312,3312,3312,3312,3312,3312,3312,7299,
+7285,3312,3312,3312,3312,3312,3312,3312,3312,3312,3312,3312,3312,3312,3312,3312,3312,3312,3312,7299,
+7285,3312,3312,3312,3312,3312,3312,3312,3312,3312,3312,3312,3312,3312,3253,3312,3312,3312,3312,7299,
+7285,3312,3312,3312,3312,3312,3312,3312,3312,3312,3312,3312,3253,3312,3312,3312,3312,3312,3312,7288,
+7296,3312,3312,3312,3312,3253,3253,3253,3312,3312,3312,3312,3312,3312,3312,3312,3312,3312,3312,7299,
+7285,3312,3312,3312,3312,3253,3253,3221232752,3221232751,3221232750,3221232752,3221232751,3221232750,3312,3312,3312,3312,3312,3312,7299,
+7296,3312,3312,3312,3312,3312,3312,3221232741,3221232740,3221232739,3221232741,3221232740,3221232739,3312,3312,3312,3312,3312,3312,7299,
+7307,7308,7308,7308,7308,7308,7308,7308,7308,7308,7308,7308,7308,7308,7308,7308,7308,7308,7309,7310
+</data>
+ </layer>
+ <layer name="Tile Layer 2" width="20" height="20">
+  <data encoding="csv">
+0,0,7320,7321,7378,7379,7364,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,7331,7332,7385,7386,7371,0,0,0,0,0,0,0,0,0,7365,14827,14828,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,7372,14834,14835,0,
+0,0,0,0,7354,0,7354,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,2147490997,7316,7317,7318,7349,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,2147491004,7327,7328,7329,7356,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,1073749179,0,1073749179,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,1073749172,0,1073749172,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,7364,0,0,0,0,0,0,0,0,0,0,0,0,0,0,7364,0,0,
+0,0,7371,0,0,0,0,0,0,0,0,0,0,0,0,0,0,7371,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,7319,0,0,0,0,0,0,0,0,0,0,0,0,0,0,7319,0,0,
+0,0,7330,0,0,0,0,0,0,0,0,0,0,0,0,0,0,7330,0,0,
+0,0,0,0,0,0,0,0,0,3486,3486,3486,3486,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,3486,3486,3486,3486,3486,3486,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,3486,3486,3486,3486,3486,3486,0,0,3486,0,0,0,0,
+0,0,0,0,0,0,0,3486,3486,3486,3486,3486,3486,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+</data>
+ </layer>
+ <layer name="Tile Layer 3" width="20" height="20">
+  <data encoding="csv">
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,7292,7289,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+</data>
+ </layer>
+ <objectgroup name="walls">
+  <object id="1" name="wall" x="0.5" y="0" width="319.5" height="7"/>
+  <object id="2" name="wall" x="313.25" y="0" width="8.5" height="318.5"/>
+  <object id="3" name="wall" x="-2.08333" y="312.5" width="319.5" height="7"/>
+  <object id="4" name="wall" x="-0.916667" y="-1.91667" width="8.5" height="318.5"/>
+  <object id="7" name="wall" x="81" y="19"/>
+  <object id="9" name="wall" x="96" y="14" width="14.6667" height="16"/>
+  <object id="10" name="wall" x="39.3333" y="10" width="16.6667" height="22.6667"/>
+  <object id="11" name="wall" x="256.667" y="24.6667" width="16" height="22"/>
+  <object id="12" name="wall" x="280" y="28.6667" width="17.3333" height="16.6667"/>
+  <object id="13" name="wall" x="273.333" y="171.333" width="14" height="23.3333"/>
+  <object id="14" name="wall" x="272" y="216" width="15.3333" height="21.3333"/>
+  <object id="16" name="wall" x="34" y="214" width="13.3333" height="25.3333"/>
+  <object id="17" name="wall" x="32" y="173.333" width="16" height="19.3333"/>
+  <object id="18" name="wall" x="49.3333" y="76.6667" width="10.6667" height="19.3333"/>
+  <object id="19" name="wall" x="67.3333" y="48.6667" width="10" height="16"/>
+  <object id="20" name="wall" x="100" y="47.3333" width="9.33333" height="16.6667"/>
+  <object id="22" name="wall" x="117.333" y="76.6667" width="7.33333" height="19.3333"/>
+  <object id="23" name="wall" x="98" y="102.667" width="9.33333" height="14"/>
+  <object id="24" name="wall" x="66.6667" y="99.3333" width="9.33333" height="16.6667"/>
+  <object id="25" name="wall" x="66.6667" y="65.3333" width="42.6667" height="24"/>
+  <object id="26" name="Portal" type="3" x="116.667" y="296" width="84" height="16.6666">
+   <properties>
+    <property name="xd" type="int" value="310"/>
+    <property name="yd" type="int" value="10"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>

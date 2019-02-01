@@ -7,7 +7,7 @@ import com.mygdx.game.game.Main;
 public class DesktopLauncher {
     public static void main(String[] arg) {
         LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
-        config.title = "MegaMan";
+        config.title = "NOTMegaMan";
         config.foregroundFPS = 60;
 //		config.width = 640;
 //		config.height = 480;

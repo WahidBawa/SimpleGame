@@ -47,9 +47,9 @@ public class Main extends ApplicationAdapter {
         batch = new SpriteBatch();
         cam = new OrthographicCamera();
         cam.setToOrtho(false, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-        xShift = -230;
-        yShift = 570;
-        cam.translate(xShift, yShift);
+//        xShift = -230;
+//        yShift = 570;
+//        cam.translate(xShift, yShift);
 //        cam.rotate(100);
 
         gameMap = new TiledGameMap();
@@ -67,79 +67,13 @@ public class Main extends ApplicationAdapter {
         gameMap.render(cam);
         batch.begin();
 
+        // insert here what ever you want to draw that is not a shape
 
-//        if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) player.goRight();
-//        else if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) player.goLeft();
-//        else if (Gdx.input.isKeyPressed(Input.Keys.UP)) player.goUp();
-//        else if (Gdx.input.isKeyPressed(Input.Keys.DOWN)) player.goDown();
-//        else direction = STANDING;
-
-        System.out.println(player.isTouchingGround());
-        if (Gdx.input.isKeyPressed((Input.Keys.SPACE)) && !jump && player.isTouchingGround()){
-            count = 0;
-            jump = true;
-            player.setJump(jump);
-        }
-        if (jump && count < 25){
-            player.jump();
-            count++;
-        }else{
-            jump = false;
-            player.setJump(jump);
-        }
-
-
-        if (Gdx.input.isKeyPressed(Input.Keys.E)) {
-            cam.zoom += 0.02;
-        }
-        if (Gdx.input.isKeyPressed(Input.Keys.Q)) {
-            cam.zoom -= 0.02;
-        }
-        if (Gdx.input.isKeyPressed(Input.Keys.R)) {
-            cam.zoom = 1;
-        }
-
-        for (Walls i : walls) i.update();
-
-        if (Gdx.input.isKeyPressed(Input.Keys.D)) {
-            xShift = 10;
-        } else if (Gdx.input.isKeyPressed(Input.Keys.A)) {
-            xShift = -10;
-        } else if (Gdx.input.isKeyPressed(Input.Keys.W)) {
-            yShift = 10;
-        } else if (Gdx.input.isKeyPressed(Input.Keys.S)) {
-            yShift = -10;
-        } else {
-            yShift = 0;
-            xShift = 0;
-        }
-
-        player.update();
-        cam.translate(xShift, yShift);
-
-        cam.update();
-        player.render();
-
-        player.collidesWith(walls);
-
-//        counter += 1;
-//        if (counter > animation_speed) {
-//            counter = 0;
-//            pos += 1;
-//            if (pos >= 3) {
-//                pos = 0;
-//            }
-//        }
         batch.end();
 
         shapeRenderer.begin(ShapeRenderer.ShapeType.Filled);
         shapeRenderer.setColor(Color.BLACK);
-        for (Walls i : walls) shapeRenderer.rect(i.getX(), i.getY(), i.getWidth(), i.getHeight());
-        shapeRenderer.end();
-
-        shapeRenderer.begin(ShapeRenderer.ShapeType.Filled);
-        shapeRenderer.setColor(Color.BLACK);
-        shapeRenderer.circle(player.getX(), player.getY(), 1);
+        // insert any shape you want to create
         shapeRenderer.end();
 
     }

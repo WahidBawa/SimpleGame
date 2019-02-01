@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" tiledversion="1.1.2" orientation="orthogonal" renderorder="right-down" width="96" height="80" tilewidth="32" tileheight="32" infinite="0" backgroundcolor="#00ffffff" nextobjectid="24">
+ <tileset firstgid="1" source="desert.tsx"/>
+ <layer name="Ground" width="96" height="80">
+  <data encoding="base64" compression="zlib">
+   eJzt2mtPgzAUgOHqPnhZ4rwkzktUdOq8zv3/X2cJNCNnDZQGON14PzxRFojZy1nJGmfGmBkAAAAAAAAAAECHHnt2Vv6d88jrtfvscv+Vp/8T/Zn/hPTZPp/1a2tu3dBfZf4PrENrIu4L/dv3v7XuWri3TqxTaxp5/7T7pNT/2XppYUH/6P4fNf1frS/rjf4q878Qx/Tvr/87/QfvvxbdZf8fUzxff+nfaX+55svjpnmXzwX6N/M9Z/PXqvPvfm/qLz8X9A+b/6V4z6532/ln/Ynr78j7IH2aYn0J9U3/RkelY7PZK6gzCTzPeaB/kHx/0s1qnWngeb7r6L9tbjb7kxfWZYOrwPN819F/W+jaP7TMFPuk2n2G6p/ifcgS6NO3oXrH7F2Paf3py6r8GfLdofr92e0xaffZ9f5OSP+8+bo8l/7d+aP/4P3lc4X+evMf2r+6f0f/7tae0P7ys0D/YefftxZp9xlzf+a/OzF71/TXp91nbP0z+idFu88+98/Ese//crX77HP/kPui3WeM/Zn/dGj3of9+0+5L/7Rp9wEAAAAAAAAAAAAAAACQrn+7vRwt
+  </data>
+ </layer>
+ <layer name="Tile Layer 2" width="96" height="80">
+  <data encoding="base64" compression="zlib">
+   eJztzgENAAAIA6Ansn88Y9xNSEACAAAAAAAAAAAA8NO0AwAAAAAAAAAAAAAAAAAAAAAAAACctp3iAC8=
+  </data>
+ </layer>
+ <objectgroup name="objects">
+  <object id="1" name="chest" type="3" x="1556.58" y="793.939" width="38.6667" height="38">
+   <properties>
+    <property name="ChestName" value="Chest6"/>
+    <property name="Item" value="Potion"/>
+   </properties>
+  </object>
+  <object id="3" name="Portal" type="1" x="1654.67" y="887.333" width="53.3333" height="19.3333">
+   <properties>
+    <property name="xd" type="int" value="-545"/>
+    <property name="yd" type="int" value="-580"/>
+   </properties>
+  </object>
+  <object id="4" name="NPC" type="2" x="1451" y="1202" width="20" height="30">
+   <properties>
+    <property name="Dialogue" value="welcome to the desert"/>
+    <property name="Name" value="generic"/>
+    <property name="item" value="NULL"/>
+   </properties>
+  </object>
+  <object id="5" name="NPC" type="2" x="1464" y="1007" width="20" height="30">
+   <properties>
+    <property name="Dialogue" value="welcome to the desert"/>
+    <property name="Name" value="generic"/>
+    <property name="item" value="NULL"/>
+   </properties>
+  </object>
+  <object id="6" name="NPC" type="2" x="1592" y="1239" width="20" height="30">
+   <properties>
+    <property name="Dialogue" value="welcome to the desert"/>
+    <property name="Name" value="generic"/>
+    <property name="item" value="NULL"/>
+   </properties>
+  </object>
+  <object id="7" name="NPC" type="2" x="1634" y="765" width="20" height="30">
+   <properties>
+    <property name="Dialogue" value="welcome to the desert"/>
+    <property name="Name" value="generic"/>
+    <property name="item" value="NULL"/>
+   </properties>
+  </object>
+  <object id="8" name="NPC" type="2" x="1730" y="884" width="20" height="30">
+   <properties>
+    <property name="Dialogue" value="Welcome to the Desert"/>
+    <property name="Name" value="Desert Manager"/>
+    <property name="item" value="NULL"/>
+   </properties>
+  </object>
+  <object id="9" name="NPC" type="2" x="1993" y="1264" width="20" height="30">
+   <properties>
+    <property name="Dialogue" value="welcome to the desert"/>
+    <property name="Name" value="generic"/>
+    <property name="item" value="NULL"/>
+   </properties>
+  </object>
+  <object id="17" name="wall" x="3074" y="0" width="112" height="2560"/>
+  <object id="18" name="wall" x="0" y="-69.697" width="3066.67" height="66.6667"/>
+  <object id="20" name="wall" x="5.665" y="2563.67" width="3066.67" height="66.6667"/>
+  <object id="21" name="wall" x="-122" y="4" width="112" height="2560"/>
+  <object id="23" name="NPC" type="00" x="1599" y="865" width="31" height="30">
+   <properties>
+    <property name="Dialogue" value="To the right is the Grasslands portal"/>
+    <property name="Name" value="Portal Alert"/>
+    <property name="item" value="NULL"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>

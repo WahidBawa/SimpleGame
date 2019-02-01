@@ -17,7 +17,7 @@ public class TiledGameMap{
     OrthogonalTiledMapRenderer tiledMapRenderer;
 
     public TiledGameMap() {
-        tiledMap = new TmxMapLoader().load("Assets/MAPS/MEGAMAN/level1_real.tmx");
+        tiledMap = new TmxMapLoader().load("Assets/MAPS/grasslands.tmx");
 //        tiledMap2 = new TmxMapLoader().load("Assets/MAPS/MEGAMAN/lvl1.tmx");
         this.loadObjects();
 
@@ -26,7 +26,7 @@ public class TiledGameMap{
 
     private void loadObjects() {
         MapObjects objects;
-        MapLayer walls = tiledMap.getLayers().get("Walls");
+        MapLayer walls = tiledMap.getLayers().get("walls");
         objects = walls.getObjects();
         for (MapObject i : objects) {
             new Walls(i);
