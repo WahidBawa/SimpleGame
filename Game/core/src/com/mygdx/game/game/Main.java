@@ -114,8 +114,8 @@ public class Main extends ApplicationAdapter {
             xShift = 0;
         }
 
-        cam.translate(xShift, yShift);
         player.update();
+        cam.translate(xShift, yShift);
 
         cam.update();
         player.render();
