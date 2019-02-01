@@ -61,56 +61,56 @@ public class Player {
             }
         }
     }
-    public class MyInputProcessor implements InputProcessor {
-        public boolean keyPressed;
-        @Override
-        public boolean keyDown(int key) {
-            if (key == Input.Keys.UP) {
-                keyPressed = true;
-            }
-
-            return false;
-        }
-
-        @Override
-        public boolean keyUp(int key) {
-            if (key == Input.Keys.UP) {
-                keyPressed = false;
-            }
-
-            return false;
-        }
-
-        @Override
-        public boolean keyTyped(char character) {
-            return false;
-        }
-
-        @Override
-        public boolean touchDown(int screenX, int screenY, int pointer, int button) {
-            return false;
-        }
-
-        @Override
-        public boolean touchUp(int screenX, int screenY, int pointer, int button) {
-            return false;
-        }
-
-        @Override
-        public boolean touchDragged(int screenX, int screenY, int pointer) {
-            return false;
-        }
-
-        @Override
-        public boolean mouseMoved(int screenX, int screenY) {
-            return false;
-        }
-
-        @Override
-        public boolean scrolled(int amount) {
-            return false;
-        }
-    }
+//    public class MyInputProcessor implements InputProcessor {
+//        public boolean keyPressed;
+//        @Override
+//        public boolean keyDown(int key) {
+//            if (key == Input.Keys.UP) {
+//                keyPressed = true;
+//            }
+//
+//            return false;
+//        }
+//
+//        @Override
+//        public boolean keyUp(int key) {
+//            if (key == Input.Keys.UP) {
+//                keyPressed = false;
+//            }
+//
+//            return false;
+//        }
+//
+//        @Override
+//        public boolean keyTyped(char character) {
+//            return false;
+//        }
+//
+//        @Override
+//        public boolean touchDown(int screenX, int screenY, int pointer, int button) {
+//            return false;
+//        }
+//
+//        @Override
+//        public boolean touchUp(int screenX, int screenY, int pointer, int button) {
+//            return false;
+//        }
+//
+//        @Override
+//        public boolean touchDragged(int screenX, int screenY, int pointer) {
+//            return false;
+//        }
+//
+//        @Override
+//        public boolean mouseMoved(int screenX, int screenY) {
+//            return false;
+//        }
+//
+//        @Override
+//        public boolean scrolled(int amount) {
+//            return false;
+//        }
+//    }
     public void update() {
         if (!jump){
             this.goDown();
@@ -168,7 +168,8 @@ public class Player {
         collidesWithGround(Main.walls);
     }
     public void goUp(){
-        y +=speed;
+        y += speed;
+        collidesWithGround(Main.walls);
     }
 
     public int getHeight() {
@@ -180,8 +181,8 @@ public class Player {
     }
 
     public void jump(){
-        y +=speed*3;
-        Main.xShift += speed;
+        y +=speed;
+//        Main.xShift += speed;
     }
 
     public String getName() {
