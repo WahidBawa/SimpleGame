@@ -12,7 +12,7 @@ import java.util.ArrayList;
 
 
 public class EnemiesCreator {
-    private int[][] enemit={{3,3,3,3,3,3,3},{2,2,2,2,2,2,2},{2,2,2,2,2,2,2},{1,1,1,1,1,1,1},{1,1,1,1,1,1,1}};
+    private int[][] enemit={{3,3,3,3,3,3,3,3,3,3},{2,2,2,2,2,2,2,2,2,2},{2,2,2,2,2,2,2,2,2,2},{1,1,1,1,1,1,1,1,1,1},{1,1,1,1,1,1,1,1,1,1}};
     private static ArrayList<Point> location=new ArrayList<Point>();
     //texture for our enemies
     private Texture redship_sprite;
@@ -41,11 +41,11 @@ public class EnemiesCreator {
         int wid=(int)redship.getWidth();
         int hei=(int)redship.getHeight();
         ArrayList<Point> one=new ArrayList<Point>();
-        int x=100;
+        int x=50;
         int y=900;
         for(int i=1;i<6;i++) {
-            for (int j = 1; j < 8; j++) {
-                Point point =new Point((x+j*(wid+5)),(y+i*(hei+5)));
+            for (int j = 1; j < 11; j++) {
+                Point point =new Point((x+j*(wid+10)),(y-i*(hei+20)));
                 one.add(point);
             }
         }
@@ -66,7 +66,7 @@ public class EnemiesCreator {
     public void update(SpriteBatch batch) {
         int counter=0;
         for (int i = 0; i < 5; i++) {
-            for (int j = 0; j < 7; j++) {
+            for (int j = 0; j < 10; j++) {
                 int enemyType = enemit[i][j];
                 Point point = location.get(counter);
                 counter+=1;
