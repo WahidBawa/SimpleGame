@@ -27,7 +27,7 @@ public class Main extends ApplicationAdapter {
         bg = new Texture("Assets/jpgs/space-1.jpg");
         batch = new SpriteBatch();
 
-        player = new Player();
+        player = new Player(0, 0);
         shapeRenderer = new ShapeRenderer();
     }
 
