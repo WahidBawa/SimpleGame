@@ -60,6 +60,7 @@ public class Main extends ApplicationAdapter {
         shapeRenderer.setColor(Color.BLACK);
         // insert any shape you want to create
         shapeRenderer.end();
+        Enemies enemy1=new Enemies();
 
     }
 
