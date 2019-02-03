@@ -30,7 +30,7 @@ public class Main extends ApplicationAdapter {
 
         player = new Player(0, 50);
         shapeRenderer = new ShapeRenderer();
-        Enemies enemy1=new Enemies();
+//        Enemies enemy1=new Enemies();
     }
 
 
@@ -38,7 +38,7 @@ public class Main extends ApplicationAdapter {
     public void render() {
         Gdx.gl.glClearColor(1, 0, 0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-
+        Enemies enemy1=new Enemies();
         if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) player.goLeft();
         if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) player.goRight();
         if (Gdx.input.isKeyPressed(Input.Keys.SPACE) && !player.isShooting()) {
