@@ -27,7 +27,6 @@ public class Main extends ApplicationAdapter {
         Gdx.graphics.setWindowedMode(WIDTH, HEIGHT);
         bg = new Texture("Assets/jpgs/space-1.jpg");
         batch = new SpriteBatch();
-
         player = new Player(0, 50);
         shapeRenderer = new ShapeRenderer();
 //        Enemies enemy1=new Enemies();
