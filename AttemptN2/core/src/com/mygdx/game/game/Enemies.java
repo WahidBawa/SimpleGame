@@ -11,17 +11,16 @@ public class Enemies {
     //stores x loc (start at 240)
     private int x = 50;
     //stores y loc (start at 167)
-    private int y = ;
+    private int y = 1000;
     //texture for our enemies
-    public Texture enemy1 = new Texture("Assets/SPRITES/")
-    private Texture enemy2=new Texture("Assets/SPRITES/0.png")
-    public Texture getPlayer_img() {
-        return player_img;
-    }
+    public Texture enemy1_img1 = new Texture("Assets/Enemies/1.png");
+    public Texture enemy1_img2=new Texture("Assets/Enemies/2.png");
+    private Texture enemy2_img1=new Texture("Assets/Enemies/3.png");
+    public Texture enemy2_img2=new Texture("Assets/Enemies/4.png");
+    public Texture enemy3_img1=new Texture("Assets/Enemies/5.png");
+    public Texture enemy3_img2=new Texture("Assets/Enemies/6.png");
     //speed for our character in pixels/s
-
     private String name;
-
     private int width, height;
 
     private int counter = 0;
