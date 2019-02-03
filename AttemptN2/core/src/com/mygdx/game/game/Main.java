@@ -38,6 +38,7 @@ public class Main extends ApplicationAdapter {
 
         batch.begin();
         batch.draw(bg, 0, 0);
+        player.render(batch);
         // insert here what ever you want to draw that is not a shape
 
         batch.end();
