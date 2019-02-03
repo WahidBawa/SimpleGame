@@ -11,7 +11,7 @@ import java.awt.geom.Point2D;
 import java.util.ArrayList;
 
 
-public class Enemies {
+public class EnemiesCreator {
     private int[][] enemit={{3,3,3,3,3,3,3},{2,2,2,2,2,2,2},{2,2,2,2,2,2,2},{1,1,1,1,1,1,1},{1,1,1,1,1,1,1}};
     private static ArrayList<Point> location=new ArrayList<Point>();
     //texture for our enemies
@@ -22,9 +22,13 @@ public class Enemies {
     private Sprite yellowship;
     private Sprite redship;
     private static final int DEAD=0;
+    private static final int RED=3;
+    private static final int YELLOW=2;
+    private static final int BLUE=1;
+
     //initialization code
 
-    public Enemies() {
+    public EnemiesCreator() {
         redship_sprite=new Texture("Assets/Enemies/0.png");
         yellowship_sprite=new Texture("Assets/Enemies/1.png");
         blueship_sprite=new Texture("Assets/Enemies/2.png");
@@ -47,16 +51,42 @@ public class Enemies {
         }
         return one;
     }
-    public void render(SpriteBatch batch) {
-        redship.draw(batch);
-        blueship.draw(batch);
-        yellowship.draw(batch);
+    public void render(SpriteBatch batch,int type) {
+        if(type==RED){
+            redship.draw(batch);
+        }
+        else if(type==YELLOW){
+            yellowship.draw(batch);
+        }
+        else if(type==BLUE){
+            blueship.draw(batch);
+        }
     }
 
     public void update(SpriteBatch batch) {
-        Point point =location.get(0);
-        redship.setX(point.x);
-        redship.setY(point.y);
-        this.render(batch);
+        int counter=0;
+        for (int i = 0; i < 5; i++) {
+            for (int j = 0; j < 7; j++) {
+                counter+=1;
+                int enemyType = enemit[i][j];
+                Point point = location.get(counter);
+                if(enemyType==RED){
+                    redship.setX(point.x);
+                    redship.setY(point.y);
+                    this.render(batch, enemyType);
+                }
+                else if(enemyType==YELLOW){
+                    yellowship.setX(point.x);
+                    yellowship.setY(point.y);
+                    this.render(batch, enemyType);
+                }
+                else if(enemyType==BLUE){
+                    blueship.setX(point.x);
+                    blueship.setY(point.y);
+                    this.render(batch, enemyType);
+                }
+
+            }
+        }
     }
 }
