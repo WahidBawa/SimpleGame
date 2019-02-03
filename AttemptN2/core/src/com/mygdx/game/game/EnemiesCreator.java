@@ -67,9 +67,9 @@ public class EnemiesCreator {
         int counter=0;
         for (int i = 0; i < 5; i++) {
             for (int j = 0; j < 7; j++) {
-                counter+=1;
                 int enemyType = enemit[i][j];
                 Point point = location.get(counter);
+                counter+=1;
                 if(enemyType==RED){
                     redship.setX(point.x);
                     redship.setY(point.y);
