@@ -37,8 +37,8 @@ public class Player {
 
     public Bullet shootBullet(){
         shooting = true;
-        Bullet bullet = new Bullet(player.getX(), player.getY());
-        return bullet;
+        System.out.println(player.getX());
+        return new Bullet(player.getX(), player.getY());
     }
 
     public boolean isShooting() {
