@@ -40,18 +40,21 @@ public class Main extends ApplicationAdapter {
 
         if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) player.goLeft();
         if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) player.goRight();
-        if (Gdx.input.isKeyPressed(Input.Keys.SPACE) && !player.isShooting()) bullet = player.shootBullet();
+        if (Gdx.input.isKeyPressed(Input.Keys.SPACE) && !player.isShooting()) {
+            bullet = player.shootBullet();
+            System.out.println(bullet.getX());
+        }
 
         batch.begin();
         batch.draw(bg, 0, 0);
-        player.update(batch);
-
         if (player.isShooting()){
             bullet.update(batch);
             if (bullet.getY() > HEIGHT){
                 player.setShooting(false);
             }
         }
+        player.update(batch);
+
         // insert here what ever you want to draw that is not a shape
 
         batch.end();
@@ -60,7 +63,7 @@ public class Main extends ApplicationAdapter {
         shapeRenderer.setColor(Color.BLACK);
         // insert any shape you want to create
         shapeRenderer.end();
-        Enemies enemy1=new Enemies();
+//        Enemies enemy1=new Enemies();
 
     }
 
