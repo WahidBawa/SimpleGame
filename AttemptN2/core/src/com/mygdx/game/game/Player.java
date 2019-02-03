@@ -10,15 +10,16 @@ import java.util.ArrayList;
 
 
 public class Player {
-    private int x, y;
+    private float x, y;
     private Texture player_sprite;
     private Sprite player;
-    public Player(int x, int y) {
+    public Player(float x, float y) {
+        player_sprite = new Texture("Assets/0.png");
+        player = new Sprite(player_sprite);
         this.x = x;
         this.y = y;
-        player_sprite = new Texture("Assets/0.png");
-        player = new Sprite(player_sprite, player_sprite.getWidth() / 2, player_sprite.getHeight() / 2);
-        player.setScale(player.getWidth() * 2, player.getHeight() * 2);
+        player.setX(x);
+        player.setY(y);
     }
 
     //updates character's position
@@ -26,9 +27,19 @@ public class Player {
         player.draw(batch);
     }
 
-    public void update() {
-
+    public void update(SpriteBatch batch) {
+        player.setX(x);
+        player.setY(y);
+        this.render(batch);
     }
+
+    public void goLeft(){
+        if (player.getX() > 0) x -= 8;
+    }
+    public void goRight(){
+        if (player.getX() + player.getWidth() < Main.WIDTH) x += 8;
+    }
+
 
 }
 
