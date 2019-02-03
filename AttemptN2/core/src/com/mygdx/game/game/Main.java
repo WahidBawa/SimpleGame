@@ -14,6 +14,7 @@ public class Main extends ApplicationAdapter {
     public static SpriteBatch batch;
     Texture bg;
 
+    Bullet bullet;
 
     public static final int WIDTH = 1024;
     public static final int HEIGHT = 1024;
@@ -39,10 +40,18 @@ public class Main extends ApplicationAdapter {
 
         if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) player.goLeft();
         if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) player.goRight();
+        if (Gdx.input.isKeyPressed(Input.Keys.SPACE) && !player.isShooting()) bullet = player.shootBullet();
 
         batch.begin();
         batch.draw(bg, 0, 0);
         player.update(batch);
+
+        if (player.isShooting()){
+            bullet.update(batch);
+            if (bullet.getY() > HEIGHT){
+                player.setShooting(false);
+            }
+        }
         // insert here what ever you want to draw that is not a shape
 
         batch.end();

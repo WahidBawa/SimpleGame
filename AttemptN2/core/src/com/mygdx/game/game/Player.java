@@ -1,18 +1,13 @@
 package com.mygdx.game.game;
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Input;
-import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-
-import java.util.ArrayList;
-
 
 public class Player {
     private float x, y;
     private Texture player_sprite;
     private Sprite player;
+    private boolean shooting = false;
     public Player(float x, float y) {
         player_sprite = new Texture("Assets/0.png");
         player = new Sprite(player_sprite);
@@ -40,6 +35,27 @@ public class Player {
         if (player.getX() + player.getWidth() < Main.WIDTH) x += 8;
     }
 
+    public Bullet shootBullet(){
+        shooting = true;
+        Bullet bullet = new Bullet(player.getX(), player.getY());
+        return bullet;
+    }
+
+    public boolean isShooting() {
+        return shooting;
+    }
+
+    public void setShooting(boolean shooting) {
+        this.shooting = shooting;
+    }
+
+    public float getX() {
+        return x;
+    }
+
+    public float getY() {
+        return y;
+    }
 
 }
 
