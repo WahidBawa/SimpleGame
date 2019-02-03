@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <bytecodeTargetLevel>
+      <module name="Game.core.main" target="1.6" />
+      <module name="Game.core.test" target="1.6" />
+      <module name="Game.desktop.main" target="1.6" />
+      <module name="Game.desktop.test" target="1.6" />
+      <module name="Game.html.main" target="1.6" />
+      <module name="Game.html.test" target="1.6" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

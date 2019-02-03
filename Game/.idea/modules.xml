@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Game.iml" filepath="$PROJECT_DIR$/.idea/modules/Game.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/core/Game.core.iml" filepath="$PROJECT_DIR$/.idea/modules/core/Game.core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/core/Game.core.main.iml" filepath="$PROJECT_DIR$/.idea/modules/core/Game.core.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/core/Game.core.test.iml" filepath="$PROJECT_DIR$/.idea/modules/core/Game.core.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/desktop/Game.desktop.iml" filepath="$PROJECT_DIR$/.idea/modules/desktop/Game.desktop.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/desktop/Game.desktop.main.iml" filepath="$PROJECT_DIR$/.idea/modules/desktop/Game.desktop.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/desktop/Game.desktop.test.iml" filepath="$PROJECT_DIR$/.idea/modules/desktop/Game.desktop.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/html/Game.html.iml" filepath="$PROJECT_DIR$/.idea/modules/html/Game.html.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/html/Game.html.main.iml" filepath="$PROJECT_DIR$/.idea/modules/html/Game.html.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/html/Game.html.test.iml" filepath="$PROJECT_DIR$/.idea/modules/html/Game.html.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/core/core.iml" filepath="$PROJECT_DIR$/core/core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/desktop/desktop.iml" filepath="$PROJECT_DIR$/desktop/desktop.iml" />
+      <module fileurl="file://$PROJECT_DIR$/html/html.iml" filepath="$PROJECT_DIR$/html/html.iml" />
+    </modules>
+  </component>
+</project>
