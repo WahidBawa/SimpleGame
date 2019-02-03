@@ -3,6 +3,8 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 import java.awt.*;
 import java.awt.geom.Point2D;
@@ -11,11 +13,14 @@ import java.util.ArrayList;
 
 public class Enemies {
     private int[][] enemit={{3,3,3,3,3,3,3},{2,2,2,2,2,2,2},{2,2,2,2,2,2,2},{1,1,1,1,1,1,1},{1,1,1,1,1,1,1}};
-    private static ArrayList<Integer> location=new ArrayList<Integer>();
+    private static ArrayList<Point> location=new ArrayList<Point>();
     //texture for our enemies
-    private Texture redship = new Texture("Assets/Enemies/0.png");
-    public Texture yellowship = new Texture("Assets/Enemies/1.png");
-    public Texture blueship = new Texture("Assets/Enemies/2.png");
+    private Texture redship_sprite=new Texture("Assets/Enemies/0.png");
+    private Texture yellowship_sprite=new Texture("Assets/Enemies/1.png");
+    private Texture blueship_sprite=new Texture("Assets/Enemies/2.png");
+    private Sprite blueship;
+    private Sprite yellowship;
+    private Sprite redship;
     private static final int DEAD=0;
     private static final int RED=3;
     private static final int YELLOW=2;
@@ -23,12 +28,14 @@ public class Enemies {
     //initialization code
 
     public Enemies() {
+        redship= new Sprite(redship_sprite);
+        yellowship= new Sprite(yellowship_sprite);
+        blueship= new Sprite(blueship_sprite);
         location=getinitLocation();
-        System.out.println(getinitLocation().toString());
     }
     private ArrayList getinitLocation(){
-        int wid=redship.getWidth();
-        int hei=redship.getHeight();
+        int wid=(int)redship.getWidth();
+        int hei=(int)redship.getHeight();
         ArrayList<Point> one=new ArrayList<Point>();
         int x=100;
         int y=900;
@@ -40,5 +47,16 @@ public class Enemies {
         }
         return one;
     }
+    public void render(SpriteBatch batch) {
+        redship.draw(batch);
+        blueship.draw(batch);
+        yellowship.draw(batch);
+    }
 
+    public void update(SpriteBatch batch) {
+        Point point =location.get(0);
+        redship.setX(point.x);
+        redship.setY(point.y);
+        this.render(batch);
+    }
 }

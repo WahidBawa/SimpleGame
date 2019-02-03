@@ -22,7 +22,7 @@ public class Main extends ApplicationAdapter {
     public static ShapeRenderer shapeRenderer;
 
     Player player;
-
+    public Enemies enemy1=new Enemies();
     @Override
     public void create() {
         Gdx.graphics.setWindowedMode(WIDTH, HEIGHT);
@@ -53,14 +53,13 @@ public class Main extends ApplicationAdapter {
             }
         }
         // insert here what ever you want to draw that is not a shape
-
+        enemy1.update(batch);
         batch.end();
 
         shapeRenderer.begin(ShapeRenderer.ShapeType.Filled);
         shapeRenderer.setColor(Color.BLACK);
         // insert any shape you want to create
         shapeRenderer.end();
-        Enemies enemy1=new Enemies();
 
     }
 
