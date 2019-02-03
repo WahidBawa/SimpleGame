@@ -34,44 +34,11 @@ public class Enemies {
         int y=900;
         for(int i=1;i<6;i++) {
             for (int j = 1; j < 8; j++) {
-                Point point =Point((x+j*(wid+5)),(y+i*(hei+5)));
+                Point point =new Point((x+j*(wid+5)),(y+i*(hei+5)));
                 one.add(point);
             }
         }
         return one;
     }
 
-//
-//
-//    //updates character's position
-//    private void render() {
-//        if (L) {
-//            for (int i = 0; i < 17; i++) {
-//                player_img = new Texture("Assets/SPRITES/Megaman/Zero/Walk/" + i + ".png");
-////                if(time>g_SpikeGuardBreakpoint) {
-//                Main.batch.draw(player_img, x, y, -width, height);
-//                System.out.println("Left");
-//            }
-//        }
-//        public void update () {
-//            if (!jump) {
-//                this.goDown();
-//            }
-//
-//            if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) this.goRight();
-//            else if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) this.goLeft();
-//            else if (Gdx.input.isKeyPressed(Input.Keys.UP)) this.jump();
-//
-//            counter += 1;
-//            if (counter > animation_speed) {
-//                counter = 0;
-//                pos += 1;
-//                if (pos >= 3) {
-//                    pos = 0;
-//                }
-//            }
-//
-//        }
-//    }
 }
-
