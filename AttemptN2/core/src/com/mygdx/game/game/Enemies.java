@@ -15,19 +15,19 @@ public class Enemies {
     private int[][] enemit={{3,3,3,3,3,3,3},{2,2,2,2,2,2,2},{2,2,2,2,2,2,2},{1,1,1,1,1,1,1},{1,1,1,1,1,1,1}};
     private static ArrayList<Point> location=new ArrayList<Point>();
     //texture for our enemies
-    private Texture redship_sprite=new Texture("Assets/Enemies/0.png");
-    private Texture yellowship_sprite=new Texture("Assets/Enemies/1.png");
-    private Texture blueship_sprite=new Texture("Assets/Enemies/2.png");
+    private Texture redship_sprite;
+    private Texture yellowship_sprite;
+    private Texture blueship_sprite;
     private Sprite blueship;
     private Sprite yellowship;
     private Sprite redship;
     private static final int DEAD=0;
-    private static final int RED=3;
-    private static final int YELLOW=2;
-    private static final int BLUE=1;
     //initialization code
 
     public Enemies() {
+        redship_sprite=new Texture("Assets/Enemies/0.png");
+        yellowship_sprite=new Texture("Assets/Enemies/1.png");
+        blueship_sprite=new Texture("Assets/Enemies/2.png");
         redship= new Sprite(redship_sprite);
         yellowship= new Sprite(yellowship_sprite);
         blueship= new Sprite(blueship_sprite);

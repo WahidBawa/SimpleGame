@@ -22,7 +22,6 @@ public class Main extends ApplicationAdapter {
     public static ShapeRenderer shapeRenderer;
 
     Player player;
-    public Enemies enemy1=new Enemies();
     @Override
     public void create() {
         Gdx.graphics.setWindowedMode(WIDTH, HEIGHT);
@@ -31,7 +30,9 @@ public class Main extends ApplicationAdapter {
 
         player = new Player(0, 50);
         shapeRenderer = new ShapeRenderer();
+        Enemies enemy1=new Enemies();
     }
+
 
     @Override
     public void render() {
