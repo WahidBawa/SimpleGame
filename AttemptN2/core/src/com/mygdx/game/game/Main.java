@@ -48,7 +48,7 @@ public class Main extends ApplicationAdapter {
         if (Gdx.input.isKeyPressed(Input.Keys.SPACE) && (!player.isShooting() && bullets.size() == 0|| player.isRapidfire())) {
             bullets.add(player.shootBullet());
         }
-        System.out.println(System.currentTimeMillis());
+//        System.out.println(System.currentTimeMillis());
 
         batch.begin();
         batch.draw(bg, 0, 0);
