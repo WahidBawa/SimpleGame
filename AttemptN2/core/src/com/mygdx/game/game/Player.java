@@ -8,6 +8,7 @@ public class Player {
     private Texture player_sprite;
     private Sprite player;
     private boolean shooting = false;
+    private boolean rapidfire = false;
     public Player(float x, float y) {
         player_sprite = new Texture("Assets/0.png");
         player = new Sprite(player_sprite);
@@ -38,7 +39,7 @@ public class Player {
     public Bullet shootBullet(){
         shooting = true;
         System.out.println(player.getX());
-        return new Bullet(player.getX(), player.getY());
+        return new Bullet(player.getX(), player.getY(), player.getWidth());
     }
 
     public boolean isShooting() {
@@ -57,5 +58,12 @@ public class Player {
         return y;
     }
 
+    public boolean isRapidfire() {
+        return rapidfire;
+    }
+
+    public void setRapidfire(boolean rapidfire) {
+        this.rapidfire = rapidfire;
+    }
 }
 
