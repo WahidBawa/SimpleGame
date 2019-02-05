@@ -4,13 +4,12 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
-import java.awt.Rectangle;
-
 public class Bullet {
     private float x, y, width;
     Texture bullet_sprite;
     Sprite bullet;
-    public Bullet(float x, float y, float width){
+
+    public Bullet(float x, float y, float width) {
         this.x = x;
         this.y = y;
         this.width = width;
@@ -19,12 +18,12 @@ public class Bullet {
 
     }
 
-    public void render(SpriteBatch batch){
+    public void render(SpriteBatch batch) {
         bullet.setX(x + width / 2 - bullet.getWidth() / 2);
         bullet.draw(batch);
     }
 
-    public void update(SpriteBatch batch){
+    public void update(SpriteBatch batch) {
         y += 12;
         bullet.setY(y);
         this.render(batch);

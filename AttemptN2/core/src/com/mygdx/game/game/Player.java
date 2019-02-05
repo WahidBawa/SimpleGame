@@ -1,4 +1,5 @@
 package com.mygdx.game.game;
+
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -9,6 +10,7 @@ public class Player {
     private Sprite player;
     private boolean shooting = false;
     private boolean rapidfire = false;
+
     public Player(float x, float y) {
         player_sprite = new Texture("Assets/0.png");
         player = new Sprite(player_sprite);
@@ -29,14 +31,15 @@ public class Player {
         this.render(batch);
     }
 
-    public void goLeft(){
+    public void goLeft() {
         if (player.getX() > 0) x -= 8;
     }
-    public void goRight(){
+
+    public void goRight() {
         if (player.getX() + player.getWidth() < Main.WIDTH) x += 8;
     }
 
-    public Bullet shootBullet(){
+    public Bullet shootBullet() {
         shooting = true;
         System.out.println(player.getX());
         return new Bullet(player.getX(), player.getY(), player.getWidth());

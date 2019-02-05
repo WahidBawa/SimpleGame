@@ -1,5 +1,4 @@
 package com.mygdx.game.game;
-import java.util.*;
 
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
@@ -9,9 +8,9 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
-import java.lang.*;
 
-import java.util.Timer;
+import java.util.ArrayList;
+import java.util.Random;
 
 import static com.badlogic.gdx.Gdx.graphics;
 
@@ -19,6 +18,7 @@ public class Main extends ApplicationAdapter {
     public static SpriteBatch batch;
     Texture bg;
     ArrayList<Bullet> bullets = new ArrayList<Bullet>();
+    ArrayList<PowerUp> powerups = new ArrayList<PowerUp>();
 
     public static final int WIDTH = 1024;
     public static final int HEIGHT = 1024;
@@ -26,6 +26,8 @@ public class Main extends ApplicationAdapter {
     public static ShapeRenderer shapeRenderer;
     EnemiesCreator enemy;
     Player player;
+    Random powerupDrop = new Random();
+
     @Override
     public void create() {
         graphics.setWindowedMode(WIDTH, HEIGHT);
@@ -33,7 +35,7 @@ public class Main extends ApplicationAdapter {
         batch = new SpriteBatch();
         player = new Player(0, 50);
         shapeRenderer = new ShapeRenderer();
-        enemy= new EnemiesCreator();
+        enemy = new EnemiesCreator();
     }
 
 
@@ -45,22 +47,28 @@ public class Main extends ApplicationAdapter {
         if (Gdx.input.isKeyPressed(Input.Keys.X)) player.setRapidfire(false);
         if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) player.goLeft();
         if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) player.goRight();
-        if (Gdx.input.isKeyPressed(Input.Keys.SPACE) && (!player.isShooting() && bullets.size() == 0|| player.isRapidfire())) {
+        if (Gdx.input.isKeyPressed(Input.Keys.SPACE) && (!player.isShooting() && bullets.size() == 0 || player.isRapidfire())) {
             bullets.add(player.shootBullet());
         }
 //        System.out.println(System.currentTimeMillis());
 
         batch.begin();
         batch.draw(bg, 0, 0);
+        int isDrop = powerupDrop.nextInt(1000);
+        if (isDrop < 2 && powerups.size() == 0) powerups.add(new PowerUp(isDrop));
+        for (PowerUp i : powerups) {
+            i.update(batch);
+        }
+
         player.update(batch);
 
-        for (int i = 0; i < bullets.size(); i++){
-                bullets.get(i).update(batch);
-                if (bullets.get(i).getY() > HEIGHT) {
-                    bullets.remove(i);
-                    player.setShooting(false);
-                }
+        for (int i = 0; i < bullets.size(); i++) {
+            bullets.get(i).update(batch);
+            if (bullets.get(i).getY() > HEIGHT) {
+                bullets.remove(i);
+                player.setShooting(false);
             }
+        }
 
 
         enemy.update(batch);
