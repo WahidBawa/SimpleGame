@@ -19,7 +19,8 @@ public class PowerUp {
 
     public PowerUp() {
         Texture[] powerups = {new Texture("Assets/spiritBomb.png"), new Texture("Assets/invincible.png")};
-        powerup_sprite = powerups[rand.nextInt(powerups.length)];
+        type = rand.nextInt(powerups.length);
+        powerup_sprite = powerups[type];
         powerup = new Sprite(powerup_sprite);
         fallSpeed = rand.nextInt(5) + 1;
         x = rand.nextInt(Main.WIDTH - powerup_sprite.getWidth());
@@ -43,11 +44,14 @@ public class PowerUp {
     public void update(SpriteBatch batch) {
         powerup.setY(powerup.getY() - fallSpeed);
         rect = new Rectangle((int) powerup.getX(), (int) powerup.getY(), (int) powerup.getWidth(), (int) powerup.getHeight());
-        System.out.println(rect.toString());
         this.render(batch);
     }
 
     public Rectangle getRect() {
         return rect;
+    }
+
+    public int getType() {
+        return type;
     }
 }

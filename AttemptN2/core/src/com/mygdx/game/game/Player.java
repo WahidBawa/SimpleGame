@@ -12,6 +12,8 @@ public class Player {
     private Sprite player;
     private boolean shooting = false;
     private boolean rapidfire = false;
+    private final static int SPIRITBOMB = 0;
+    private final static int INVINCIBLE = 1;
     Rectangle rect;
 
     public Player(float x, float y) {
@@ -35,6 +37,15 @@ public class Player {
         rect = new Rectangle((int) player.getX(), (int) player.getY(), (int) player.getWidth(), (int) player.getHeight());
 //        System.out.println(rect.toString());
         this.render(batch);
+    }
+
+    public void getPowerup(PowerUp powerup) {
+        int type = powerup.getType();
+        if (type == INVINCIBLE){
+            System.out.println("Invincible");
+        }else if (type == SPIRITBOMB){
+            System.out.println("Spiritbomb");
+        }
     }
 
     public void goLeft() {
@@ -75,7 +86,7 @@ public class Player {
         this.rapidfire = rapidfire;
     }
 
-    public boolean isCollidingWith(PowerUp powerup){
+    public boolean isCollidingWith(PowerUp powerup) {
         return powerup.getRect().intersects(this.getRect());
     }
 
