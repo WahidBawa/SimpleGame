@@ -8,7 +8,7 @@ import java.awt.*;
 import java.util.Random;
 
 public class PowerUp {
-    private int x, y, type, fallSpeed;
+    private int x, y, type, fallSpeed, width, height;
     private final static int SPIRITBOMB = 0;
     private final static int INVINCIBLE = 1;
     private Random rand = new Random();
@@ -17,7 +17,7 @@ public class PowerUp {
 
     Rectangle rect;
 
-    public PowerUp(int type) {
+    public PowerUp() {
         Texture[] powerups = {new Texture("Assets/spiritBomb.png"), new Texture("Assets/invincible.png")};
         powerup_sprite = powerups[rand.nextInt(powerups.length)];
         powerup = new Sprite(powerup_sprite);
@@ -47,19 +47,7 @@ public class PowerUp {
         this.render(batch);
     }
 
-    public int getX() {
-        return x;
-    }
-
-    public void setX(int x) {
-        this.x = x;
-    }
-
-    public int getY() {
-        return y;
-    }
-
-    public void setY(int y) {
-        this.y = y;
+    public Rectangle getRect() {
+        return rect;
     }
 }

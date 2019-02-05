@@ -55,9 +55,12 @@ public class Main extends ApplicationAdapter {
         batch.begin();
         batch.draw(bg, 0, 0);
         int isDrop = powerupDrop.nextInt(1000);
-        if (isDrop < 2 && powerups.size() == 0) powerups.add(new PowerUp(isDrop));
-        for (PowerUp i : powerups) {
-            i.update(batch);
+        if (isDrop < 2 && powerups.size() == 0) powerups.add(new PowerUp());
+        for (int i = 0; i < powerups.size(); i++) {
+            powerups.get(i).update(batch);
+            if (powerups.get(i).getRect().y + powerups.get(i).getRect().height < 0) {
+                powerups.remove(i);
+            }
         }
 
         player.update(batch);

@@ -75,6 +75,10 @@ public class Player {
         this.rapidfire = rapidfire;
     }
 
+    public boolean isCollidingWith(PowerUp powerup){
+        return powerup.getRect().intersects(this.getRect());
+    }
+
     public Rectangle getRect() {
         return rect;
     }
