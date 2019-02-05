@@ -12,7 +12,7 @@ import java.util.TimerTask;
 
 
 public class EnemiesCreator {
-    private int[][] enemit = {{3, 3, 3, 3, 3, 3, 3, 3, 3, 3}, {2, 2, 2, 2, 2, 2, 2, 2, 2, 2}, {2, 2, 2, 2, 2, 2, 2, 2, 2, 2}, {1, 1, 1, 1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1, 1, 1, 1}};
+    private int[][] enemit = {{3, 3, 3, 3, 3, 3, 3, 3, 3}, { 2, 2, 2, 2, 2, 2, 2, 2, 2}, {2, 2, 2, 2, 2, 2, 2, 2, 2}, {1, 1, 1, 1, 1, 1, 1, 1, 1}, { 1, 1, 1, 1, 1, 1, 1, 1, 1}};
     public static ArrayList<Point> location = new ArrayList<Point>();
     //texture for our enemies
     private Texture redship_sprite;
@@ -46,7 +46,7 @@ public class EnemiesCreator {
         int x = 50;
         int y = 900;
         for (int i = 1; i < 6; i++) {
-            for (int j = 1; j < 11; j++) {
+            for (int j = 1; j < 9; j++) {
                 Point point = new Point((x + j * (wid + 10)), (y - i * (hei + 20)));
                 one.add(point);
             }
@@ -75,10 +75,10 @@ public class EnemiesCreator {
 
             }
         };
-        timer.schedule(one, Long.valueOf(1 * 1000), Long.valueOf(1));
+        timer.schedule(one, Long.valueOf(2 * 1000), Long.valueOf(1));
         int counter = 0;
         for (int i = 0; i < 5; i++) {
-            for (int j = 0; j < 10; j++) {
+            for (int j = 0; j < 8; j++) {
                 int enemyType = enemit[i][j];
                 Point point = location.get(counter);
                 counter += 1;
@@ -111,7 +111,7 @@ public class EnemiesCreator {
                 for (int i = 0; i < location.size(); i++) {
                     int x = (int) location.get(i).getX();
                     int y = (int) location.get(i).getY();
-                    location.set(i, new Point(x + 2, y));
+                    location.set(i, new Point(x + 1, y));
                 }
             }
             else moveDown();
@@ -121,7 +121,7 @@ public class EnemiesCreator {
                 for (int i = 0; i < location.size(); i++) {
                     int x = (int) location.get(i).getX();
                     int y = (int) location.get(i).getY();
-                    location.set(i, new Point(x - 2, y));
+                    location.set(i, new Point(x - 1, y));
 
                 }
             }
