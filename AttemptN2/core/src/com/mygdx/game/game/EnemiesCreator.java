@@ -38,6 +38,7 @@ public class EnemiesCreator {
         yellowship = new Sprite(yellowship_sprite);
         blueship = new Sprite(blueship_sprite);
         location = getinitLocation();
+        System.out.println("pis");
     }
 
     private ArrayList getinitLocation() {
@@ -143,6 +144,7 @@ public class EnemiesCreator {
             int x = (int) location.get(i).getX();
             int y = (int) location.get(i).getY();
             location.set(i, new Point(x, y - 10));
+            System.out.println("shit");
         }
     }
 }
