@@ -69,6 +69,7 @@ public class EnemiesCreator {
             @Override
             public void run() {
                 moveSideway();
+                System.out.println(location.get(location.size() - 1).getX());
                 cancel();
 
             }
@@ -84,11 +85,13 @@ public class EnemiesCreator {
                     redship.setX(point.x);
                     redship.setY(point.y);
                     this.render(batch, enemyType);
-                } else if (enemyType == YELLOW) {
+                }
+                else if (enemyType == YELLOW) {
                     yellowship.setX(point.x);
                     yellowship.setY(point.y);
                     this.render(batch, enemyType);
-                } else if (enemyType == BLUE) {
+                }
+                else if (enemyType == BLUE) {
                     blueship.setX(point.x);
                     blueship.setY(point.y);
                     this.render(batch, enemyType);
@@ -102,19 +105,26 @@ public class EnemiesCreator {
     private boolean L = false;
 
     public void moveSideway() {
-        if (location.get(location.size() - 1).getX() < 1000 && location.get(location.size() - 1).getX() > 50) {
-            for (int i = 0; i < location.size() - 1; i++) {
-                int x = (int) location.get(i).getX();
-                int y = (int) location.get(i).getY();
-                if (R) {
-                    location.set(i, new Point(x + 5, y));
-                } else if (L) {
-                    location.set(i, new Point(x - 5, y));
+        if (R) {
+            if (location.get(location.size() - 1).getX() < 1000-redship_sprite.getWidth()) {
+                for (int i = 0; i < location.size(); i++) {
+                    int x = (int) location.get(i).getX();
+                    int y = (int) location.get(i).getY();
+                    location.set(i, new Point(x + 2, y));
+                }
+            }
+            else moveDown();
+        }
+        else if (L) {
+            if (location.get(0).getX() > 24) {
+                for (int i = 0; i < location.size(); i++) {
+                    int x = (int) location.get(i).getX();
+                    int y = (int) location.get(i).getY();
+                    location.set(i, new Point(x - 2, y));
 
                 }
             }
-        } else {
-            moveDown();
+            else moveDown();
         }
     }
 
@@ -127,7 +137,7 @@ public class EnemiesCreator {
             L = false;
         }
 
-        for (int i = 0; i < location.size() - 1; i++) {
+        for (int i = 0; i < location.size() ; i++) {
             int x = (int) location.get(i).getX();
             int y = (int) location.get(i).getY();
             location.set(i, new Point(x, y - 10));

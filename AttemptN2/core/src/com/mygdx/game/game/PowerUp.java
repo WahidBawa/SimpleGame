@@ -25,13 +25,19 @@ public class PowerUp {
         powerup.setY((float) y);
     }
 
-    public void render(SpriteBatch batch) {
-        powerup.draw(batch);
-    }
+//    private void powerupON(){//upon collecting the powerup this is called
+//        if(powerType==mirror){
+//            mirror_sprite=new Texture("Assets/Mirror/0.png");
+//        }
+//    }
 
     public void update(SpriteBatch batch) {
         powerup.setY(powerup.getY() - fallSpeed);
         this.render(batch);
+    }
+
+    public void render(SpriteBatch batch) {
+        powerup.draw(batch);
     }
 
     public int getX() {
