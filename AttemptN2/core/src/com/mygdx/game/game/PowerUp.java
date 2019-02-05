@@ -4,6 +4,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
+import java.awt.*;
 import java.util.Random;
 
 public class PowerUp {
@@ -14,6 +15,8 @@ public class PowerUp {
     private Texture powerup_sprite;
     private Sprite powerup;
 
+    Rectangle rect;
+
     public PowerUp(int type) {
         Texture[] powerups = {new Texture("Assets/spiritBomb.png"), new Texture("Assets/invincible.png")};
         powerup_sprite = powerups[rand.nextInt(powerups.length)];
@@ -23,21 +26,25 @@ public class PowerUp {
         y = Main.HEIGHT;
         powerup.setX((float) x);
         powerup.setY((float) y);
+
+        rect = new Rectangle((int) powerup.getX(), (int) powerup.getY(), (int) powerup.getWidth(), (int) powerup.getHeight());
     }
 
 //    private void powerupON(){//upon collecting the powerup this is called
 //        if(powerType==mirror){
 //            mirror_sprite=new Texture("Assets/Mirror/0.png");
 //        }
+
 //    }
+    public void render(SpriteBatch batch) {
+    powerup.draw(batch);
+}
 
     public void update(SpriteBatch batch) {
         powerup.setY(powerup.getY() - fallSpeed);
+        rect = new Rectangle((int) powerup.getX(), (int) powerup.getY(), (int) powerup.getWidth(), (int) powerup.getHeight());
+        System.out.println(rect.toString());
         this.render(batch);
-    }
-
-    public void render(SpriteBatch batch) {
-        powerup.draw(batch);
     }
 
     public int getX() {

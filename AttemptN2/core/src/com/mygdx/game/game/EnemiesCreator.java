@@ -5,6 +5,7 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 import java.awt.*;
+import java.awt.geom.Point2D;
 import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -35,7 +36,7 @@ public class EnemiesCreator {
         yellowship = new Sprite(yellowship_sprite);
         blueship = new Sprite(blueship_sprite);
         location = getinitLocation();
-        System.out.println("pis");
+//        System.out.println("pis");
     }
 
     private ArrayList getinitLocation() {
@@ -69,7 +70,7 @@ public class EnemiesCreator {
             @Override
             public void run() {
                 moveSideway();
-                System.out.println(location.get(location.size() - 1).getX());
+//                System.out.println(location.get(location.size() - 1).getX());
                 cancel();
 
             }
@@ -141,7 +142,6 @@ public class EnemiesCreator {
             int x = (int) location.get(i).getX();
             int y = (int) location.get(i).getY();
             location.set(i, new Point(x, y - 10));
-            System.out.println("shit");
         }
     }
 }

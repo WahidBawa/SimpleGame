@@ -4,16 +4,20 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
+import java.awt.*;
+
 public class Player {
     private float x, y;
     private Texture player_sprite;
     private Sprite player;
     private boolean shooting = false;
     private boolean rapidfire = false;
+    Rectangle rect;
 
     public Player(float x, float y) {
         player_sprite = new Texture("Assets/0.png");
         player = new Sprite(player_sprite);
+        rect = new Rectangle((int) player.getX(), (int) player.getY(), (int) player.getWidth(), (int) player.getHeight());
         this.x = x;
         this.y = y;
         player.setX(x);
@@ -28,6 +32,8 @@ public class Player {
     public void update(SpriteBatch batch) {
         player.setX(x);
         player.setY(y);
+        rect = new Rectangle((int) player.getX(), (int) player.getY(), (int) player.getWidth(), (int) player.getHeight());
+//        System.out.println(rect.toString());
         this.render(batch);
     }
 
@@ -67,6 +73,10 @@ public class Player {
 
     public void setRapidfire(boolean rapidfire) {
         this.rapidfire = rapidfire;
+    }
+
+    public Rectangle getRect() {
+        return rect;
     }
 }
 
