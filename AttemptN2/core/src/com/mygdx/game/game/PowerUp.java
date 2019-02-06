@@ -11,6 +11,7 @@ public class PowerUp {
     private int x, y, type, fallSpeed, width, height;
     private final static int SPIRITBOMB = 0;
     private final static int INVINCIBLE = 1;
+    private static final int MIRROR=2;
     private Random rand = new Random();
     private Texture powerup_sprite;
     private Sprite powerup;
@@ -18,7 +19,7 @@ public class PowerUp {
     Rectangle rect;
 
     public PowerUp() {
-        Texture[] powerups = {new Texture("Assets/spiritBomb.png"), new Texture("Assets/invincible.png")};
+        Texture[] powerups = {new Texture("Assets/spiritBomb.png"), new Texture("Assets/invincible.png"), new Texture("Assets/Mirror.png")};
         type = rand.nextInt(powerups.length);
         powerup_sprite = powerups[type];
         powerup = new Sprite(powerup_sprite);
@@ -27,7 +28,6 @@ public class PowerUp {
         y = Main.HEIGHT;
         powerup.setX((float) x);
         powerup.setY((float) y);
-
         rect = new Rectangle((int) powerup.getX(), (int) powerup.getY(), (int) powerup.getWidth(), (int) powerup.getHeight());
     }
 
@@ -38,7 +38,7 @@ public class PowerUp {
 
 //    }
     public void render(SpriteBatch batch) {
-    powerup.draw(batch);
+        powerup.draw(batch);
 }
 
     public void update(SpriteBatch batch) {
@@ -54,4 +54,17 @@ public class PowerUp {
     public int getType() {
         return type;
     }
+    private void powerupActivate(){
+        if(type==SPIRITBOMB){
+            //BOOOOOM
+            System.out.println("booooooooooom");
+        }
+        else if(type==INVINCIBLE){
+            System.out.println("can't kill me ");
+        }
+//        else if(type==MIRROR){
+//            Mirror block =new Mirror();
+//        }
+    }
+
 }

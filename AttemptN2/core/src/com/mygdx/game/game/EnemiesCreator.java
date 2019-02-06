@@ -15,12 +15,12 @@ public class EnemiesCreator {
     private int[][] enemit = {{3, 3, 3, 3, 3, 3, 3, 3, 3}, { 2, 2, 2, 2, 2, 2, 2, 2, 2}, {2, 2, 2, 2, 2, 2, 2, 2, 2}, {1, 1, 1, 1, 1, 1, 1, 1, 1}, { 1, 1, 1, 1, 1, 1, 1, 1, 1}};
     public static ArrayList<Point> location = new ArrayList<Point>();
     //texture for our enemies
-    private Texture redship_sprite;
-    private Texture yellowship_sprite;
-    private Texture blueship_sprite;
-    private Sprite blueship;
-    private Sprite yellowship;
-    private Sprite redship;
+    private Sprite redship_sprite;
+    private Sprite yellowship_sprite;
+    private Sprite blueship_sprite;
+    private Texture blueship;
+    private Texture yellowship;
+    private Texture redship;
     private static final int DEAD = 0;
     private static final int RED = 3;
     private static final int YELLOW = 2;
@@ -29,12 +29,12 @@ public class EnemiesCreator {
     //initialization code
 
     public EnemiesCreator() {
-        redship_sprite = new Texture("Assets/Enemies/0.png");
-        yellowship_sprite = new Texture("Assets/Enemies/1.png");
-        blueship_sprite = new Texture("Assets/Enemies/2.png");
-        redship = new Sprite(redship_sprite);
-        yellowship = new Sprite(yellowship_sprite);
-        blueship = new Sprite(blueship_sprite);
+        redship = new Texture("Assets/Enemies/0.png");
+        yellowship = new Texture("Assets/Enemies/1.png");
+        blueship= new Texture("Assets/Enemies/2.png");
+        redship_sprite = new Sprite(redship);
+        yellowship_sprite = new Sprite(yellowship);
+        blueship_sprite = new Sprite(blueship);
         location = getinitLocation();
 //        System.out.println("pis");
     }
@@ -56,11 +56,11 @@ public class EnemiesCreator {
 
     private void render(SpriteBatch batch, int type) {
         if (type == RED) {
-            redship.draw(batch);
+            redship_sprite.draw(batch);
         } else if (type == YELLOW) {
-            yellowship.draw(batch);
+            yellowship_sprite.draw(batch);
         } else if (type == BLUE) {
-            blueship.draw(batch);
+            blueship_sprite.draw(batch);
         }
     }
 
@@ -83,18 +83,18 @@ public class EnemiesCreator {
                 Point point = location.get(counter);
                 counter += 1;
                 if (enemyType == RED) {
-                    redship.setX(point.x);
-                    redship.setY(point.y);
+                    redship_sprite.setX(point.x);
+                    redship_sprite.setY(point.y);
                     this.render(batch, enemyType);
                 }
                 else if (enemyType == YELLOW) {
-                    yellowship.setX(point.x);
-                    yellowship.setY(point.y);
+                    yellowship_sprite.setX(point.x);
+                    yellowship_sprite.setY(point.y);
                     this.render(batch, enemyType);
                 }
                 else if (enemyType == BLUE) {
-                    blueship.setX(point.x);
-                    blueship.setY(point.y);
+                    blueship_sprite.setX(point.x);
+                    blueship_sprite.setY(point.y);
                     this.render(batch, enemyType);
                 }
 
