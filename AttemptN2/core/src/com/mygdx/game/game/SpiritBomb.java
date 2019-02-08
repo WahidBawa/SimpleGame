@@ -1,10 +1,19 @@
 package com.mygdx.game.game;
 
+import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 public class SpiritBomb extends Bullet {
+    private float x, y, width;
+    Texture bullet_sprite;
+    Sprite bullet;
     public SpiritBomb(float x, float y, float width) {
-        super(x, y, width);
+        this.x = x;
+        this.y = y;
+        this.width = width;
+        bullet_sprite = new Texture("Assets/spiritbomb_attack.png");
+        bullet = new Sprite(bullet_sprite);
     }
 
     @Override

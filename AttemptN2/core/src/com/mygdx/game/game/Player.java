@@ -5,15 +5,19 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 import java.awt.*;
+import java.util.ArrayList;
 
 public class Player {
     private float x, y;
     private Texture player_sprite;
     private Sprite player;
     private boolean shooting = false;
-    private boolean rapidfire = false;
+    private boolean usingPowerup = false;
     private final static int SPIRITBOMB = 0;
     private final static int INVINCIBLE = 1;
+    private final static int MIRROR = 2;
+    private ArrayList<Texture> powerupHUD = new ArrayList<Texture>();
+    private ArrayList<Integer> powerupID = new ArrayList<Integer>();
     Rectangle rect;
 
     public Player(float x, float y) {
@@ -29,6 +33,9 @@ public class Player {
     //updates character's position
     public void render(SpriteBatch batch) {
         player.draw(batch);
+        for (int i = 0; i < powerupHUD.size(); i++) {
+            batch.draw(powerupHUD.get(i), (Main.WIDTH - 174)+ (58 * i), Main.HEIGHT - 57);
+        }
     }
 
     public void update(SpriteBatch batch) {
@@ -39,12 +46,26 @@ public class Player {
         this.render(batch);
     }
 
+    public void usePowerup(){
+        this.setUsingPowerup(true);
+    }
+
     public void getPowerup(PowerUp powerup) {
         int type = powerup.getType();
-        if (type == INVINCIBLE){
-            System.out.println("Invincible");
-        }else if (type == SPIRITBOMB){
-            System.out.println("Spiritbomb");
+        if (powerupHUD.size() < 3){
+            if (type == INVINCIBLE) {
+                System.out.println("Invincible");
+                powerupHUD.add(new Texture("Assets/invincible.png"));
+                powerupID.add(INVINCIBLE);
+            } else if (type == SPIRITBOMB) {
+                System.out.println("Spiritbomb");
+                powerupHUD.add(new Texture("Assets/spiritbomb.png"));
+                powerupID.add(SPIRITBOMB);
+            } else if (type == MIRROR){
+                System.out.println("Mirror");
+                powerupHUD.add(new Texture("Assets/Mirror.png"));
+                powerupID.add(MIRROR);
+            }
         }
     }
 
@@ -58,7 +79,6 @@ public class Player {
 
     public Bullet shootBullet() {
         shooting = true;
-        System.out.println(player.getX());
         return new Bullet(player.getX(), player.getY(), player.getWidth());
     }
 
@@ -70,22 +90,6 @@ public class Player {
         this.shooting = shooting;
     }
 
-    public float getX() {
-        return x;
-    }
-
-    public float getY() {
-        return y;
-    }
-
-    public boolean isRapidfire() {
-        return rapidfire;
-    }
-
-    public void setRapidfire(boolean rapidfire) {
-        this.rapidfire = rapidfire;
-    }
-
     public boolean isCollidingWith(PowerUp powerup) {
         return powerup.getRect().intersects(this.getRect());
     }
@@ -93,5 +97,22 @@ public class Player {
     public Rectangle getRect() {
         return rect;
     }
+
+    public boolean isUsingPowerup() {
+        return usingPowerup;
+    }
+
+    public void setUsingPowerup(boolean usingPowerup) {
+        this.usingPowerup = usingPowerup;
+    }
+
+    //    public void addPowerup(SpiritBomb obj) {
+//        spiritbombs.add(obj);
+//    }
+//
+//    public void addPowerup(Mirror obj) {
+//        mirrors.add(obj);
+//    }
+
 }
 

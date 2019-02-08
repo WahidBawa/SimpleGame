@@ -43,11 +43,12 @@ public class Main extends ApplicationAdapter {
     public void render() {
         Gdx.gl.glClearColor(1, 0, 0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-        if (Gdx.input.isKeyPressed(Input.Keys.Z)) player.setRapidfire(true);
-        if (Gdx.input.isKeyPressed(Input.Keys.X)) player.setRapidfire(false);
         if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) player.goLeft();
         if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) player.goRight();
-        if (Gdx.input.isKeyPressed(Input.Keys.SPACE) && (!player.isShooting() && bullets.size() == 0 || player.isRapidfire())) {
+        if (!player.isUsingPowerup() && (Gdx.input.isKeyPressed(Input.Keys.SHIFT_LEFT) || Gdx.input.isKeyPressed(Input.Keys.SHIFT_RIGHT))){
+            player.usePowerup();
+        }
+        if (Gdx.input.isKeyPressed(Input.Keys.SPACE) && !player.isShooting() && bullets.size() == 0 && !player.isUsingPowerup()) {
             bullets.add(player.shootBullet());
         }
 //        System.out.println(System.currentTimeMillis());
@@ -55,13 +56,13 @@ public class Main extends ApplicationAdapter {
         batch.begin();
         batch.draw(bg, 0, 0);
 
+
         player.update(batch);
 
         int isDrop = powerupDrop.nextInt(1000);
         if (isDrop < 2 && powerups.size() == 0) powerups.add(new PowerUp());
         for (int i = 0; i < powerups.size(); i++) {
             powerups.get(i).update(batch);
-
             if (powerups.get(i).getRect().y + powerups.get(i).getRect().height < 0) {
                 powerups.remove(i);
             }else if (player.isCollidingWith(powerups.get(i))){
@@ -70,8 +71,6 @@ public class Main extends ApplicationAdapter {
             }
         }
 
-
-
         for (int i = 0; i < bullets.size(); i++) {
             bullets.get(i).update(batch);
             if (bullets.get(i).getY() > HEIGHT) {
@@ -79,7 +78,6 @@ public class Main extends ApplicationAdapter {
                 player.setShooting(false);
             }
         }
-
 
         enemy.update(batch);
         batch.end();

@@ -18,6 +18,9 @@ public class Bullet {
 
     }
 
+    public Bullet() {
+    }
+
     public void render(SpriteBatch batch) {
         bullet.setX(x + width / 2 - bullet.getWidth() / 2);
         bullet.draw(batch);
