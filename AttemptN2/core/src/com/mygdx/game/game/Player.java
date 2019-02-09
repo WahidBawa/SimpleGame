@@ -12,11 +12,9 @@ public class Player {
     private Texture player_sprite;
     private Sprite player;
     private boolean shooting = false;
-    private boolean usingPowerup = false;
     private final static int SPIRITBOMB = 0;
     private final static int INVINCIBLE = 1;
     private final static int MIRROR = 2;
-    private ArrayList<Texture> powerupHUD = new ArrayList<Texture>();
     private ArrayList<Integer> powerupID = new ArrayList<Integer>();
     Rectangle rect;
 
@@ -33,9 +31,9 @@ public class Player {
     //updates character's position
     public void render(SpriteBatch batch) {
         player.draw(batch);
-        for (int i = 0; i < powerupHUD.size(); i++) {
-            batch.draw(powerupHUD.get(i), (Main.WIDTH - 174)+ (58 * i), Main.HEIGHT - 57);
-        }
+//        for (int i = 0; i < powerupHUD.size(); i++) {
+//            batch.draw(powerupHUD.get(i), (Main.WIDTH - 174)+ (58 * i), Main.HEIGHT - 57);
+//        }
     }
 
     public void update(SpriteBatch batch) {
@@ -47,23 +45,23 @@ public class Player {
     }
 
     public void usePowerup(){
-        this.setUsingPowerup(true);
+        if (powerupID.size() > 0){
+            powerupID.remove(0);
+            Main.hud.removePowerup();
+        }
     }
 
     public void getPowerup(PowerUp powerup) {
         int type = powerup.getType();
-        if (powerupHUD.size() < 3){
+        if (powerupID.size() < 3){
             if (type == INVINCIBLE) {
-                System.out.println("Invincible");
-                powerupHUD.add(new Texture("Assets/invincible.png"));
+                Main.hud.addPowerup(new Texture("Assets/invincible.png"));
                 powerupID.add(INVINCIBLE);
             } else if (type == SPIRITBOMB) {
-                System.out.println("Spiritbomb");
-                powerupHUD.add(new Texture("Assets/spiritbomb.png"));
+                Main.hud.addPowerup(new Texture("Assets/spiritbomb.png"));
                 powerupID.add(SPIRITBOMB);
             } else if (type == MIRROR){
-                System.out.println("Mirror");
-                powerupHUD.add(new Texture("Assets/Mirror.png"));
+                Main.hud.addPowerup(new Texture("Assets/Mirror.png"));
                 powerupID.add(MIRROR);
             }
         }
@@ -96,14 +94,6 @@ public class Player {
 
     public Rectangle getRect() {
         return rect;
-    }
-
-    public boolean isUsingPowerup() {
-        return usingPowerup;
-    }
-
-    public void setUsingPowerup(boolean usingPowerup) {
-        this.usingPowerup = usingPowerup;
     }
 
     //    public void addPowerup(SpiritBomb obj) {

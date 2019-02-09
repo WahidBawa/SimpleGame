@@ -28,6 +28,8 @@ public class Main extends ApplicationAdapter {
     Player player;
     Random powerupDrop = new Random();
 
+    public static HUD hud;
+
     @Override
     public void create() {
         graphics.setWindowedMode(WIDTH, HEIGHT);
@@ -36,6 +38,7 @@ public class Main extends ApplicationAdapter {
         player = new Player(0, 50);
         shapeRenderer = new ShapeRenderer();
         enemy = new EnemiesCreator();
+        hud = new HUD();
     }
 
 
@@ -45,10 +48,10 @@ public class Main extends ApplicationAdapter {
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) player.goLeft();
         if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) player.goRight();
-        if (!player.isUsingPowerup() && (Gdx.input.isKeyPressed(Input.Keys.SHIFT_LEFT) || Gdx.input.isKeyPressed(Input.Keys.SHIFT_RIGHT))){
+        if (Gdx.input.isKeyPressed(Input.Keys.SHIFT_LEFT) || Gdx.input.isKeyPressed(Input.Keys.SHIFT_RIGHT)){
             player.usePowerup();
         }
-        if (Gdx.input.isKeyPressed(Input.Keys.SPACE) && !player.isShooting() && bullets.size() == 0 && !player.isUsingPowerup()) {
+        if (Gdx.input.isKeyPressed(Input.Keys.SPACE) && !player.isShooting() && bullets.size() == 0) {
             bullets.add(player.shootBullet());
         }
 //        System.out.println(System.currentTimeMillis());
@@ -80,8 +83,9 @@ public class Main extends ApplicationAdapter {
         }
 
         enemy.update(batch);
+        hud.update(batch);
         batch.end();
-
+        System.out.println(Gdx.input.getX() + " " + Gdx.input.getY());
         shapeRenderer.begin(ShapeRenderer.ShapeType.Filled);
         shapeRenderer.setColor(Color.BLACK);
         // insert any shape you want to create
