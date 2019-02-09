@@ -19,12 +19,12 @@ public class Main extends ApplicationAdapter {
     Texture bg;
     ArrayList<Bullet> bullets = new ArrayList<Bullet>();
     ArrayList<PowerUp> powerups = new ArrayList<PowerUp>();
+    ArrayList<ArrayList<EnemiesCreator>> enemy=new ArrayList<ArrayList<EnemiesCreator>>();
 
     public static final int WIDTH = 1024;
     public static final int HEIGHT = 1024;
 
     public static ShapeRenderer shapeRenderer;
-    EnemiesCreator enemy;
     Player player;
     Random powerupDrop = new Random();
 
@@ -37,7 +37,14 @@ public class Main extends ApplicationAdapter {
         batch = new SpriteBatch();
         player = new Player(0, 50);
         shapeRenderer = new ShapeRenderer();
-        enemy = new EnemiesCreator();
+        for(int i = 0; i<5; i++) {
+            ArrayList<EnemiesCreator> temp = new ArrayList<EnemiesCreator>();
+            for (int j = 0; j < 8; j++) {
+                temp.add(new EnemiesCreator(i, j));
+            }
+            enemy.add(temp);
+        }
+
         hud = new HUD();
     }
 
@@ -83,7 +90,11 @@ public class Main extends ApplicationAdapter {
             }
         }
 
-        enemy.update(batch);
+        for (int i = 0; i < 5; i++) {
+            for (int k = 0; k < 8; k++) {
+                enemy.get(i).get(k).update(batch,enemy);
+            }
+        }
         hud.update(batch);
         batch.end();
 //        System.out.println(Gdx.input.getX() + " " + Gdx.input.getY());
