@@ -50,7 +50,7 @@ public class EnemiesCreator {
     }
 
 
-    private void render(SpriteBatch batch) {
+    public void render(SpriteBatch batch) {
         if (enemyType == RED) {
             redship_sprite.draw(batch);
         } else if (enemyType == YELLOW) {
@@ -60,8 +60,8 @@ public class EnemiesCreator {
         }
     }
 
-    public void update(SpriteBatch batch,ArrayList<ArrayList<EnemiesCreator>> en) {
-        moveSideway(en);
+    public void update(SpriteBatch batch) {
+        rect = new Rectangle(x, y, (int) redship_sprite.getWidth(), (int) redship_sprite.getHeight());
         if (enemyType == RED) {
             redship_sprite.setX(x);
             redship_sprite.setY(y);
@@ -77,7 +77,6 @@ public class EnemiesCreator {
             blueship_sprite.setY(y);
             this.render(batch);
         }
-        rect = new Rectangle(this.x, this.y, (int) redship_sprite.getWidth(), (int) redship_sprite.getHeight());
     }
 
 
@@ -95,7 +94,8 @@ public class EnemiesCreator {
                     }
                 }
             }
-        } else moveDown(en);
+        }
+        else moveDown(en);
     }
 
     private void moveDown(ArrayList<ArrayList<EnemiesCreator>> en) {

@@ -93,12 +93,8 @@ public class Main extends ApplicationAdapter {
                 player.setShooting(false);
             }
         }
-
-        for (int i = 0; i < 5; i++) {
-            for (int k = 0; k < 8; k++) {
-                enemy.get(i).get(k).update(batch,enemy);
-            }
-        }
+        enemy.get(0).get(0).moveSideway(enemy);
+        enemy.get(4).get(5).update(batch);
         hud.update(batch);
 
         counter += 1;
