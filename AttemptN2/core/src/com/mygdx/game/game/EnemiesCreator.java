@@ -5,14 +5,13 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 import java.awt.*;
-import java.awt.geom.Point2D;
 import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
 
 
 public class EnemiesCreator {
-    private int[][] enemit = {{3, 3, 3, 3, 3, 3, 3, 3, 3}, { 2, 2, 2, 2, 2, 2, 2, 2, 2}, {2, 2, 2, 2, 2, 2, 2, 2, 2}, {1, 1, 1, 1, 1, 1, 1, 1, 1}, { 1, 1, 1, 1, 1, 1, 1, 1, 1}};
+    private int[][] enemit = {{3, 3, 3, 3, 3, 3, 3, 3, 3}, {2, 2, 2, 2, 2, 2, 2, 2, 2}, {2, 2, 2, 2, 2, 2, 2, 2, 2}, {1, 1, 1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1, 1, 1}};
     public static ArrayList<Point> location = new ArrayList<Point>();
     //texture for our enemies
     private Sprite redship_sprite;
@@ -31,7 +30,7 @@ public class EnemiesCreator {
     public EnemiesCreator() {
         redship = new Texture("Assets/Enemies/0.png");
         yellowship = new Texture("Assets/Enemies/1.png");
-        blueship= new Texture("Assets/Enemies/2.png");
+        blueship = new Texture("Assets/Enemies/2.png");
         redship_sprite = new Sprite(redship);
         yellowship_sprite = new Sprite(yellowship);
         blueship_sprite = new Sprite(blueship);
@@ -86,13 +85,11 @@ public class EnemiesCreator {
                     redship_sprite.setX(point.x);
                     redship_sprite.setY(point.y);
                     this.render(batch, enemyType);
-                }
-                else if (enemyType == YELLOW) {
+                } else if (enemyType == YELLOW) {
                     yellowship_sprite.setX(point.x);
                     yellowship_sprite.setY(point.y);
                     this.render(batch, enemyType);
-                }
-                else if (enemyType == BLUE) {
+                } else if (enemyType == BLUE) {
                     blueship_sprite.setX(point.x);
                     blueship_sprite.setY(point.y);
                     this.render(batch, enemyType);
@@ -107,16 +104,14 @@ public class EnemiesCreator {
 
     public void moveSideway() {
         if (R) {
-            if (location.get(location.size() - 1).getX() < 1000-redship_sprite.getWidth()) {
+            if (location.get(location.size() - 1).getX() < 1000 - redship_sprite.getWidth()) {
                 for (int i = 0; i < location.size(); i++) {
                     int x = (int) location.get(i).getX();
                     int y = (int) location.get(i).getY();
                     location.set(i, new Point(x + 1, y));
                 }
-            }
-            else moveDown();
-        }
-        else if (L) {
+            } else moveDown();
+        } else if (L) {
             if (location.get(0).getX() > 24) {
                 for (int i = 0; i < location.size(); i++) {
                     int x = (int) location.get(i).getX();
@@ -124,8 +119,7 @@ public class EnemiesCreator {
                     location.set(i, new Point(x - 1, y));
 
                 }
-            }
-            else moveDown();
+            } else moveDown();
         }
     }
 
@@ -138,7 +132,7 @@ public class EnemiesCreator {
             L = false;
         }
 
-        for (int i = 0; i < location.size() ; i++) {
+        for (int i = 0; i < location.size(); i++) {
             int x = (int) location.get(i).getX();
             int y = (int) location.get(i).getY();
             location.set(i, new Point(x, y - 10));

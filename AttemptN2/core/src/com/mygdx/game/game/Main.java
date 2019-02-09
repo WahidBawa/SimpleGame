@@ -48,7 +48,7 @@ public class Main extends ApplicationAdapter {
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) player.goLeft();
         if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) player.goRight();
-        if (Gdx.input.isKeyPressed(Input.Keys.SHIFT_LEFT) || Gdx.input.isKeyPressed(Input.Keys.SHIFT_RIGHT)){
+        if (Gdx.input.isKeyPressed(Input.Keys.SHIFT_LEFT) || Gdx.input.isKeyPressed(Input.Keys.SHIFT_RIGHT)) {
             player.usePowerup();
         }
         if (Gdx.input.isKeyPressed(Input.Keys.SPACE) && !player.isShooting() && bullets.size() == 0) {
@@ -62,13 +62,14 @@ public class Main extends ApplicationAdapter {
 
         player.update(batch);
 
-        int isDrop = powerupDrop.nextInt(1000);
+//        int isDrop = powerupDrop.nextInt(1000);
+        int isDrop = powerupDrop.nextInt(10);
         if (isDrop < 2 && powerups.size() == 0) powerups.add(new PowerUp());
         for (int i = 0; i < powerups.size(); i++) {
             powerups.get(i).update(batch);
             if (powerups.get(i).getRect().y + powerups.get(i).getRect().height < 0) {
                 powerups.remove(i);
-            }else if (player.isCollidingWith(powerups.get(i))){
+            } else if (player.isCollidingWith(powerups.get(i))) {
                 player.getPowerup(powerups.get(i));
                 powerups.remove(i);
             }
@@ -85,7 +86,7 @@ public class Main extends ApplicationAdapter {
         enemy.update(batch);
         hud.update(batch);
         batch.end();
-        System.out.println(Gdx.input.getX() + " " + Gdx.input.getY());
+//        System.out.println(Gdx.input.getX() + " " + Gdx.input.getY());
         shapeRenderer.begin(ShapeRenderer.ShapeType.Filled);
         shapeRenderer.setColor(Color.BLACK);
         // insert any shape you want to create

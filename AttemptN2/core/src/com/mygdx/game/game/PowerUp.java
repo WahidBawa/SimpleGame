@@ -8,10 +8,7 @@ import java.awt.*;
 import java.util.Random;
 
 public class PowerUp {
-    private int x, y, type, fallSpeed, width, height;
-    private final static int SPIRITBOMB = 0;
-    private final static int INVINCIBLE = 1;
-    private static final int MIRROR=2;
+    private int x, y, type, fallSpeed;
     private Random rand = new Random();
     private Texture powerup_sprite;
     private Sprite powerup;
@@ -26,17 +23,11 @@ public class PowerUp {
         fallSpeed = rand.nextInt(5) + 1;
         x = rand.nextInt(Main.WIDTH - powerup_sprite.getWidth());
         y = Main.HEIGHT;
-        powerup.setX((float) x);
-        powerup.setY((float) y);
+        powerup.setX(x);
+        powerup.setY(y);
         rect = new Rectangle((int) powerup.getX(), (int) powerup.getY(), (int) powerup.getWidth(), (int) powerup.getHeight());
     }
 
-//    private void powerupON(){//upon collecting the powerup this is called
-//        if(powerType==mirror){
-//            mirror_sprite=new Texture("Assets/Mirror/0.png");
-//        }
-
-//    }
     public void render(SpriteBatch batch) {
         powerup.draw(batch);
 }
@@ -53,18 +44,6 @@ public class PowerUp {
 
     public int getType() {
         return type;
-    }
-    private void powerupActivate(){
-        if(type==SPIRITBOMB){
-            //BOOOOOM
-            System.out.println("booooooooooom");
-        }
-        else if(type==INVINCIBLE){
-            System.out.println("can't kill me ");
-        }
-//        else if(type==MIRROR){
-//            Mirror block =new Mirror();
-//        }
     }
 
 }

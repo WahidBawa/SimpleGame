@@ -15,6 +15,8 @@ public class Player {
     private final static int SPIRITBOMB = 0;
     private final static int INVINCIBLE = 1;
     private final static int MIRROR = 2;
+    private boolean using_spiritbomb = false;
+    private SpiritBomb spiritbomb;
     private ArrayList<Integer> powerupID = new ArrayList<Integer>();
     Rectangle rect;
 
@@ -41,11 +43,18 @@ public class Player {
         player.setY(y);
         rect = new Rectangle((int) player.getX(), (int) player.getY(), (int) player.getWidth(), (int) player.getHeight());
 //        System.out.println(rect.toString());
+        if (using_spiritbomb){
+            spiritbomb.update(batch);
+        }
         this.render(batch);
     }
 
-    public void usePowerup(){
-        if (powerupID.size() > 0){
+    public void usePowerup() {
+        if (powerupID.size() > 0) {
+            if (powerupID.get(0) == SPIRITBOMB){
+                using_spiritbomb = true;
+                spiritbomb = new SpiritBomb(player.getX(), player.getY(), player.getWidth());
+            }
             powerupID.remove(0);
             Main.hud.removePowerup();
         }
@@ -53,14 +62,14 @@ public class Player {
 
     public void getPowerup(PowerUp powerup) {
         int type = powerup.getType();
-        if (powerupID.size() < 3){
+        if (powerupID.size() < 3) {
             if (type == INVINCIBLE) {
                 Main.hud.addPowerup(new Texture("Assets/invincible.png"));
                 powerupID.add(INVINCIBLE);
             } else if (type == SPIRITBOMB) {
                 Main.hud.addPowerup(new Texture("Assets/spiritbomb.png"));
                 powerupID.add(SPIRITBOMB);
-            } else if (type == MIRROR){
+            } else if (type == MIRROR) {
                 Main.hud.addPowerup(new Texture("Assets/Mirror.png"));
                 powerupID.add(MIRROR);
             }

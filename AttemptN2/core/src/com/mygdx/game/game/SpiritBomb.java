@@ -4,35 +4,40 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
-public class SpiritBomb extends Bullet {
+import java.awt.*;
+
+public class SpiritBomb{
     private float x, y, width;
     Texture bullet_sprite;
     Sprite bullet;
+
+    Rectangle rect;
+
     public SpiritBomb(float x, float y, float width) {
         this.x = x;
         this.y = y;
         this.width = width;
         bullet_sprite = new Texture("Assets/spiritbomb_attack.png");
         bullet = new Sprite(bullet_sprite);
+        rect = new Rectangle((int) bullet.getX(), (int) bullet.getY(), (int) bullet.getWidth(), (int) bullet.getHeight());
     }
 
-    @Override
     public void render(SpriteBatch batch) {
-        super.render(batch);
+        bullet.setX(x + width / 2 - bullet.getWidth() / 2);
+        bullet.draw(batch);
     }
 
-    @Override
     public void update(SpriteBatch batch) {
-        super.update(batch);
+        y += 12;
+        bullet.setY(y);
+        this.render(batch);
     }
 
-    @Override
     public float getX() {
-        return super.getX();
+        return this.getX();
     }
 
-    @Override
     public float getY() {
-        return super.getY();
+        return this.getY();
     }
 }
