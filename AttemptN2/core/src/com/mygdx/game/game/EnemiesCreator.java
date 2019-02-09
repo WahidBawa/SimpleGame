@@ -64,17 +64,7 @@ public class EnemiesCreator {
     }
 
     public void update(SpriteBatch batch) {
-        Timer timer = new Timer();
-        TimerTask one = new TimerTask() {
-            @Override
-            public void run() {
-                moveSideway();
-//                System.out.println(location.get(location.size() - 1).getX());
-                cancel();
-
-            }
-        };
-        timer.schedule(one, Long.valueOf(2 * 1000), Long.valueOf(1));
+        moveSideway();
         int counter = 0;
         for (int i = 0; i < 5; i++) {
             for (int j = 0; j < 8; j++) {
