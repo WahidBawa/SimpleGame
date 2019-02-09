@@ -30,6 +30,10 @@ public class Main extends ApplicationAdapter {
 
     public static HUD hud;
 
+    int counter = 0;
+    int pos = 0;
+    int animation_speed = 2;
+
     @Override
     public void create() {
         graphics.setWindowedMode(WIDTH, HEIGHT);
@@ -85,12 +89,18 @@ public class Main extends ApplicationAdapter {
 
         enemy.update(batch);
         hud.update(batch);
+
+        counter += 1;
+        if (counter > animation_speed) {
+            counter = 0;
+            pos += 1;
+            if (pos >= 3) {
+                pos = 0;
+            }
+        }
+
         batch.end();
-//        System.out.println(Gdx.input.getX() + " " + Gdx.input.getY());
-        shapeRenderer.begin(ShapeRenderer.ShapeType.Filled);
-        shapeRenderer.setColor(Color.BLACK);
-        // insert any shape you want to create
-        shapeRenderer.end();
+
 
     }
 
