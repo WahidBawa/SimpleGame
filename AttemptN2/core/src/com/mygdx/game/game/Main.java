@@ -14,10 +14,12 @@ import java.util.ArrayList;
 import java.util.Random;
 
 import static com.badlogic.gdx.Gdx.graphics;
+import static com.badlogic.gdx.math.MathUtils.random;
 
 public class Main extends ApplicationAdapter {
     public static SpriteBatch batch;
     Texture bg;
+    ArrayList<Bullet> enemybullets= new ArrayList<Bullet>();
     ArrayList<Bullet> bullets = new ArrayList<Bullet>();
     ArrayList<PowerUp> powerups = new ArrayList<PowerUp>();
     public static ArrayList<ArrayList<Enemy>> enemies =new ArrayList<ArrayList<Enemy>>();
@@ -67,6 +69,27 @@ public class Main extends ApplicationAdapter {
         if (Gdx.input.isKeyPressed(Input.Keys.SPACE) && !player.isShooting() && bullets.size() == 0) {
             bullets.add(player.shootBullet());
         }
+        ArrayList<Enemy> canShoot=new ArrayList<Enemy>(); //start with the bottom row
+        for(int n=0;n<enemies.get(4).size()-1;n++){
+            canShoot.add(enemies.get(4).get(n));
+        }
+        for (int i = enemies.size()-1; i >0; i--) { //if any enemy is dead in the bottom row it will get replaced by the enemy on top of it
+            for (int n = 0; n < enemies.get(i).size()-1; n++) {
+                if(canShoot.get(n).isDead()){
+                    canShoot.set(n,enemies.get(i).get(n));
+                }
+            }
+        }
+        ArrayList<Integer>enemyShooterNumber= new ArrayList<Integer>();
+        Random rand=new Random();
+        int pew = rand.nextInt(canShoot.size());
+        if(!canShoot.get(pew).isShooting&&enemybullets.size()<6){
+            enemybullets.add(canShoot.get(pew).shootBullet());
+            enemyShooterNumber.add(pew);
+        }
+
+
+
 //        System.out.println(System.currentTimeMillis());
 
         batch.begin();
@@ -93,6 +116,24 @@ public class Main extends ApplicationAdapter {
             if (bullets.get(i).getY() > HEIGHT) {
                 bullets.remove(i);
                 player.setShooting(false);
+            }
+        }
+        for (int i = 0; i < enemybullets.size(); i++) {
+            enemybullets.get(i).update(batch);
+            if (enemybullets.get(i).getY() > HEIGHT) {
+                enemybullets.remove(i);
+                if (!canShoot.isEmpty()&&!enemyShooterNumber.isEmpty()) {
+                    canShoot.get(enemyShooterNumber.get(i)).isShooting = false;
+                    enemyShooterNumber.remove(i);
+                }
+            }
+        }
+        for (int f = 0; f < enemybullets.size(); f++){
+            if(player.isCollidingWith(enemybullets.get(f))){
+                System.out.println("man down");
+                enemybullets.remove(f);
+                player.setShooting(false);
+                canShoot.get(enemyShooterNumber.get(f)).isShooting=false;
             }
         }
 
@@ -137,7 +178,7 @@ public class Main extends ApplicationAdapter {
     public void inverseShipDirection(){
         for (int i = 0; i < enemies.size(); i++){
             for (int n = 0; n < enemies.get(i).size(); n++){
-                enemies.get(i).get(n).setY(enemies.get(i).get(n).getRect().y - 25);
+//                enemies.get(i).get(n).setX(Main.HEIGHT - enemies.get(i).get(n).getRect().width);
                 enemies.get(i).get(n).inverseSpeed();
             }
         }

@@ -26,8 +26,8 @@ public class Enemy {
     private boolean dead = false;
     private Rectangle rect;
     private int speed = 1;
+    public boolean isShooting=false;
     //initialization code
-
 
     public Enemy(String type, int x, int y) {
         blueship = new Texture("Assets/Enemies/2.png");
@@ -44,6 +44,10 @@ public class Enemy {
         sprite.setX(50 + x * 100);
         sprite.setY(Main.HEIGHT - 200 - (75 * y));
         rect = new Rectangle((int) sprite.getX(), (int) sprite.getY(), (int) sprite.getWidth(), (int) sprite.getHeight());
+    }
+    public Bullet shootBullet() {
+        isShooting=true;
+        return new Bullet(sprite.getX(), sprite.getY(), sprite.getWidth(),1);
     }
 
 
@@ -78,7 +82,7 @@ public class Enemy {
 
     public void setDead(boolean dead) {
         Random rand = new Random();
-        int n = rand.nextInt(5);
+        int n = rand.nextInt(8);
         if(n==1){
             bomb.play();
         }

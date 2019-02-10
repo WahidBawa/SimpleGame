@@ -14,6 +14,7 @@ public class Player {
     private boolean shooting = false;
     private final static int SPIRITBOMB = 0;
     private final static int INVINCIBLE = 1;
+    public boolean isAlive=true;
     private final static int MIRROR = 2;
     private boolean using_spiritbomb = false;
     private SpiritBomb spiritbomb;
@@ -36,27 +37,26 @@ public class Player {
     }
 
     public void update(SpriteBatch batch) {
-        player.setX(x);
-        player.setY(y);
-        rect = new Rectangle((int) player.getX(), (int) player.getY(), (int) player.getWidth(), (int) player.getHeight());
+            player.setX(x);
+            player.setY(y);
+            rect = new Rectangle((int) player.getX(), (int) player.getY(), (int) player.getWidth(), (int) player.getHeight());
 //        System.out.println(rect.toString());
-        if (using_spiritbomb) {
-            spiritbomb.update(batch);
-            if (spiritbomb.getRect().y > Main.HEIGHT){
-                using_spiritbomb = false;
-            }
-            for (int i = 0; i < Main.enemies.size(); i++) {
-                for (int n = 0; n < Main.enemies.get(i).size(); n++) {
-                    Main.enemies.get(i).get(n).update(batch);
-                    if (Main.enemies.get(i).get(n).isCollidingWith(spiritbomb)) {
-                        System.out.println("man down");
-                        Main.enemies.get(i).get(n).setDead(true);
+            if (using_spiritbomb) {
+                spiritbomb.update(batch);
+                if (spiritbomb.getRect().y > Main.HEIGHT) {
+                    using_spiritbomb = false;
+                }
+                for (int i = 0; i < Main.enemies.size(); i++) {
+                    for (int n = 0; n < Main.enemies.get(i).size(); n++) {
+                        Main.enemies.get(i).get(n).update(batch);
+                        if (Main.enemies.get(i).get(n).isCollidingWith(spiritbomb)) {
+                            System.out.println("man down");
+                            Main.enemies.get(i).get(n).setDead(true);
+                        }
                     }
                 }
             }
-        }
-        render(batch);
-
+            render(batch);
     }
 
     public void usePowerup() {
@@ -96,7 +96,7 @@ public class Player {
 
     public Bullet shootBullet() {
         shooting = true;
-        return new Bullet(player.getX(), player.getY(), player.getWidth());
+        return new Bullet(player.getX(), player.getY(), player.getWidth(),0);
     }
 
     public boolean isShooting() {
@@ -110,7 +110,10 @@ public class Player {
     public boolean isCollidingWith(PowerUp powerup) {
         return powerup.getRect().intersects(this.getRect());
     }
-
+    public boolean isCollidingWith(Bullet bullet) {
+        isAlive=false;
+        return bullet.getRect().intersects(this.getRect()) && false;
+    }
     public Rectangle getRect() {
         return rect;
     }
