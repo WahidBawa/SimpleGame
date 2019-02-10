@@ -33,14 +33,13 @@ public class Main extends ApplicationAdapter {
     int counter = 0;
     int pos = 0;
     int animation_speed = 2;
-
+    public static Texture[] explosion = new Texture[73];
     @Override
     public void create() {
         graphics.setWindowedMode(WIDTH, HEIGHT);
         bg = new Texture("Assets/jpgs/space-1.jpg");
         batch = new SpriteBatch();
         player = new Player(0, 50);
-        shapeRenderer = new ShapeRenderer();
         for(int i = 0; i<5; i++) {
             ArrayList<Enemy> temp = new ArrayList<Enemy>();
             for (int j = 0; j < 8; j++) {
@@ -52,6 +51,10 @@ public class Main extends ApplicationAdapter {
         }
 
         hud = new HUD();
+
+        for (int i = 0; i < 73; i++){
+            explosion[i] = new Texture("Assets/EXPLOSION/" + i + ".png");
+        }
     }
 
 

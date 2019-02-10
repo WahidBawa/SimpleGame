@@ -22,6 +22,16 @@ public class Enemy {
     private Rectangle rect;
     private int speed = 1;
     private int pointValue;
+
+    int counter = 0;
+    int pos = 0;
+    int animation_speed = 1;
+
+    Sprite explosion;
+
+    private int deathX, deathY;
+
+    private boolean isExplosionDone = false;
     //initialization code
 
 
@@ -49,11 +59,27 @@ public class Enemy {
     public void render(SpriteBatch batch) {
         rect = new Rectangle((int) sprite.getX(), (int) sprite.getY(), (int) sprite.getWidth(), (int) sprite.getHeight());
         sprite.draw(batch);
+        if (this.isDead() && !isExplosionDone){
+            if (pos == 72) isExplosionDone = true;
+            explosion = new Sprite(Main.explosion[pos]);
+            explosion.setX(deathX);
+            explosion.setY(deathY);
+            explosion.draw(batch);
+        }
     }
 
     public void update(SpriteBatch batch) {
         if (this.isDead()) {
             sprite.setAlpha(0);
+
+            counter += 1;
+            if (counter > animation_speed) {
+                counter = 0;
+                pos += 1;
+                if (pos >= 73) {
+                    pos = 0;
+                }
+            }
         }
         sprite.setX(sprite.getX() + speed);
         this.render(batch);
@@ -91,6 +117,8 @@ public class Enemy {
             die2.play();
         }
         this.dead = dead;
+        deathX = this.getRect().x;
+        deathY = this.getRect().y;
     }
 
     public void inverseSpeed(){

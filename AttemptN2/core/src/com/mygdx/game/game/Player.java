@@ -73,7 +73,7 @@ public class Player {
 
     public void getPowerup(PowerUp powerup) {
         int type = powerup.getType();
-        if (powerupID.size() < 3) {
+        if (powerupID.size() == 0) {
             if (type == INVINCIBLE) {
                 Main.hud.addPowerup(new Texture("Assets/invincible.png"));
                 powerupID.add(INVINCIBLE);
