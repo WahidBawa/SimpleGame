@@ -1,5 +1,4 @@
 package com.mygdx.game.game;
-
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
@@ -10,10 +9,8 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.utils.viewport.FillViewport;
-
 import java.util.ArrayList;
 import java.util.Random;
-
 import static com.badlogic.gdx.Gdx.graphics;
 
 public class Main extends ApplicationAdapter {
@@ -114,15 +111,15 @@ public class Main extends ApplicationAdapter {
 
         batch.begin();
         pregame();
-        music.play();
-        music.setOnCompletionListener(new Music.OnCompletionListener() {//once the song is over repeat it!
-            @Override
-            public void onCompletion(Music music) {
-                Gdx.app.log("Music:", "Beginning ended");
-                music.play();
-            }
-        });
         if (playerAlive && gameStarted) {
+            music.play();
+            music.setOnCompletionListener(new Music.OnCompletionListener() {//once the song is over repeat it!
+                @Override
+                public void onCompletion(Music music) {
+                    Gdx.app.log("Music:", "Beginning ended");
+                    music.play();
+                }
+            });
             batch.draw(bg, 0, 0);
             player.update(batch);
             dropPowerup();
@@ -148,7 +145,6 @@ public class Main extends ApplicationAdapter {
             OrthographicCamera camera = new OrthographicCamera();
             camera.position.set(512, 512, 0);
             FillViewport viewport = new FillViewport(1024, 1024, camera);
-            graphics.setWindowedMode(WIDTH, HEIGHT);
             if (Gdx.input.isKeyPressed(Input.Keys.SPACE) && starting1 == false) {//starting to play
 
                 starting1 = true; //starting 2nd phase
@@ -214,7 +210,8 @@ public class Main extends ApplicationAdapter {
                 font4.draw(batch, "Bomb", 550, 150);
                 font4.draw(batch, "Invincible", 520, 50);
             }
-        }else{
+        }
+        else{
             gameStarted = true;
         }
     }
