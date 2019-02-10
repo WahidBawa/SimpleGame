@@ -1,5 +1,7 @@
 package com.mygdx.game.game;
 
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -8,6 +10,8 @@ import java.awt.*;
 
 
 public class Enemy {
+    Sound die= Gdx.audio.newSound(Gdx.files.internal("Assets/Sound/kill.mp3"));
+    Sound bomb=Gdx.audio.newSound(Gdx.files.internal("Assets/Sound/kill2.mp3"));
     public static int x;
     public static int y;
     public static int enemyType;
@@ -56,10 +60,12 @@ public class Enemy {
     }
 
     public boolean isCollidingWith(Bullet bullet) {
+        die.play();
         return bullet.getRect().intersects(this.getRect()) && !this.isDead();
     }
 
     public boolean isCollidingWith(SpiritBomb spiritBomb) {
+        bomb.play();
         return spiritBomb.getRect().intersects(this.getRect()) && !this.isDead();
     }
 

@@ -18,6 +18,7 @@ public class IntroEnd extends ApplicationAdapter{
     Texture player;
     Texture bullet;
     Texture enemy;
+    Texture ship;
     public static final int WIDTH = 1024;
     public static final int HEIGHT = 1024;
 
@@ -25,6 +26,8 @@ public class IntroEnd extends ApplicationAdapter{
     public void create() {
         player = new Texture("Assets/0.png");
         bullet = new Texture("Assets/1.png");
+        ship= new Texture("Assets/2.png");
+        enemy= new Texture("Assets/Enemies/0.png");
         font = new BitmapFont(Gdx.files.internal("Assets/one/impact.fnt"));
         font.getData();
         background=new Texture("Assets/start.png");
@@ -42,8 +45,9 @@ public class IntroEnd extends ApplicationAdapter{
         batch.draw(background,0, 0);
         font.draw(batch, " SPACE LEGEND", 50, 300);
         batch.draw(player,275,0);
-        batch.draw(bullet,275,380);
+        batch.draw(bullet,275,350);
         batch.draw(enemy,275,400);
+        batch.draw(ship,70,390);
         batch.end();
     }
 
