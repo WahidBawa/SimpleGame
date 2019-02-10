@@ -51,6 +51,7 @@ public class Main extends ApplicationAdapter {
     public boolean playerAlive = true;
     public boolean gameStarted = false;
     private int aliveEnemies;
+
     @Override
     public void create() {
         start0 = Gdx.audio.newMusic(Gdx.files.internal("Assets/Sound/start0.mp3")); //first sound in intro
@@ -116,6 +117,7 @@ public class Main extends ApplicationAdapter {
         intro();
         aliveEnemies = numOfAliveEnemies();
         if (playerAlive && gameStarted && aliveEnemies > 0) {
+
             music.play();
             music.setOnCompletionListener(new Music.OnCompletionListener() {//once the song is over repeat it!
                 @Override
@@ -134,9 +136,9 @@ public class Main extends ApplicationAdapter {
             isPlayerDead();
             hud.update(batch);
         } else {
-            if (aliveEnemies > 0){
+            if (aliveEnemies > 0) {
                 System.out.println("YOU LOST BUDDY");
-            }else{
+            } else {
                 System.out.println("YOU WON BUDDY");
             }
         }
@@ -148,10 +150,10 @@ public class Main extends ApplicationAdapter {
         batch.dispose();
     }
 
-    public int numOfAliveEnemies(){
+    public int numOfAliveEnemies() {
         int counter = 0;
-        for (int i = 0; i < enemies.size(); i++){
-            for (int n = 0; n <  enemies.get(i).size(); n ++){
+        for (int i = 0; i < enemies.size(); i++) {
+            for (int n = 0; n < enemies.get(i).size(); n++) {
                 if (!enemies.get(i).get(n).isDead()) counter++;
             }
         }
