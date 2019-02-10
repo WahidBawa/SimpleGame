@@ -20,7 +20,8 @@ public class PowerUp {
         type = rand.nextInt(powerups.length);
         powerup_sprite = powerups[type];
         powerup = new Sprite(powerup_sprite);
-        fallSpeed = rand.nextInt(5) + 1;
+//        fallSpeed = rand.nextInt(5) + 1;
+        fallSpeed = 10;
         x = rand.nextInt(Main.WIDTH - powerup_sprite.getWidth());
         y = Main.HEIGHT;
         powerup.setX(x);

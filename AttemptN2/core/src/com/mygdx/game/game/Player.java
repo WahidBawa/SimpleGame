@@ -33,9 +33,6 @@ public class Player {
     //updates character's position
     public void render(SpriteBatch batch) {
         player.draw(batch);
-//        for (int i = 0; i < powerupHUD.size(); i++) {
-//            batch.draw(powerupHUD.get(i), (Main.WIDTH - 174)+ (58 * i), Main.HEIGHT - 57);
-//        }
     }
 
     public void update(SpriteBatch batch) {
@@ -43,15 +40,25 @@ public class Player {
         player.setY(y);
         rect = new Rectangle((int) player.getX(), (int) player.getY(), (int) player.getWidth(), (int) player.getHeight());
 //        System.out.println(rect.toString());
-        if (using_spiritbomb){
+        if (using_spiritbomb) {
             spiritbomb.update(batch);
+            for (int i = 0; i < Main.enemies.size(); i++) {
+                for (int n = 0; n < Main.enemies.get(i).size(); n++) {
+                    Main.enemies.get(i).get(n).update(batch);
+                    if (Main.enemies.get(i).get(n).isCollidingWith(spiritbomb)) {
+                        System.out.println("man down");
+                        Main.enemies.get(i).get(n).setDead(true);
+                    }
+                }
+            }
         }
-        this.render(batch);
+        render(batch);
+
     }
 
     public void usePowerup() {
         if (powerupID.size() > 0) {
-            if (powerupID.get(0) == SPIRITBOMB){
+            if (powerupID.get(0) == SPIRITBOMB) {
                 using_spiritbomb = true;
                 spiritbomb = new SpiritBomb(player.getX(), player.getY(), player.getWidth());
             }
