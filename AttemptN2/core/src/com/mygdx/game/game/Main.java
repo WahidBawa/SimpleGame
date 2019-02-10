@@ -25,7 +25,7 @@ public class Main extends ApplicationAdapter {
     public static final int HEIGHT = 1024;
 
     public static ShapeRenderer shapeRenderer;
-    Player player;
+    public static Player player;
     Random powerupDrop = new Random();
 
     public static HUD hud;
@@ -44,9 +44,9 @@ public class Main extends ApplicationAdapter {
         for(int i = 0; i<5; i++) {
             ArrayList<Enemy> temp = new ArrayList<Enemy>();
             for (int j = 0; j < 8; j++) {
-                if (i == 4) temp.add(new Enemy("red", j, i));
-                if (i == 3 || i == 2) temp.add(new Enemy("yellow", j, i));
-                if (i == 1 || i == 0) temp.add(new Enemy("blue", j, i));
+                if (i == 0) temp.add(new Enemy("red", j, i));
+                if (i == 1 || i == 2) temp.add(new Enemy("yellow", j, i));
+                if (i == 3 || i == 4) temp.add(new Enemy("blue", j, i));
             }
             enemies.add(temp);
         }
@@ -75,8 +75,8 @@ public class Main extends ApplicationAdapter {
 
         player.update(batch);
 
-//        int isDrop = powerupDrop.nextInt(1000);
-        int isDrop = powerupDrop.nextInt(10);
+        int isDrop = powerupDrop.nextInt(1000);
+//        int isDrop = powerupDrop.nextInt(10);
         if (isDrop < 2 && powerups.size() == 0) powerups.add(new PowerUp());
         for (int i = 0; i < powerups.size(); i++) {
             powerups.get(i).update(batch);
@@ -102,9 +102,10 @@ public class Main extends ApplicationAdapter {
                 if ((enemies.get(i).get(n).getRect().x + enemies.get(i).get(n).getRect().width > Main.WIDTH || enemies.get(i).get(n).getRect().x < 0) && !enemies.get(i).get(n).isDead()) inverseShipDirection();
                 for (int f = 0; f < bullets.size(); f++){
                     if(enemies.get(i).get(n).isCollidingWith(bullets.get(f))){
-                        System.out.println("man down");
                         bullets.remove(f);
                         player.setShooting(false);
+                        player.addPoints(enemies.get(i).get(n).getPointValue());
+                        System.out.println(player.getPoints());
                         enemies.get(i).get(n).setDead(true);
                     }
                 }

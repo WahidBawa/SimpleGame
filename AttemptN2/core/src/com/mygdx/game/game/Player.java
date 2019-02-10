@@ -18,6 +18,7 @@ public class Player {
     private boolean using_spiritbomb = false;
     private SpiritBomb spiritbomb;
     private ArrayList<Integer> powerupID = new ArrayList<Integer>();
+    private int points = 0;
     Rectangle rect;
 
     public Player(float x, float y) {
@@ -47,9 +48,9 @@ public class Player {
             }
             for (int i = 0; i < Main.enemies.size(); i++) {
                 for (int n = 0; n < Main.enemies.get(i).size(); n++) {
-                    Main.enemies.get(i).get(n).update(batch);
                     if (Main.enemies.get(i).get(n).isCollidingWith(spiritbomb)) {
-                        System.out.println("man down");
+                        this.addPoints(Main.enemies.get(i).get(n).getPointValue());
+                        System.out.println(this.getPoints());
                         Main.enemies.get(i).get(n).setDead(true);
                     }
                 }
@@ -113,6 +114,14 @@ public class Player {
 
     public Rectangle getRect() {
         return rect;
+    }
+
+    public void addPoints(int points){
+        this.points += points;
+    }
+
+    public int getPoints() {
+        return points;
     }
 
     //    public void addPowerup(SpiritBomb obj) {

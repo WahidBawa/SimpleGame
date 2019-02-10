@@ -10,9 +10,6 @@ public class DesktopLauncher {
         LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
         config.title = "NOTMegaMan";
         config.foregroundFPS = 60;
-//		config.width = 640;
-//		config.height = 480;
-
 //        new LwjglApplication(new IntroEnd(), config);
         new LwjglApplication(new Main(), config);
     }

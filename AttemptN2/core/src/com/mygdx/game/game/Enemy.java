@@ -5,17 +5,12 @@ import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-
 import java.awt.*;
 
 
 public class Enemy {
     Sound die= Gdx.audio.newSound(Gdx.files.internal("Assets/Sound/kill.mp3"));
     Sound bomb=Gdx.audio.newSound(Gdx.files.internal("Assets/Sound/kill2.mp3"));
-    public static int x;
-    public static int y;
-    public static int enemyType;
-    //texture for our enemies
     private Sprite sprite;
     private Texture blueship;
     private Texture yellowship;
@@ -23,6 +18,7 @@ public class Enemy {
     private boolean dead = false;
     private Rectangle rect;
     private int speed = 1;
+    private int pointValue;
     //initialization code
 
 
@@ -33,10 +29,13 @@ public class Enemy {
 
         if (type.equals("yellow")) {
             sprite = new Sprite(yellowship);
+            pointValue = 20;
         } else if (type.equals("red")) {
             sprite = new Sprite(redship);
+            pointValue = 40;
         } else if (type.equals("blue")) {
             sprite = new Sprite(blueship);
+            pointValue = 10;
         }
         sprite.setX(50 + x * 100);
         sprite.setY(Main.HEIGHT - 200 - (75 * y));
@@ -85,6 +84,10 @@ public class Enemy {
 
     public void setY(int y){
         sprite.setY(y);
+    }
+
+    public int getPointValue() {
+        return pointValue;
     }
 }
 
