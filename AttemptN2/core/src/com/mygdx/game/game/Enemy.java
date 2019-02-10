@@ -7,10 +7,10 @@ package com.mygdx.game.game;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.audio.Music;
-import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+
 import java.awt.*;
 import java.util.Random;
 
@@ -24,7 +24,7 @@ public class Enemy {
     private boolean dead = false;
     private Rectangle rect;
     private int speed = 1;
-    public boolean isShooting=false;
+    public boolean isShooting = false;
     private int pointValue; //for score
 
     int counter = 0;
@@ -58,16 +58,17 @@ public class Enemy {
         sprite.setY(Main.HEIGHT - 200 - (75 * y));
         rect = new Rectangle((int) sprite.getX(), (int) sprite.getY(), (int) sprite.getWidth(), (int) sprite.getHeight());
     }
+
     public Bullet shootBullet() { //making the enemy shoot
-        isShooting=true;
-        return new Bullet(sprite.getX(), sprite.getY(), sprite.getWidth(),1);
+        isShooting = true;
+        return new Bullet(sprite.getX(), sprite.getY(), sprite.getWidth(), 1);
     }
 
 
     public void render(SpriteBatch batch) {//rendering the updated locations of the enemies and making explosiosn where they die
         rect = new Rectangle((int) sprite.getX(), (int) sprite.getY(), (int) sprite.getWidth(), (int) sprite.getHeight());
         sprite.draw(batch);
-        if (this.isDead() && !isExplosionDone){
+        if (this.isDead() && !isExplosionDone) {
             if (pos == 72) isExplosionDone = true;
             explosion = new Sprite(Main.explosion[pos]);
             explosion.setX(deathX);
@@ -112,31 +113,28 @@ public class Enemy {
     public void setDead(boolean dead, final Player player) { //if it is dead play one of 4 audio files or none at all, and update that the ship is dead
         Random rand = new Random();
         int n = rand.nextInt(5);
-        if(n==1){
-            die=  Gdx.audio.newMusic(Gdx.files.internal("Assets/Sound/kill.mp3"));
-        }
-        else if (n==2){
-            die= Gdx.audio.newMusic(Gdx.files.internal("Assets/Sound/kill2.mp3"));
-        }
-        else if(n==3){
-            die= Gdx.audio.newMusic(Gdx.files.internal("Assets/Sound/kill3.mp3"));
-        }
-        else if(n==4){
-            die= Gdx.audio.newMusic(Gdx.files.internal("Assets/Sound/kill4.mp3"));
+        if (n == 1) {
+            die = Gdx.audio.newMusic(Gdx.files.internal("Assets/Sound/kill.mp3"));
+        } else if (n == 2) {
+            die = Gdx.audio.newMusic(Gdx.files.internal("Assets/Sound/kill2.mp3"));
+        } else if (n == 3) {
+            die = Gdx.audio.newMusic(Gdx.files.internal("Assets/Sound/kill3.mp3"));
+        } else if (n == 4) {
+            die = Gdx.audio.newMusic(Gdx.files.internal("Assets/Sound/kill4.mp3"));
         }
         this.dead = dead;
         deathX = this.getRect().x;
         deathY = this.getRect().y;
         //music will NOT play if a file was already playing
         //that is done with the help of the player class, as the enemies change and therefore the boolean can not be contained here
-        if(n>0&&n<5&&player.musicPlaying==false) {
+        if (n > 0 && n < 5 && player.musicPlaying == false) {
             die.play();
-            player.musicPlaying=true;
+            player.musicPlaying = true;
             die.setOnCompletionListener(new Music.OnCompletionListener() {
                 @Override
                 public void onCompletion(Music music) { //wait till music ends to update the boolean
-                    player.musicPlaying=false;
-                    Gdx.app.log("Music:" , "Beginning ended; switching to loop");
+                    player.musicPlaying = false;
+                    Gdx.app.log("Music:", "Beginning ended; switching to loop");
 
                 }
             });
@@ -144,11 +142,11 @@ public class Enemy {
         }
     }
 
-    public void inverseSpeed(){
+    public void inverseSpeed() {
         speed *= -1;
     } //reversing direction
 
-    public void setY(int y){
+    public void setY(int y) {
         sprite.setY(y);
     }
 

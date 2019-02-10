@@ -31,7 +31,7 @@ public class PowerUp {
 
     public void render(SpriteBatch batch) {
         powerup.draw(batch);
-}
+    }
 
     public void update(SpriteBatch batch) {
         powerup.setY(powerup.getY() - fallSpeed);

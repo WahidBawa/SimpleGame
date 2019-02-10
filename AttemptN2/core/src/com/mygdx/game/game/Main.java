@@ -210,10 +210,10 @@ public class Main extends ApplicationAdapter {
                 font4.draw(batch, "Bomb", 550, 150);
                 font4.draw(batch, "Invincible", 520, 50);
             }
-        }
-        else{
+        } else {
             gameStarted = true;
         }
+
     }
 
     public void inverseShipDirection() {

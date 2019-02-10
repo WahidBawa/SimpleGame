@@ -6,7 +6,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 import java.awt.*;
 
-public class SpiritBomb{
+public class SpiritBomb {
     private float x, y, width;
     Texture spiritbomb_sprite;
     Sprite spiritbomb;

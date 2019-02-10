@@ -73,7 +73,7 @@ public class Player {
             if (powerupID.get(0) == SPIRITBOMB) {
                 using_spiritbomb = true;
                 spiritbomb = new SpiritBomb(player.getX(), player.getY(), player.getWidth());
-            }else if (powerupID.get(0) == INVINCIBLE){
+            } else if (powerupID.get(0) == INVINCIBLE) {
                 invincible = true;
             }
             powerupID.remove(0);
