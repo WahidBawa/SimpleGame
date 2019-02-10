@@ -8,22 +8,22 @@ import java.awt.*;
 
 public class Bullet {
     public int type;
-    private static final int player=0;
-    private static final int enemy=1;
+    private static final int PLAYER = 0;
+    private static final int ENEMY = 1;
     private float x, y, width;
     Texture bullet_sprite;
     Sprite bullet;
     Rectangle rect;
 
-    public Bullet(float x, float y, float width,int t) {
+    public Bullet(float x, float y, float width,int type) {
         this.x = x;
         this.y = y;
         this.width = width;
-        type=t;
-        if(type==player) {
+        this.type = type;
+        if(type == PLAYER) {
             bullet_sprite = new Texture("Assets/1.png");
         }
-        else if(type==enemy){
+        else if(type == ENEMY){
             bullet_sprite = new Texture("Assets/1flipped.png");
         }
         bullet = new Sprite(bullet_sprite);
@@ -37,11 +37,11 @@ public class Bullet {
     }
 
     public void update(SpriteBatch batch) {
-        if(type==player) {
+        if(this.type == PLAYER) {
             y += 12;
         }
-        else if(type==enemy){
-            y-=6;
+        else if(this.type == ENEMY){
+            y-=12;
         }
         bullet.setY(y);
         this.render(batch);
@@ -57,5 +57,9 @@ public class Bullet {
 
     public Rectangle getRect() {
         return rect;
+    }
+
+    public int getType() {
+        return type;
     }
 }

@@ -1,6 +1,12 @@
+/*Simple Game
+Enemy class
+Nizar Alrifai+Wahid Bawa
+Class to deal with enemy objects, their animations, collisions, types and actions.
+*/
 package com.mygdx.game.game;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
@@ -10,32 +16,30 @@ import java.util.Random;
 
 
 public class Enemy {
-    Sound die= Gdx.audio.newSound(Gdx.files.internal("Assets/Sound/kill.mp3"));
-    Sound die2= Gdx.audio.newSound(Gdx.files.internal("Assets/Sound/kill3.mp3"));
-    Sound bomb=Gdx.audio.newSound(Gdx.files.internal("Assets/Sound/kill2.mp3"));
-    Sound bomb2=Gdx.audio.newSound(Gdx.files.internal("Assets/Sound/kill4.mp3"));
+    Music die; //music played when they die
     private Sprite sprite;
-    private Texture blueship;
+    private Texture blueship; //differnt types of enemies
     private Texture yellowship;
     private Texture redship;
     private boolean dead = false;
     private Rectangle rect;
     private int speed = 1;
     public boolean isShooting=false;
-    private int pointValue;
+    private int pointValue; //for score
 
     int counter = 0;
     int pos = 0;
-    int animation_speed = 1;
+    int animation_speed = 1; //for movement
 
-    Sprite explosion;
+    Sprite explosion; //everybody goes booom when they die
 
-    private int deathX, deathY;
+    private int deathX, deathY; //location of death
 
-    private boolean isExplosionDone = false;
+    private boolean isExplosionDone = false; //checking when explosion is over
     //initialization code
 
-    public Enemy(String type, int x, int y) {
+    public Enemy(String type, int x, int y) { //creating object, we need the row and coloumn of the enemy and it's type
+        //type is assigned according to row
         blueship = new Texture("Assets/Enemies/2.png");
         redship = new Texture("Assets/Enemies/0.png");
         yellowship = new Texture("Assets/Enemies/1.png");
@@ -54,13 +58,13 @@ public class Enemy {
         sprite.setY(Main.HEIGHT - 200 - (75 * y));
         rect = new Rectangle((int) sprite.getX(), (int) sprite.getY(), (int) sprite.getWidth(), (int) sprite.getHeight());
     }
-    public Bullet shootBullet() {
+    public Bullet shootBullet() { //making the enemy shoot
         isShooting=true;
         return new Bullet(sprite.getX(), sprite.getY(), sprite.getWidth(),1);
     }
 
 
-    public void render(SpriteBatch batch) {
+    public void render(SpriteBatch batch) {//rendering the updated locations of the enemies and making explosiosn where they die
         rect = new Rectangle((int) sprite.getX(), (int) sprite.getY(), (int) sprite.getWidth(), (int) sprite.getHeight());
         sprite.draw(batch);
         if (this.isDead() && !isExplosionDone){
@@ -72,7 +76,7 @@ public class Enemy {
         }
     }
 
-    public void update(SpriteBatch batch) {
+    public void update(SpriteBatch batch) { //updating locations of enemies that are not dead
         if (this.isDead()) {
             sprite.setAlpha(0);
 
@@ -89,11 +93,11 @@ public class Enemy {
         this.render(batch);
     }
 
-    public boolean isCollidingWith(Bullet bullet) {
+    public boolean isCollidingWith(Bullet bullet) { //check if the enmy is hit with a bullet
         return bullet.getRect().intersects(this.getRect()) && !this.isDead();
     }
 
-    public boolean isCollidingWith(SpiritBomb spiritBomb) {
+    public boolean isCollidingWith(SpiritBomb spiritBomb) { //if enemy is hit with a bomb
         return spiritBomb.getRect().intersects(this.getRect()) && !this.isDead();
     }
 
@@ -105,29 +109,44 @@ public class Enemy {
         return dead;
     }
 
-    public void setDead(boolean dead) {
+    public void setDead(boolean dead, final Player player) { //if it is dead play one of 4 audio files or none at all, and update that the ship is dead
         Random rand = new Random();
-        int n = rand.nextInt(8);
+        int n = rand.nextInt(5);
         if(n==1){
-            bomb.play();
+            die=  Gdx.audio.newMusic(Gdx.files.internal("Assets/Sound/kill.mp3"));
         }
         else if (n==2){
-            bomb2.play();
+            die= Gdx.audio.newMusic(Gdx.files.internal("Assets/Sound/kill2.mp3"));
         }
         else if(n==3){
-            die.play();
+            die= Gdx.audio.newMusic(Gdx.files.internal("Assets/Sound/kill3.mp3"));
         }
         else if(n==4){
-            die2.play();
+            die= Gdx.audio.newMusic(Gdx.files.internal("Assets/Sound/kill4.mp3"));
         }
         this.dead = dead;
         deathX = this.getRect().x;
         deathY = this.getRect().y;
+        //music will NOT play if a file was already playing
+        //that is done with the help of the player class, as the enemies change and therefore the boolean can not be contained here
+        if(n>0&&n<5&&player.musicPlaying==false) {
+            die.play();
+            player.musicPlaying=true;
+            die.setOnCompletionListener(new Music.OnCompletionListener() {
+                @Override
+                public void onCompletion(Music music) { //wait till music ends to update the boolean
+                    player.musicPlaying=false;
+                    Gdx.app.log("Music:" , "Beginning ended; switching to loop");
+
+                }
+            });
+
+        }
     }
 
     public void inverseSpeed(){
         speed *= -1;
-    }
+    } //reversing direction
 
     public void setY(int y){
         sprite.setY(y);
@@ -135,6 +154,5 @@ public class Enemy {
 
     public int getPointValue() {
         return pointValue;
-    }
+    } //points for killing
 }
-

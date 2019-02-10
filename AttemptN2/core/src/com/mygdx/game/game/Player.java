@@ -20,6 +20,10 @@ public class Player {
     private SpiritBomb spiritbomb;
     private ArrayList<Integer> powerupID = new ArrayList<Integer>();
     private int points = 0;
+    private int lives = 3;
+    private boolean invincible = false;
+    private Sprite barrier = new Sprite(new Texture("Assets/barriers.png"));
+    boolean musicPlaying = false;
     Rectangle rect;
 
     public Player(float x, float y) {
@@ -34,6 +38,11 @@ public class Player {
 
     //updates character's position
     public void render(SpriteBatch batch) {
+        if (invincible) {
+            barrier.setX(player.getX() - 35);
+            barrier.setY(player.getY() - 40);
+            barrier.draw(batch);
+        }
         player.draw(batch);
     }
 
@@ -49,10 +58,9 @@ public class Player {
             }
             for (int i = 0; i < Main.enemies.size(); i++) {
                 for (int n = 0; n < Main.enemies.get(i).size(); n++) {
-                    Main.enemies.get(i).get(n).update(batch);
                     if (Main.enemies.get(i).get(n).isCollidingWith(spiritbomb)) {
-                        System.out.println("man down");
-                        Main.enemies.get(i).get(n).setDead(true);
+                        this.addPoints(Main.enemies.get(i).get(n).getPointValue());
+                        Main.enemies.get(i).get(n).setDead(true, this);
                     }
                 }
             }
@@ -65,6 +73,8 @@ public class Player {
             if (powerupID.get(0) == SPIRITBOMB) {
                 using_spiritbomb = true;
                 spiritbomb = new SpiritBomb(player.getX(), player.getY(), player.getWidth());
+            }else if (powerupID.get(0) == INVINCIBLE){
+                invincible = true;
             }
             powerupID.remove(0);
             Main.hud.removePowerup();
@@ -113,8 +123,7 @@ public class Player {
     }
 
     public boolean isCollidingWith(Bullet bullet) {
-        isAlive = false;
-        return bullet.getRect().intersects(this.getRect()) && false;
+        return bullet.getRect().intersects(this.getRect()) && bullet.getType() == 1;
     }
 
     public Rectangle getRect() {
@@ -129,13 +138,14 @@ public class Player {
         return points;
     }
 
-    //    public void addPowerup(SpiritBomb obj) {
-//        spiritbombs.add(obj);
-//    }
-//
-//    public void addPowerup(Mirror obj) {
-//        mirrors.add(obj);
-//    }
+    public int getLives() {
+        return lives;
+    }
+
+    public void takeAwayLife() {
+        if (!invincible) lives -= 1;
+        else invincible = false;
+    }
 
 }
 

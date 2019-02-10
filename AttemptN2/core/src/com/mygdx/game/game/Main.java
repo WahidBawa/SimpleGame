@@ -3,21 +3,36 @@ package com.mygdx.game.game;
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
-import com.badlogic.gdx.audio.Sound;
-import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 
 import java.util.ArrayList;
 import java.util.Random;
 
 import static com.badlogic.gdx.Gdx.graphics;
-import static com.badlogic.gdx.math.MathUtils.random;
 
 public class Main extends ApplicationAdapter {
+    public boolean end=false; //indicating the end of introduction
+    Music intro_music; //main theme
     public static SpriteBatch batch;
+    boolean starting1 = false; //boolean to switch to 2nd phase of intro
+    boolean starting2 = false; //boolean to switch to 3rd phase of intro
+    Texture background;
+    BitmapFont font, font2, font3, font4; //fonts used
+    Texture intro_player;
+    Texture bullet;
+    Texture powerup1,powerup2,powerup3; //pictures of pu
+    Texture enemy1,enemy2,enemy3;
+    Texture ship;
+    Texture intro_explosion;
+    Texture bulletside;
+    Music start;//sound effects in "Music" to use the setOncompletionlistner which is not available for sounds
+    Music start2;
+    Music start0;
+    Music music;
     Texture bg;
     ArrayList<Bullet> enemybullets= new ArrayList<Bullet>();
     ArrayList<Bullet> bullets = new ArrayList<Bullet>();
@@ -26,18 +41,41 @@ public class Main extends ApplicationAdapter {
     public static final int WIDTH = 1024;
     public static final int HEIGHT = 1024;
 
-    public static ShapeRenderer shapeRenderer;
     public static Player player;
-    Random powerupDrop = new Random();
-
     public static HUD hud;
 
-    int counter = 0;
-    int pos = 0;
-    int animation_speed = 2;
     public static Texture[] explosion = new Texture[73];
+
+    public boolean playerAlive = true;
+    public boolean gameStarted = false;
     @Override
     public void create() {
+        start0 = Gdx.audio.newMusic(Gdx.files.internal("Assets/Sound/start0.mp3")); //first sound in intro
+        start = Gdx.audio.newMusic(Gdx.files.internal("Assets/Sound/start.mp3")); //2nd
+        start2 = Gdx.audio.newMusic(Gdx.files.internal("Assets/Sound/start2.mp3")); //3rd
+        intro_player = new Texture("Assets/0.png");
+        bullet = new Texture("Assets/1.png");
+        bulletside = new Texture("Assets/1rotated.png");
+        ship = new Texture("Assets/2.png");
+        enemy1 = new Texture("Assets/Enemies/0.png");
+        enemy2 = new Texture("Assets/Enemies/1.png");
+        enemy3= new Texture("Assets/Enemies/2.png");
+        powerup1=new Texture("Assets/mirror.png");
+        powerup2=new Texture("Assets/spiritBomb.png");
+        powerup3=new Texture("Assets/invincible.png");
+        intro_explosion = new Texture("Assets/Explosion/29.png");
+        font = new BitmapFont(Gdx.files.internal("Assets/one/impact.fnt")); //title font
+        font2 = new BitmapFont(Gdx.files.internal("Assets/one/adventures.fnt")); //description font
+        font3 = new BitmapFont(Gdx.files.internal("Assets/one/text.fnt")); //description but smaller
+        font4= new BitmapFont(Gdx.files.internal("Assets/one/sub.fnt")); //for instructions
+        font3.getData();
+        font.getData();
+        font2.getData();
+        background = new Texture("Assets/start.png");
+        intro_music = Gdx.audio.newMusic(Gdx.files.internal("Assets/1.mp3"));
+        intro_music.play();
+        //next up are assets used in main game
+        music = Gdx.audio.newMusic(Gdx.files.internal("Assets/Sound/main.mp3"));
         graphics.setWindowedMode(WIDTH, HEIGHT);
         bg = new Texture("Assets/jpgs/space-1.jpg");
         batch = new SpriteBatch();
@@ -66,112 +104,104 @@ public class Main extends ApplicationAdapter {
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) player.goLeft();
         if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) player.goRight();
-        if (Gdx.input.isKeyPressed(Input.Keys.SHIFT_LEFT) || Gdx.input.isKeyPressed(Input.Keys.SHIFT_RIGHT)) {
-            player.usePowerup();
-        }
-        if (Gdx.input.isKeyPressed(Input.Keys.SPACE) && !player.isShooting() && bullets.size() == 0) {
-            bullets.add(player.shootBullet());
-        }
-        ArrayList<Enemy> canShoot=new ArrayList<Enemy>(); //start with the bottom row
-        for(int n=0;n<enemies.get(4).size()-1;n++){
-            canShoot.add(enemies.get(4).get(n));
-        }
-        for (int i = enemies.size()-1; i >0; i--) { //if any enemy is dead in the bottom row it will get replaced by the enemy on top of it
-            for (int n = 0; n < enemies.get(i).size()-1; n++) {
-                if(canShoot.get(n).isDead()){
-                    canShoot.set(n,enemies.get(i).get(n));
-                }
-            }
-        }
-        ArrayList<Integer>enemyShooterNumber= new ArrayList<Integer>();
-        Random rand=new Random();
-        int pew = rand.nextInt(canShoot.size());
-        if(!canShoot.get(pew).isShooting&&enemybullets.size()<6){
-            enemybullets.add(canShoot.get(pew).shootBullet());
-            enemyShooterNumber.add(pew);
-        }
-
-
-
-//        System.out.println(System.currentTimeMillis());
+        if (Gdx.input.isKeyPressed(Input.Keys.SHIFT_LEFT) || Gdx.input.isKeyPressed(Input.Keys.SHIFT_RIGHT))player.usePowerup();
+        if (Gdx.input.isKeyPressed(Input.Keys.SPACE) && !player.isShooting() && bullets.size() == 0) bullets.add(player.shootBullet());
 
         batch.begin();
-        batch.draw(bg, 0, 0);
-
-
-        player.update(batch);
-
-        int isDrop = powerupDrop.nextInt(1000);
-//        int isDrop = powerupDrop.nextInt(10);
-        if (isDrop < 2 && powerups.size() == 0) powerups.add(new PowerUp());
-        for (int i = 0; i < powerups.size(); i++) {
-            powerups.get(i).update(batch);
-            if (powerups.get(i).getRect().y + powerups.get(i).getRect().height < 0) {
-                powerups.remove(i);
-            } else if (player.isCollidingWith(powerups.get(i))) {
-                player.getPowerup(powerups.get(i));
-                powerups.remove(i);
-            }
-        }
-
-        for (int i = 0; i < bullets.size(); i++) {
-            bullets.get(i).update(batch);
-            if (bullets.get(i).getY() > HEIGHT) {
-                bullets.remove(i);
-                player.setShooting(false);
-            }
-        }
-        for (int i = 0; i < enemybullets.size(); i++) {
-            enemybullets.get(i).update(batch);
-            if (enemybullets.get(i).getY() > HEIGHT) {
-                enemybullets.remove(i);
-                if (!canShoot.isEmpty()&&!enemyShooterNumber.isEmpty()) {
-                    canShoot.get(enemyShooterNumber.get(i)).isShooting = false;
-                    enemyShooterNumber.remove(i);
-                }
-            }
-        }
-        for (int f = 0; f < enemybullets.size(); f++){
-            if(player.isCollidingWith(enemybullets.get(f))){
-                System.out.println("man down");
-                enemybullets.remove(f);
-                player.setShooting(false);
-                canShoot.get(enemyShooterNumber.get(f)).isShooting=false;
-            }
-        }
-
-        for (int i = 0; i < enemies.size(); i++){
-            for (int n = 0; n < enemies.get(i).size(); n++){
-                enemies.get(i).get(n).update(batch);
-                if ((enemies.get(i).get(n).getRect().x + enemies.get(i).get(n).getRect().width > Main.WIDTH || enemies.get(i).get(n).getRect().x < 0) && !enemies.get(i).get(n).isDead()) inverseShipDirection();
-                for (int f = 0; f < bullets.size(); f++){
-                    if(enemies.get(i).get(n).isCollidingWith(bullets.get(f))){
-                        bullets.remove(f);
-                        player.setShooting(false);
-                        player.addPoints(enemies.get(i).get(n).getPointValue());
-                        System.out.println(player.getPoints());
-                        enemies.get(i).get(n).setDead(true);
+        if(end==false){ //intro starts here
+            graphics.setWindowedMode(WIDTH, HEIGHT);
+            if (Gdx.input.isKeyPressed(Input.Keys.SPACE) && starting1 == false) {//starting to play
+                starting1 = true; //starting 2nd phase
+                start0.play();
+                intro_music.stop();//stopping overall theme
+                start0.setOnCompletionListener(new Music.OnCompletionListener() { //waiting for first sound to finish to start 2nd
+                    @Override
+                    public void onCompletion(Music music) {//waitig for 2nd sound to finish to play third
+                        Gdx.app.log("Music:", "Beginning ended");
+                        start.play();
                     }
+                });
+                start.setOnCompletionListener(new Music.OnCompletionListener() { //2nd to play third sound and start 3rd phase
+                    @Override
+                    public void onCompletion(Music music) {
+                        Gdx.app.log("Music:", "Beginning2 ended");
+                        start2.play();
+                        starting2 = true;
+                    }
+                });
+            }
+            if((Gdx.input.isKeyPressed(Input.Keys.X) && starting2 == true)||Gdx.input.isKeyPressed(Input.Keys.P)){//to skip intro quickly/advance into game from third phase
+                System.out.println("hi");
+                end=true; //boolean that intro has ended
+            }
+            batch.draw(background, 0, 0);
+            if (starting1 == false) { //drawing lots of texts and diagrams
+                font.draw(batch, " SPACE LEGEND", 50, 300);
+                font2.draw(batch, "Press Space to initiate your mission", 105, 120);
+                batch.draw(enemy1, 265, 400);
+                batch.draw(bullet, 285, 365);
+            }
+            if (starting2 == false) { //second phase including explosion
+                batch.draw(intro_player, 275, 0);
+                batch.draw(ship, 60, 150);
+                batch.draw(intro_explosion, 500, 150);
+                batch.draw(bulletside, 300, 180);
+                if (starting1 == true) {
+                    batch.draw(intro_explosion, 250, 360);
+                    font2.draw(batch, "Your Mission Initiates in T-7", 150, 320);
                 }
             }
-        }
 
-//        enemy.get(0).get(0).moveSideway(enemy);
-//        enemy.get(0).get(0).update(batch);
-        hud.update(batch);
-
-        counter += 1;
-        if (counter > animation_speed) {
-            counter = 0;
-            pos += 1;
-            if (pos >= 3) {
-                pos = 0;
+            else if(starting2=true) { //3rd phase screen including ships powerups and controls
+                font3.draw(batch, "Commander Shepard was abroad the normandy when he", 50, 460);
+                font3.draw(batch, "encountered a fleet of hostile ships with the intention of", 50, 420);
+                font3.draw(batch, "ruining balance in the universe.The Galactic council will ", 50, 380);
+                font3.draw(batch, "send reinforcements as power-ups, use them wisely!", 50, 340);
+                font4.draw(batch, "ENEMIES", 50, 300);
+                font4.draw(batch,"POWER-UPS",450,300);
+                font4.draw(batch,"40 pts",0,250);
+                font4.draw(batch,"20 pts",0,150);
+                font4.draw(batch,"10 pts",0,50);
+                font4.draw(batch,"Controls:",260,300);
+                font4.draw(batch,"Start: X",260,250);
+                font4.draw(batch,"Shoot: Space",235,150);
+                font4.draw(batch,"Power-up: Shift",230, 50);
+                batch.draw(enemy1, 130, 210);
+                batch.draw(enemy2, 140, 110);
+                batch.draw(enemy3, 130, 10);
+                batch.draw(powerup1,455,210);
+                batch.draw(powerup2,455,110);
+                batch.draw(powerup3,455,10);
+                font4.draw(batch,"Mirror",550,250);
+                font4.draw(batch,"Bomb",550,150);
+                font4.draw(batch,"Invincible",520,50);
             }
         }
-
+        else{
+            music.play();
+            music.setOnCompletionListener(new Music.OnCompletionListener() {//once the song is over repeat it!
+                @Override
+                public void onCompletion(Music music) {
+                    Gdx.app.log("Music:", "Beginning ended");
+                    music.play();
+                }
+            });
+            gameStarted = true;
+            if (playerAlive && gameStarted){
+                batch.draw(bg, 0, 0);
+                player.update(batch);
+                dropPowerup();
+                bulletsUpdate();
+                isEnemyShot();
+                enemiesShoot();
+                isPlayerShot();
+                isPlayerDead();
+                hud.update(batch);
+            }else{
+                System.out.println("You ded boiiii");
+            }
+        }
         batch.end();
-
-
     }
 
     @Override
@@ -182,9 +212,88 @@ public class Main extends ApplicationAdapter {
     public void inverseShipDirection(){
         for (int i = 0; i < enemies.size(); i++){
             for (int n = 0; n < enemies.get(i).size(); n++){
-//                enemies.get(i).get(n).setX(Main.HEIGHT - enemies.get(i).get(n).getRect().width);
+                enemies.get(i).get(n).setY(enemies.get(i).get(n).getRect().y - 25);
                 enemies.get(i).get(n).inverseSpeed();
             }
+        }
+    }
+
+    public void dropPowerup(){
+        Random powerupDrop = new Random();
+//        int isDrop = powerupDrop.nextInt(1000);
+        int isDrop = powerupDrop.nextInt(100);
+        if (isDrop < 2 && powerups.size() == 0) powerups.add(new PowerUp());
+        for (int i = 0; i < powerups.size(); i++) {
+            powerups.get(i).update(batch);
+            if (powerups.get(i).getRect().y + powerups.get(i).getRect().height < 0) {
+                powerups.remove(i);
+            } else if (player.isCollidingWith(powerups.get(i))) {
+                player.getPowerup(powerups.get(i));
+                powerups.remove(i);
+            }
+        }
+    }
+    public void isEnemyShot(){
+        for (int i = 0; i < enemies.size(); i++){
+            for (int n = 0; n < enemies.get(i).size(); n++){
+                enemies.get(i).get(n).update(batch);
+                if ((enemies.get(i).get(n).getRect().x + enemies.get(i).get(n).getRect().width > Main.WIDTH || enemies.get(i).get(n).getRect().x < 0) && !enemies.get(i).get(n).isDead()) inverseShipDirection();
+                for (int f = 0; f < bullets.size(); f++){
+                    if(enemies.get(i).get(n).isCollidingWith(bullets.get(f)) && bullets.get(f).getType() == 0){
+                        bullets.remove(f);
+                        player.setShooting(false);
+                        player.addPoints(enemies.get(i).get(n).getPointValue());
+                        enemies.get(i).get(n).setDead(true, player);
+                    }
+                }
+            }
+        }
+    }
+
+    public void isPlayerShot(){
+        for (int i = 0; i < enemybullets.size(); i++){
+            if(player.isCollidingWith(enemybullets.get(i)) && enemybullets.get(i).getType() == 1){
+                enemybullets.remove(i);
+                player.takeAwayLife();
+                System.out.println(player.getLives());
+            }
+        }
+    }
+
+    public void bulletsUpdate(){
+        for (int i = 0; i < bullets.size(); i++) {
+            bullets.get(i).update(batch);
+            if (bullets.get(i).getY() > HEIGHT) {
+                bullets.remove(i);
+                player.setShooting(false);
+            }
+        }
+    }
+
+    public ArrayList<Bullet> chooseShootingEnemies(){
+        ArrayList<Bullet> enemyBullets = new ArrayList<Bullet>();
+        int shootChance;
+        Random enemyShootChance = new Random();
+        for (int i = 0; i < enemies.size(); i++){
+            for (int n = 0; n < enemies.get(i).size(); n++){
+                shootChance = enemyShootChance.nextInt(100);
+                if(shootChance < 2 && !enemies.get(i).get(n).isDead()) enemyBullets.add(enemies.get(i).get(n).shootBullet());
+            }
+        }
+        return enemyBullets;
+    }
+
+    public void enemiesShoot(){
+        if (enemybullets.size() == 0) enemybullets = chooseShootingEnemies();
+        for (int i = 0; i < enemybullets.size(); i++) {
+            enemybullets.get(i).update(batch);
+            if (enemybullets.get(i).getRect().y + enemybullets.get(i).getRect().height < 0) enemybullets.remove(i);
+        }
+    }
+
+    public void isPlayerDead(){
+        if (player.getLives() <= 0){
+            playerAlive = false;
         }
     }
 }
