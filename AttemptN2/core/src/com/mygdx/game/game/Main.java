@@ -20,7 +20,7 @@ public class Main extends ApplicationAdapter {
     Texture bg;
     ArrayList<Bullet> bullets = new ArrayList<Bullet>();
     ArrayList<PowerUp> powerups = new ArrayList<PowerUp>();
-    ArrayList<ArrayList<Enemy>> enemies =new ArrayList<ArrayList<Enemy>>();
+    public static ArrayList<ArrayList<Enemy>> enemies =new ArrayList<ArrayList<Enemy>>();
     public static final int WIDTH = 1024;
     public static final int HEIGHT = 1024;
 
@@ -99,6 +99,7 @@ public class Main extends ApplicationAdapter {
         for (int i = 0; i < enemies.size(); i++){
             for (int n = 0; n < enemies.get(i).size(); n++){
                 enemies.get(i).get(n).update(batch);
+                if ((enemies.get(i).get(n).getRect().x + enemies.get(i).get(n).getRect().width > Main.WIDTH || enemies.get(i).get(n).getRect().x < 0) && !enemies.get(i).get(n).isDead()) inverseShipDirection();
                 for (int f = 0; f < bullets.size(); f++){
                     if(enemies.get(i).get(n).isCollidingWith(bullets.get(f))){
                         System.out.println("man down");
@@ -131,5 +132,14 @@ public class Main extends ApplicationAdapter {
     @Override
     public void dispose() {
         batch.dispose();
+    }
+
+    public void inverseShipDirection(){
+        for (int i = 0; i < enemies.size(); i++){
+            for (int n = 0; n < enemies.get(i).size(); n++){
+//                enemies.get(i).get(n).setX(Main.HEIGHT - enemies.get(i).get(n).getRect().width);
+                enemies.get(i).get(n).inverseSpeed();
+            }
+        }
     }
 }

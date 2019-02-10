@@ -8,8 +8,8 @@ import java.awt.*;
 
 public class SpiritBomb{
     private float x, y, width;
-    Texture bullet_sprite;
-    Sprite bullet;
+    Texture spiritbomb_sprite;
+    Sprite spiritbomb;
 
     Rectangle rect;
 
@@ -17,20 +17,20 @@ public class SpiritBomb{
         this.x = x;
         this.y = y;
         this.width = width;
-        bullet_sprite = new Texture("Assets/spiritbomb_attack.png");
-        bullet = new Sprite(bullet_sprite);
-        rect = new Rectangle((int) bullet.getX(), (int) bullet.getY(), (int) bullet.getWidth(), (int) bullet.getHeight());
+        spiritbomb_sprite = new Texture("Assets/spiritbomb_attack.png");
+        spiritbomb = new Sprite(spiritbomb_sprite);
+        rect = new Rectangle((int) spiritbomb.getX(), (int) spiritbomb.getY(), (int) spiritbomb.getWidth(), (int) spiritbomb.getHeight());
     }
 
     public void render(SpriteBatch batch) {
-        bullet.setX(x + width / 2 - bullet.getWidth() / 2);
-        rect = new Rectangle((int) bullet.getX(), (int) bullet.getY(), (int) bullet.getWidth(), (int) bullet.getHeight());
-        bullet.draw(batch);
+        spiritbomb.setX(x + width / 2 - spiritbomb.getWidth() / 2);
+        rect = new Rectangle((int) spiritbomb.getX(), (int) spiritbomb.getY(), (int) spiritbomb.getWidth(), (int) spiritbomb.getHeight());
+        spiritbomb.draw(batch);
     }
 
     public void update(SpriteBatch batch) {
         y += 12;
-        bullet.setY(y);
+        spiritbomb.setY(y);
         this.render(batch);
     }
 

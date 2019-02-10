@@ -20,14 +20,11 @@ public class Enemy {
     private Texture blueship;
     private Texture yellowship;
     private Texture redship;
-    private static final int DEAD = 0;
-    private static final int RED = 3;
-    private static final int YELLOW = 2;
-    private static final int BLUE = 1;
     private boolean R = true;
     private boolean L = false;
     private boolean dead = false;
     private Rectangle rect;
+    private int speed = 1;
     //initialization code
 
 
@@ -38,9 +35,9 @@ public class Enemy {
 
         if (type.equals("yellow")) {
             sprite = new Sprite(yellowship);
-        }else if (type.equals("red")){
+        } else if (type.equals("red")) {
             sprite = new Sprite(redship);
-        }else if (type.equals("blue")){
+        } else if (type.equals("blue")) {
             sprite = new Sprite(blueship);
         }
         sprite.setX(50 + x * 100);
@@ -55,9 +52,10 @@ public class Enemy {
     }
 
     public void update(SpriteBatch batch) {
-        if (this.isDead()){
+        if (this.isDead()) {
             sprite.setAlpha(0);
         }
+        sprite.setX(sprite.getX() + speed);
         this.render(batch);
     }
 
@@ -81,6 +79,14 @@ public class Enemy {
 
     public void setDead(boolean dead) {
         this.dead = dead;
+    }
+
+    public void inverseSpeed(){
+        speed *= -1;
+    }
+
+    public void setX(int x){
+        sprite.setX(x);
     }
 }
 
