@@ -137,7 +137,7 @@ public class Main extends ApplicationAdapter {
     public void inverseShipDirection(){
         for (int i = 0; i < enemies.size(); i++){
             for (int n = 0; n < enemies.get(i).size(); n++){
-//                enemies.get(i).get(n).setX(Main.HEIGHT - enemies.get(i).get(n).getRect().width);
+                enemies.get(i).get(n).setY(enemies.get(i).get(n).getRect().y - 25);
                 enemies.get(i).get(n).inverseSpeed();
             }
         }

@@ -23,8 +23,6 @@ public class Enemy {
     private Texture blueship;
     private Texture yellowship;
     private Texture redship;
-    private boolean R = true;
-    private boolean L = false;
     private boolean dead = false;
     private Rectangle rect;
     private int speed = 1;
@@ -100,8 +98,8 @@ public class Enemy {
         speed *= -1;
     }
 
-    public void setX(int x){
-        sprite.setX(x);
+    public void setY(int y){
+        sprite.setY(y);
     }
 }
 
