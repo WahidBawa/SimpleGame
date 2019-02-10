@@ -38,37 +38,26 @@ public class Player {
     }
 
     public void update(SpriteBatch batch) {
-            player.setX(x);
-            player.setY(y);
-            rect = new Rectangle((int) player.getX(), (int) player.getY(), (int) player.getWidth(), (int) player.getHeight());
+        player.setX(x);
+        player.setY(y);
+        rect = new Rectangle((int) player.getX(), (int) player.getY(), (int) player.getWidth(), (int) player.getHeight());
 //        System.out.println(rect.toString());
-            if (using_spiritbomb) {
-                spiritbomb.update(batch);
-                if (spiritbomb.getRect().y > Main.HEIGHT) {
-                    using_spiritbomb = false;
-                }
-                for (int i = 0; i < Main.enemies.size(); i++) {
-                    for (int n = 0; n < Main.enemies.get(i).size(); n++) {
-                        Main.enemies.get(i).get(n).update(batch);
-                        if (Main.enemies.get(i).get(n).isCollidingWith(spiritbomb)) {
-                            System.out.println("man down");
-                            Main.enemies.get(i).get(n).setDead(true);
-                        }
         if (using_spiritbomb) {
             spiritbomb.update(batch);
-            if (spiritbomb.getRect().y > Main.HEIGHT){
+            if (spiritbomb.getRect().y > Main.HEIGHT) {
                 using_spiritbomb = false;
             }
             for (int i = 0; i < Main.enemies.size(); i++) {
                 for (int n = 0; n < Main.enemies.get(i).size(); n++) {
+                    Main.enemies.get(i).get(n).update(batch);
                     if (Main.enemies.get(i).get(n).isCollidingWith(spiritbomb)) {
-                        this.addPoints(Main.enemies.get(i).get(n).getPointValue());
-                        System.out.println(this.getPoints());
+                        System.out.println("man down");
                         Main.enemies.get(i).get(n).setDead(true);
                     }
                 }
             }
-            render(batch);
+        }
+        render(batch);
     }
 
     public void usePowerup() {
