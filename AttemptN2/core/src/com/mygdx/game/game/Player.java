@@ -14,7 +14,7 @@ public class Player {
     private boolean shooting = false;
     private final static int SPIRITBOMB = 0;
     private final static int INVINCIBLE = 1;
-    public boolean isAlive=true;
+    public boolean isAlive = true;
     private final static int MIRROR = 2;
     private boolean using_spiritbomb = false;
     private SpiritBomb spiritbomb;
@@ -97,7 +97,7 @@ public class Player {
 
     public Bullet shootBullet() {
         shooting = true;
-        return new Bullet(player.getX(), player.getY(), player.getWidth(),0);
+        return new Bullet(player.getX(), player.getY(), player.getWidth(), 0);
     }
 
     public boolean isShooting() {
@@ -111,15 +111,17 @@ public class Player {
     public boolean isCollidingWith(PowerUp powerup) {
         return powerup.getRect().intersects(this.getRect());
     }
+
     public boolean isCollidingWith(Bullet bullet) {
-        isAlive=false;
+        isAlive = false;
         return bullet.getRect().intersects(this.getRect()) && false;
     }
+
     public Rectangle getRect() {
         return rect;
     }
 
-    public void addPoints(int points){
+    public void addPoints(int points) {
         this.points += points;
     }
 
