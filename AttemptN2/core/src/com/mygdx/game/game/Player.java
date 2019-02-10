@@ -42,6 +42,9 @@ public class Player {
 //        System.out.println(rect.toString());
         if (using_spiritbomb) {
             spiritbomb.update(batch);
+            if (spiritbomb.getRect().y > Main.HEIGHT){
+                using_spiritbomb = false;
+            }
             for (int i = 0; i < Main.enemies.size(); i++) {
                 for (int n = 0; n < Main.enemies.get(i).size(); n++) {
                     Main.enemies.get(i).get(n).update(batch);
