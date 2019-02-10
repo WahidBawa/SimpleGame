@@ -50,7 +50,7 @@ public class Main extends ApplicationAdapter {
 
     public boolean playerAlive = true;
     public boolean gameStarted = false;
-
+    private int aliveEnemies;
     @Override
     public void create() {
         start0 = Gdx.audio.newMusic(Gdx.files.internal("Assets/Sound/start0.mp3")); //first sound in intro
@@ -113,16 +113,17 @@ public class Main extends ApplicationAdapter {
             bullets.add(player.shootBullet());
 
         batch.begin();
-        pregame();
-        music.play();
-        music.setOnCompletionListener(new Music.OnCompletionListener() {//once the song is over repeat it!
-            @Override
-            public void onCompletion(Music music) {
-                Gdx.app.log("Music:", "Beginning ended");
-                music.play();
-            }
-        });
-        if (playerAlive && gameStarted) {
+        intro();
+        aliveEnemies = numOfAliveEnemies();
+        if (playerAlive && gameStarted && aliveEnemies > 0) {
+            music.play();
+            music.setOnCompletionListener(new Music.OnCompletionListener() {//once the song is over repeat it!
+                @Override
+                public void onCompletion(Music music) {
+                    Gdx.app.log("Music:", "Beginning ended");
+                    music.play();
+                }
+            });
             batch.draw(bg, 0, 0);
             player.update(batch);
             dropPowerup();
@@ -133,7 +134,11 @@ public class Main extends ApplicationAdapter {
             isPlayerDead();
             hud.update(batch);
         } else {
-            System.out.println("You ded boiiii");
+            if (aliveEnemies > 0){
+                System.out.println("YOU LOST BUDDY");
+            }else{
+                System.out.println("YOU WON BUDDY");
+            }
         }
         batch.end();
     }
@@ -143,80 +148,14 @@ public class Main extends ApplicationAdapter {
         batch.dispose();
     }
 
-    public void pregame() {
-        if (end == false) { //intro starts here
-            OrthographicCamera camera = new OrthographicCamera();
-            camera.position.set(512, 512, 0);
-            FillViewport viewport = new FillViewport(1024, 1024, camera);
-            graphics.setWindowedMode(WIDTH, HEIGHT);
-            if (Gdx.input.isKeyPressed(Input.Keys.SPACE) && starting1 == false) {//starting to play
-
-                starting1 = true; //starting 2nd phase
-                start0.play();
-                intro_music.stop();//stopping overall theme
-                start0.setOnCompletionListener(new Music.OnCompletionListener() { //waiting for first sound to finish to start 2nd
-                    @Override
-                    public void onCompletion(Music music) {//waitig for 2nd sound to finish to play third
-                        Gdx.app.log("Music:", "Beginning ended");
-                        start.play();
-                    }
-                });
-                start.setOnCompletionListener(new Music.OnCompletionListener() { //2nd to play third sound and start 3rd phase
-                    @Override
-                    public void onCompletion(Music music) {
-                        Gdx.app.log("Music:", "Beginning2 ended");
-                        start2.play();
-                        starting2 = true;
-                    }
-                });
+    public int numOfAliveEnemies(){
+        int counter = 0;
+        for (int i = 0; i < enemies.size(); i++){
+            for (int n = 0; n <  enemies.get(i).size(); n ++){
+                if (!enemies.get(i).get(n).isDead()) counter++;
             }
-            if ((Gdx.input.isKeyPressed(Input.Keys.X) && starting2 == true) || Gdx.input.isKeyPressed(Input.Keys.P)) {//to skip intro quickly/advance into game from third phase
-                System.out.println("hi");
-                end = true; //boolean that intro has ended
-            }
-            batch.draw(background, 0, 0);
-            if (starting1 == false) { //drawing lots of texts and diagrams
-                font.draw(batch, " SPACE LEGEND", 50, 300);
-                font2.draw(batch, "Press Space to initiate your mission", 105, 120);
-                batch.draw(enemy1, 265, 400);
-                batch.draw(bullet, 285, 365);
-            }
-            if (starting2 == false) { //second phase including explosion
-                batch.draw(intro_player, 275, 0);
-                batch.draw(ship, 60, 150);
-                batch.draw(intro_explosion, 500, 150);
-                batch.draw(bulletside, 300, 180);
-                if (starting1 == true) {
-                    batch.draw(intro_explosion, 250, 360);
-                    font2.draw(batch, "Your Mission Initiates in T-7", 150, 320);
-                }
-            } else if (starting2 = true) { //3rd phase screen including ships powerups and controls
-                font3.draw(batch, "Commander Shepard was abroad the normandy when he", 50, 460);
-                font3.draw(batch, "encountered a fleet of hostile ships with the intention of", 50, 420);
-                font3.draw(batch, "ruining balance in the universe.The Galactic council will ", 50, 380);
-                font3.draw(batch, "send reinforcements as power-ups, use them wisely!", 50, 340);
-                font4.draw(batch, "ENEMIES", 50, 300);
-                font4.draw(batch, "POWER-UPS", 450, 300);
-                font4.draw(batch, "40 pts", 0, 250);
-                font4.draw(batch, "20 pts", 0, 150);
-                font4.draw(batch, "10 pts", 0, 50);
-                font4.draw(batch, "Controls:", 260, 300);
-                font4.draw(batch, "Start: X", 260, 250);
-                font4.draw(batch, "Shoot: Space", 235, 150);
-                font4.draw(batch, "Power-up: Shift", 230, 50);
-                batch.draw(enemy1, 130, 210);
-                batch.draw(enemy2, 140, 110);
-                batch.draw(enemy3, 130, 10);
-                batch.draw(powerup1, 455, 210);
-                batch.draw(powerup2, 455, 110);
-                batch.draw(powerup3, 455, 10);
-                font4.draw(batch, "Mirror", 550, 250);
-                font4.draw(batch, "Bomb", 550, 150);
-                font4.draw(batch, "Invincible", 520, 50);
-            }
-        } else {
-            gameStarted = true;
         }
+        return counter;
     }
 
     public void inverseShipDirection() {
@@ -307,6 +246,82 @@ public class Main extends ApplicationAdapter {
     public void isPlayerDead() {
         if (player.getLives() <= 0) {
             playerAlive = false;
+        }
+    }
+
+    public void intro() {
+        if (end == false) { //intro starts here
+            OrthographicCamera camera = new OrthographicCamera();
+            camera.position.set(512, 512, 0);
+            FillViewport viewport = new FillViewport(1024, 1024, camera);
+            graphics.setWindowedMode(WIDTH, HEIGHT);
+            if (Gdx.input.isKeyPressed(Input.Keys.SPACE) && starting1 == false) {//starting to play
+
+                starting1 = true; //starting 2nd phase
+                start0.play();
+                intro_music.stop();//stopping overall theme
+                start0.setOnCompletionListener(new Music.OnCompletionListener() { //waiting for first sound to finish to start 2nd
+                    @Override
+                    public void onCompletion(Music music) {//waitig for 2nd sound to finish to play third
+                        Gdx.app.log("Music:", "Beginning ended");
+                        start.play();
+                    }
+                });
+                start.setOnCompletionListener(new Music.OnCompletionListener() { //2nd to play third sound and start 3rd phase
+                    @Override
+                    public void onCompletion(Music music) {
+                        Gdx.app.log("Music:", "Beginning2 ended");
+                        start2.play();
+                        starting2 = true;
+                    }
+                });
+            }
+            if ((Gdx.input.isKeyPressed(Input.Keys.X) && starting2 == true) || Gdx.input.isKeyPressed(Input.Keys.P)) {//to skip intro quickly/advance into game from third phase
+                System.out.println("hi");
+                end = true; //boolean that intro has ended
+            }
+            batch.draw(background, 0, 0);
+            if (starting1 == false) { //drawing lots of texts and diagrams
+                font.draw(batch, " SPACE LEGEND", 50, 300);
+                font2.draw(batch, "Press Space to initiate your mission", 105, 120);
+                batch.draw(enemy1, 265, 400);
+                batch.draw(bullet, 285, 365);
+            }
+            if (starting2 == false) { //second phase including explosion
+                batch.draw(intro_player, 275, 0);
+                batch.draw(ship, 60, 150);
+                batch.draw(intro_explosion, 500, 150);
+                batch.draw(bulletside, 300, 180);
+                if (starting1 == true) {
+                    batch.draw(intro_explosion, 250, 360);
+                    font2.draw(batch, "Your Mission Initiates in T-7", 150, 320);
+                }
+            } else if (starting2 = true) { //3rd phase screen including ships powerups and controls
+                font3.draw(batch, "Commander Shepard was abroad the normandy when he", 50, 460);
+                font3.draw(batch, "encountered a fleet of hostile ships with the intention of", 50, 420);
+                font3.draw(batch, "ruining balance in the universe.The Galactic council will ", 50, 380);
+                font3.draw(batch, "send reinforcements as power-ups, use them wisely!", 50, 340);
+                font4.draw(batch, "ENEMIES", 50, 300);
+                font4.draw(batch, "POWER-UPS", 450, 300);
+                font4.draw(batch, "40 pts", 0, 250);
+                font4.draw(batch, "20 pts", 0, 150);
+                font4.draw(batch, "10 pts", 0, 50);
+                font4.draw(batch, "Controls:", 260, 300);
+                font4.draw(batch, "Start: X", 260, 250);
+                font4.draw(batch, "Shoot: Space", 235, 150);
+                font4.draw(batch, "Power-up: Shift", 230, 50);
+                batch.draw(enemy1, 130, 210);
+                batch.draw(enemy2, 140, 110);
+                batch.draw(enemy3, 130, 10);
+                batch.draw(powerup1, 455, 210);
+                batch.draw(powerup2, 455, 110);
+                batch.draw(powerup3, 455, 10);
+                font4.draw(batch, "Mirror", 550, 250);
+                font4.draw(batch, "Bomb", 550, 150);
+                font4.draw(batch, "Invincible", 520, 50);
+            }
+        } else {
+            gameStarted = true;
         }
     }
 }
