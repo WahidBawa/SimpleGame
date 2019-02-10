@@ -24,6 +24,7 @@ public class SpiritBomb{
 
     public void render(SpriteBatch batch) {
         bullet.setX(x + width / 2 - bullet.getWidth() / 2);
+        rect = new Rectangle((int) bullet.getX(), (int) bullet.getY(), (int) bullet.getWidth(), (int) bullet.getHeight());
         bullet.draw(batch);
     }
 
@@ -39,5 +40,9 @@ public class SpiritBomb{
 
     public float getY() {
         return this.getY();
+    }
+
+    public Rectangle getRect() {
+        return rect;
     }
 }
