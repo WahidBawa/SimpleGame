@@ -5,7 +5,6 @@ import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-
 import java.awt.*;
 import java.util.Random;
 
@@ -15,10 +14,6 @@ public class Enemy {
     Sound die2= Gdx.audio.newSound(Gdx.files.internal("Assets/Sound/kill3.mp3"));
     Sound bomb=Gdx.audio.newSound(Gdx.files.internal("Assets/Sound/kill2.mp3"));
     Sound bomb2=Gdx.audio.newSound(Gdx.files.internal("Assets/Sound/kill4.mp3"));
-    public static int x;
-    public static int y;
-    public static int enemyType;
-    //texture for our enemies
     private Sprite sprite;
     private Texture blueship;
     private Texture yellowship;
@@ -27,6 +22,17 @@ public class Enemy {
     private Rectangle rect;
     private int speed = 1;
     public boolean isShooting=false;
+    private int pointValue;
+
+    int counter = 0;
+    int pos = 0;
+    int animation_speed = 1;
+
+    Sprite explosion;
+
+    private int deathX, deathY;
+
+    private boolean isExplosionDone = false;
     //initialization code
 
     public Enemy(String type, int x, int y) {
@@ -36,10 +42,13 @@ public class Enemy {
 
         if (type.equals("yellow")) {
             sprite = new Sprite(yellowship);
+            pointValue = 20;
         } else if (type.equals("red")) {
             sprite = new Sprite(redship);
+            pointValue = 40;
         } else if (type.equals("blue")) {
             sprite = new Sprite(blueship);
+            pointValue = 10;
         }
         sprite.setX(50 + x * 100);
         sprite.setY(Main.HEIGHT - 200 - (75 * y));
@@ -54,11 +63,27 @@ public class Enemy {
     public void render(SpriteBatch batch) {
         rect = new Rectangle((int) sprite.getX(), (int) sprite.getY(), (int) sprite.getWidth(), (int) sprite.getHeight());
         sprite.draw(batch);
+        if (this.isDead() && !isExplosionDone){
+            if (pos == 72) isExplosionDone = true;
+            explosion = new Sprite(Main.explosion[pos]);
+            explosion.setX(deathX);
+            explosion.setY(deathY);
+            explosion.draw(batch);
+        }
     }
 
     public void update(SpriteBatch batch) {
         if (this.isDead()) {
             sprite.setAlpha(0);
+
+            counter += 1;
+            if (counter > animation_speed) {
+                counter = 0;
+                pos += 1;
+                if (pos >= 73) {
+                    pos = 0;
+                }
+            }
         }
         sprite.setX(sprite.getX() + speed);
         this.render(batch);
@@ -96,6 +121,8 @@ public class Enemy {
             die2.play();
         }
         this.dead = dead;
+        deathX = this.getRect().x;
+        deathY = this.getRect().y;
     }
 
     public void inverseSpeed(){
@@ -104,6 +131,10 @@ public class Enemy {
 
     public void setY(int y){
         sprite.setY(y);
+    }
+
+    public int getPointValue() {
+        return pointValue;
     }
 }
 
