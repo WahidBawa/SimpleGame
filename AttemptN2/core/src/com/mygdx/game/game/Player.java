@@ -156,10 +156,6 @@ public class Player {
         return bullet.getRect().intersects(this.getRect());
     }
 
-    public boolean isCollidingWith(Enemy enemy) { // checks if the player is colliding with a bullet and returns a boolean
-        return enemy.getRect().intersects(this.getRect());
-    }
-
     public Rectangle getRect() { // returns the Rectangle
         return rect;
     }

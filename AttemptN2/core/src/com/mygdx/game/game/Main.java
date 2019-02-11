@@ -140,7 +140,7 @@ public class Main extends ApplicationAdapter {
             enemiesUpdate(); // this will check if the enemy is shot, as well as makes the enemies move properly
             enemiesShoot(); // will choose if enemies get to shoot and will remove the enemy bullets if they move off-screen
             isPlayerShot(); // this will check if the player is shot and will take away a life (unless a powerup prevents that)
-            doEnemiesHitPlayer(); // this will check if the enemies are low enough so that they can touch the player
+            areEnemiesCloseToGround(); // this will check if the enemies are low enough so that they can touch the player
             isPlayerDead(); // this will check if the player is dead
             hud.update(batch); // this will update the heads up display
         }
@@ -178,10 +178,10 @@ public class Main extends ApplicationAdapter {
         }
     }
 
-    private void doEnemiesHitPlayer(){ // checks whether the enemies hit the player
+    private void areEnemiesCloseToGround(){ // checks whether the enemies are close to the ground
         for (int i = 0; i < enemies.size(); i++) {
             for (int n = 0; n < enemies.get(i).size(); n++) {
-                if (player.isCollidingWith(enemies.get(i).get(n)) && !enemies.get(i).get(n).isDead()){
+                if (enemies.get(i).get(n).getRect().y <= 125 && !enemies.get(i).get(n).isDead()){
                     player.kill(); // kills the player immediately
                 }
             }
