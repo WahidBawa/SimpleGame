@@ -50,5 +50,7 @@ public class Mirror {
         }
     }
 
-
+    public boolean isBroken() { // returns if the mirror is broken
+        return isBroken;
+    }
 }

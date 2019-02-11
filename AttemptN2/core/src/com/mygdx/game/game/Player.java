@@ -80,6 +80,7 @@ public class Player {
         }
 
         if (mirror_activated){ // if the mirror is being used
+            int brokenMirrors = 0; // stores the amount of broken mirrors
             for (int i = 0; i < mirrors.length; i++){
                 mirrors[i].update(batch, i); // updates the mirror
                 for (int n = 0; n < Main.enemybullets.size(); n++){ // checks if the enemy bullets hit the mirror
@@ -88,7 +89,9 @@ public class Player {
                         mirrors[i].hit(); // the mirror is hit and the amount of bullets it can reflect is reduced
                     }
                 }
+                if (mirrors[i].isBroken()) brokenMirrors++; // if the mirror is broken, add it to the variable
             }
+            if (brokenMirrors == 3) mirror_activated = false; // will set mirror_activated to false if 3 mirrors broken
 
         }
         System.out.println(lives);
@@ -185,5 +188,8 @@ public class Player {
         lives = 0;
     }
 
+    public boolean isMirror_activated() { //returns if the mirror is activated
+        return mirror_activated;
+    }
 }
 

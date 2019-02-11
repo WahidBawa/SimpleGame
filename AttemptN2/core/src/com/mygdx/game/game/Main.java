@@ -91,15 +91,7 @@ public class Main extends ApplicationAdapter {
         bg = new Texture("Assets/jpgs/space-1.jpg");
         batch = new SpriteBatch(); // initialized the new batch
         player = new Player(0, 50); // initializes the player and sets the x and y
-        for (int i = 0; i < 5; i++) { // creates all the enemies
-            ArrayList<Enemy> temp = new ArrayList<Enemy>(); // will store the enemies for one row
-            for (int j = 0; j < 8; j++) { // creates the separate enemies for the row
-                if (i == 0) temp.add(new Enemy("red", j, i)); // will assign type of ship depending on which row it is in
-                if (i == 1 || i == 2) temp.add(new Enemy("yellow", j, i));
-                if (i == 3 || i == 4) temp.add(new Enemy("blue", j, i));
-            }
-            enemies.add(temp); // adds the arraylist for the enemies in a row to the master arraylist
-        }
+        createEnemies();
 
         hud = new HUD(); // initializes the heads up display
 
@@ -126,6 +118,7 @@ public class Main extends ApplicationAdapter {
         intro(); // this will run the intro
         aliveEnemies = numOfAliveEnemies(); // this will get the number of alive enemies
         if (playerAlive && gameStarted && aliveEnemies > 0) { // will keep on running as long as the intro has ended, the player is alive, and there are still enemies alive
+            System.out.println(aliveEnemies);
             music.play(); // starts playing music
             music.setOnCompletionListener(new Music.OnCompletionListener() {//once the song is over repeat it!
                 @Override
@@ -196,6 +189,7 @@ public class Main extends ApplicationAdapter {
             soundisPlaying = true;
         }
         diedFont.draw(batch,"YOU WON!!!",300,HEIGHT/2-400); // displays "YOU WON" on the screen
+        if (Gdx.input.isKeyPressed(Input.Keys.P)) restart();
     }
 
     private void youDied(){ // this will display choice words and a sound when the player loses
@@ -210,9 +204,34 @@ public class Main extends ApplicationAdapter {
         diedFont.draw(batch, "YOU FAILED THE GALAXY",150, 800);
         diedFont.draw(batch, "YOU FAILED HUMANITY", 180,660);
         diedFont.draw(batch, "Frankly speaking, YOU SUCK!",100,500);
+        if (Gdx.input.isKeyPressed(Input.Keys.P)) restart();
     }
 
+    public void restart(){ // this method will restart the game
+        playerAlive = true; // this will store a true or false value depending on whether the player is alive
+        enemybullets = new ArrayList<Bullet>(); // arraylist that stores the enemy bullets
+        bullets = new ArrayList<Bullet>(); // this is the arraylist that stores the player bullets
+        powerups = new ArrayList<PowerUp>(); // this stores the powerups
+        enemies = new ArrayList<ArrayList<Enemy>>(); // this stores all the enemies
+        player = new Player(0, 50);
 
+        createEnemies();
+
+        hud = new HUD(); // initializes the heads up display
+        aliveEnemies = numOfAliveEnemies(); // this will store the number of alive enemies
+    }
+
+    private void createEnemies(){ // this will create the enemies
+        for (int i = 0; i < 5; i++) { // creates all the enemies
+            ArrayList<Enemy> temp = new ArrayList<Enemy>(); // will store the enemies for one row
+            for (int j = 0; j < 8; j++) { // creates the separate enemies for the row
+                if (i == 0) temp.add(new Enemy("red", j, i)); // will assign type of ship depending on which row it is in
+                if (i == 1 || i == 2) temp.add(new Enemy("yellow", j, i));
+                if (i == 3 || i == 4) temp.add(new Enemy("blue", j, i));
+            }
+            enemies.add(temp); // adds the arraylist for the enemies in a row to the master arraylist
+        }
+    }
 
     private void dropPowerup() { // this will decide at random when to drop a powerup
         Random powerupDrop = new Random(); // creates a random object
