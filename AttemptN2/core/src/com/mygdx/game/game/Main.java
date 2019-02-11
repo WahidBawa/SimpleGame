@@ -122,7 +122,6 @@ public class Main extends ApplicationAdapter {
         intro();
         aliveEnemies = numOfAliveEnemies();
         if (playerAlive && gameStarted && aliveEnemies > 0) {
-
             music.play();
             music.setOnCompletionListener(new Music.OnCompletionListener() {//once the song is over repeat it!
                 @Override
@@ -140,11 +139,13 @@ public class Main extends ApplicationAdapter {
             isPlayerShot();
             isPlayerDead();
             hud.update(batch);
-        } else {
+        }
+        else {
             if (aliveEnemies > 0 && !playerAlive) {
                 System.out.println("YOU LOST BUDDY");
                 youDied();
-            } else if (playerAlive){
+            }
+            else if (playerAlive){
                 System.out.println("YOU WON BUDDY");
             }
         }
@@ -177,6 +178,9 @@ public class Main extends ApplicationAdapter {
 
     public void youDied(){
         diedFont.draw(batch, "YOU DIED", WIDTH / 2 - 150, HEIGHT / 2 + 25);
+        diedFont.draw(batch, "YOU FAILED THE GALACTIC COUNCIL",WIDTH/2-300,HEIGHT / 2 -25);
+        diedFont.draw(batch, "YOU FAILED HUMANITY", WIDTH/2 -250,HEIGHT/2-75);
+        diedFont.draw(batch, "Frankly speaking, YOU SUCK",WIDTH/2-250,HEIGHT-150);
     }
 
     public void dropPowerup() {
