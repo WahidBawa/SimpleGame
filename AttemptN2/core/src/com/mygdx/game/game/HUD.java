@@ -1,3 +1,10 @@
+/*
+    Author: Wahid Bawa, Nizar Alrifai
+    Class Name: HUD
+    Purpose: this will be in charge of all the function necessary for a heads up display. This class will display things
+             such a the health, points, and which powerups they are able to use.
+
+        */
 package com.mygdx.game.game;
 
 import com.badlogic.gdx.Gdx;
@@ -8,40 +15,38 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import java.util.ArrayList;
 
 public class HUD {
-    private Texture powerups_hud;
-    private Texture points_hud;
-    private Texture heart;
-    private BitmapFont font = new BitmapFont(Gdx.files.internal("Assets/one/impact.fnt"), false);
-    private ArrayList<Texture> powerup_sprites = new ArrayList<Texture>();
+    private Texture powerups_hud; // the background for the powerups HUD
+    private Texture points_hud; // the COOL text for the points
+    private Texture heart; // the texture for the heart to display the players life
+    private BitmapFont font = new BitmapFont(Gdx.files.internal("Assets/one/impact.fnt"), false); // will load in a font for the points
+    private ArrayList<Texture> powerup_sprites = new ArrayList<Texture>(); //will store the powerup texture
 
-    public HUD() {
+    public HUD() {// will load in various textures
         powerups_hud = new Texture("Assets/powerupsHUD.png");
         points_hud = new Texture("Assets/points.png");
         heart = new Texture("Assets/heart.png");
     }
 
-    public void render(SpriteBatch batch) {
-        batch.draw(powerups_hud, Main.WIDTH - powerups_hud.getWidth(), Main.HEIGHT - powerups_hud.getHeight());
-        batch.draw(points_hud, 0, Main.HEIGHT - points_hud.getHeight());
-        font.draw(batch, "" + Main.player.getPoints(), 235, Main.HEIGHT - 25);
-        for (int i = 0; i < powerup_sprites.size(); i++)
-            batch.draw(powerup_sprites.get(i), 730 + 58 * i, Main.HEIGHT - 105);
-        for (int i = 0; i < Main.player.getLives(); i++) {
+    public void render(SpriteBatch batch) { // this will render all the information that is to be displayed
+        batch.draw(powerups_hud, Main.WIDTH - powerups_hud.getWidth(), Main.HEIGHT - powerups_hud.getHeight()); // draws the powerup HUD background
+        batch.draw(points_hud, 0, Main.HEIGHT - points_hud.getHeight()); // draws the COOL text for points
+        font.draw(batch, "" + Main.player.getPoints(), 235, Main.HEIGHT - 25); // draws the point value on screen
+        batch.draw(powerup_sprites.get(0), 790, Main.HEIGHT - 105);
+        for (int i = 0; i < Main.player.getLives(); i++) { // draws the players life represented by hearts at the top of the screen
             batch.draw(heart, 375 + i * (heart.getWidth() / 3 + 10), Main.HEIGHT - heart.getHeight() / 3 - 25, heart.getWidth() / 3, heart.getHeight() / 3);
         }
-//        batch.draw(heart, 0, 0);
     }
 
-    public void update(SpriteBatch batch) {
+    public void update(SpriteBatch batch) { // calls the render method only in this case
         this.render(batch);
 
     }
 
-    public void addPowerup(Texture img) {
+    public void addPowerup(Texture img) { // this will add a powerup so that it can be displayed
         powerup_sprites.add(img);
     }
 
-    public void removePowerup() {
+    public void removePowerup() { // removes a powerup once it has been used
         powerup_sprites.remove(0);
     }
 }

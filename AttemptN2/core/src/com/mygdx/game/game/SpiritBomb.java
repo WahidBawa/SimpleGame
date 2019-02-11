@@ -1,3 +1,9 @@
+/*
+    Author: Wahid Bawa, Nizar Alrifai
+    Class Name: SpiritBomb
+    Purpose: creates a SpiritBomb attack which would attack enemies.
+
+        */
 package com.mygdx.game.game;
 
 import com.badlogic.gdx.graphics.Texture;
@@ -17,32 +23,26 @@ public class SpiritBomb {
         this.x = x;
         this.y = y;
         this.width = width;
-        spiritbomb_sprite = new Texture("Assets/spiritbomb_attack.png");
-        spiritbomb = new Sprite(spiritbomb_sprite);
+        spiritbomb_sprite = new Texture("Assets/spiritbomb_attack.png"); //loads in the spiritbomb sprite
+        spiritbomb = new Sprite(spiritbomb_sprite); // creates a sprite based on the sprite image
+        //creates a rectangle object
         rect = new Rectangle((int) spiritbomb.getX(), (int) spiritbomb.getY(), (int) spiritbomb.getWidth(), (int) spiritbomb.getHeight());
     }
 
-    public void render(SpriteBatch batch) {
-        spiritbomb.setX(x + width / 2 - spiritbomb.getWidth() / 2);
+    public void render(SpriteBatch batch) { // renders the spiritbomb
+        spiritbomb.setX(x + width / 2 - spiritbomb.getWidth() / 2); // sets the x
+        // creates a new rect
         rect = new Rectangle((int) spiritbomb.getX(), (int) spiritbomb.getY(), (int) spiritbomb.getWidth(), (int) spiritbomb.getHeight());
-        spiritbomb.draw(batch);
+        spiritbomb.draw(batch); // draws the spiritbomb on to the screen
     }
 
     public void update(SpriteBatch batch) {
-        y += 12;
-        spiritbomb.setY(y);
-        this.render(batch);
-    }
-
-    public float getX() {
-        return this.getX();
-    }
-
-    public float getY() {
-        return this.getY();
+        y += 12; // accelerates the spiritbomb towards the enemies
+        spiritbomb.setY(y); // sets the y
+        this.render(batch); // calls the render method
     }
 
     public Rectangle getRect() {
         return rect;
-    }
+    } // returns the Rectangle
 }

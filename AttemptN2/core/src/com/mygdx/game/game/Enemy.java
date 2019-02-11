@@ -1,8 +1,9 @@
-/*Simple Game
-Enemy class
-Nizar Alrifai+Wahid Bawa
-Class to deal with enemy objects, their animations, collisions, types and actions.
-*/
+/*
+    Author: Wahid Bawa, Nizar Alrifai
+    Class Name: Enemy
+    Purpose: Class to deal with enemy objects, their animations, collisions, types and actions
+
+        */
 package com.mygdx.game.game;
 
 import com.badlogic.gdx.Gdx;
@@ -33,7 +34,7 @@ public class Enemy {
 
     Sprite explosion; //everybody goes booom when they die
 
-    private int deathX, deathY; //location of death
+    private int deathX, deathY; //location of death for explosions
 
     private boolean isExplosionDone = false; //checking when explosion is over
     //initialization code
@@ -138,7 +139,6 @@ public class Enemy {
 
                 }
             });
-
         }
     }
 
