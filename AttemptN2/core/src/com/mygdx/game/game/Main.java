@@ -141,7 +141,6 @@ public class Main extends ApplicationAdapter {
         }
         else {
             if (aliveEnemies > 0 && !playerAlive) {
-                System.out.println("YOU LOST BUDDY");
                 youDied();
             } else if (playerAlive && aliveEnemies == 0){
                 System.out.println("YOU WON BUDDY");
@@ -292,21 +291,18 @@ public class Main extends ApplicationAdapter {
                 start0.setOnCompletionListener(new Music.OnCompletionListener() { //waiting for first sound to finish to start 2nd
                     @Override
                     public void onCompletion(Music music) {//waitig for 2nd sound to finish to play third
-                        Gdx.app.log("Music:", "Beginning ended");
                         start.play();
                     }
                 });
                 start.setOnCompletionListener(new Music.OnCompletionListener() { //2nd to play third sound and start 3rd phase
                     @Override
                     public void onCompletion(Music music) {
-                        Gdx.app.log("Music:", "Beginning2 ended");
                         start2.play();
                         starting2 = true;
                     }
                 });
             }
             if ((Gdx.input.isKeyPressed(Input.Keys.X) && starting2 == true) || Gdx.input.isKeyPressed(Input.Keys.P)) {//to skip intro quickly/advance into game from third phase
-                System.out.println("hi");
                 end = true; //boolean that intro has ended
             }
             batch.draw(background, Main.WIDTH - background.getWidth(), Main.HEIGHT - background.getHeight());
