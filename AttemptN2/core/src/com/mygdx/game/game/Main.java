@@ -64,9 +64,9 @@ public class Main extends ApplicationAdapter {
         enemy1 = new Texture("Assets/Enemies/0.png");
         enemy2 = new Texture("Assets/Enemies/1.png");
         enemy3 = new Texture("Assets/Enemies/2.png");
-        powerup1 = new Texture("Assets/mirror.png");
-        powerup2 = new Texture("Assets/spiritBomb.png");
-        powerup3 = new Texture("Assets/invincible.png");
+//        powerup1 = new Texture("Assets/mirror.png");
+//        powerup2 = new Texture("Assets/spiritBomb.png");
+//        powerup3 = new Texture("Assets/invincible.png");
         intro_explosion = new Texture("Assets/Explosion/29.png");
         font = new BitmapFont(Gdx.files.internal("Assets/one/impact.fnt")); //title font
         font2 = new BitmapFont(Gdx.files.internal("Assets/one/adventures.fnt")); //description font
@@ -107,12 +107,12 @@ public class Main extends ApplicationAdapter {
     public void render() {
         Gdx.gl.glClearColor(0, 0, 0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-        if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) player.goLeft();
-        if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) player.goRight();
-        if (Gdx.input.isKeyPressed(Input.Keys.SHIFT_LEFT) || Gdx.input.isKeyPressed(Input.Keys.SHIFT_RIGHT))
-            player.usePowerup();
-        if (Gdx.input.isKeyPressed(Input.Keys.SPACE) && !player.isShooting() && bullets.size() == 0)
-            bullets.add(player.shootBullet());
+        if (gameStarted){
+            if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) player.goLeft();
+            if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) player.goRight();
+            if (Gdx.input.isKeyPressed(Input.Keys.SHIFT_LEFT) || Gdx.input.isKeyPressed(Input.Keys.SHIFT_RIGHT)) player.usePowerup();
+            if (Gdx.input.isKeyPressed(Input.Keys.SPACE) && !player.isShooting() && bullets.size() == 0) bullets.add(player.shootBullet());
+        }
 
         batch.begin();
 //        OrthographicCamera camera = new OrthographicCamera();
@@ -144,8 +144,7 @@ public class Main extends ApplicationAdapter {
             if (aliveEnemies > 0 && !playerAlive) {
                 System.out.println("YOU LOST BUDDY");
                 youDied();
-            }
-            else if (playerAlive){
+            } else if (playerAlive && aliveEnemies == 0){
                 System.out.println("YOU WON BUDDY");
             }
         }
@@ -182,6 +181,8 @@ public class Main extends ApplicationAdapter {
         diedFont.draw(batch, "YOU FAILED HUMANITY", WIDTH/2 -250,HEIGHT/2-75);
         diedFont.draw(batch, "Frankly speaking, YOU SUCK",WIDTH/2-250,HEIGHT-150);
     }
+
+
 
     public void dropPowerup() {
         Random powerupDrop = new Random();
