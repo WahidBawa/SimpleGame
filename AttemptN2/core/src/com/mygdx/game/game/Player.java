@@ -23,6 +23,7 @@ public class Player {
     private final static int SPIRITBOMB = 0;
     private final static int INVINCIBLE = 1;
     private final static int MIRROR = 2;
+    private final static int HEART = 3;
     private boolean using_spiritbomb = false; // will be used to determine if spiritbomb powerup is being used
     private SpiritBomb spiritbomb; // creates a SpiritBomb object
     private ArrayList<Integer> powerupID = new ArrayList<Integer>(); // will store the id of the powerup
@@ -90,6 +91,7 @@ public class Player {
             }
 
         }
+        System.out.println(lives);
         this.render(batch); // calls the render method
     }
 
@@ -123,6 +125,8 @@ public class Player {
             } else if (type == MIRROR) {
                 Main.hud.addPowerup(new Texture("Assets/Mirror.png"));
                 powerupID.add(MIRROR);
+            } else if (type == HEART){ // will add a life if not already maxed out
+                lives += (lives == 3 ? 0 : 1);
             }
         }
     }
