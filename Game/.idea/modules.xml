@@ -12,9 +12,6 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/html/Game.html.iml" filepath="$PROJECT_DIR$/.idea/modules/html/Game.html.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/html/Game.html.main.iml" filepath="$PROJECT_DIR$/.idea/modules/html/Game.html.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/html/Game.html.test.iml" filepath="$PROJECT_DIR$/.idea/modules/html/Game.html.test.iml" />
-      <module fileurl="file://$PROJECT_DIR$/core/core.iml" filepath="$PROJECT_DIR$/core/core.iml" />
-      <module fileurl="file://$PROJECT_DIR$/desktop/desktop.iml" filepath="$PROJECT_DIR$/desktop/desktop.iml" />
-      <module fileurl="file://$PROJECT_DIR$/html/html.iml" filepath="$PROJECT_DIR$/html/html.iml" />
     </modules>
   </component>
 </project>
