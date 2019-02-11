@@ -24,7 +24,7 @@ public class Enemy {
     private Texture redship;
     private boolean dead = false;
     private Rectangle rect;
-    private int speed = 1;
+    private int speed = 2;
     public boolean isShooting = false;
     private int pointValue; //for score
 

@@ -114,9 +114,11 @@ public class Main extends ApplicationAdapter {
         Gdx.gl.glClearColor(0, 0, 0, 1); // sets the background colour to black
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         if (gameStarted){ // will only check for button presses for these methods when the game has started
-            if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) player.goLeft();
-            if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) player.goRight();
+            if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) player.goLeft(); // player will go left when left arrow key pressed
+            if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) player.goRight(); // player will go right when right arrow key pressed
+            // if the left or right shift is pressed, then the player will use a powerup
             if (Gdx.input.isKeyPressed(Input.Keys.SHIFT_LEFT) || Gdx.input.isKeyPressed(Input.Keys.SHIFT_RIGHT)) player.usePowerup();
+            // if the player presses the space button and the player is not shooting, the player shoots a bullet
             if (Gdx.input.isKeyPressed(Input.Keys.SPACE) && !player.isShooting() && bullets.size() == 0) bullets.add(player.shootBullet());
         }
 
@@ -138,6 +140,7 @@ public class Main extends ApplicationAdapter {
             enemiesUpdate(); // this will check if the enemy is shot, as well as makes the enemies move properly
             enemiesShoot(); // will choose if enemies get to shoot and will remove the enemy bullets if they move off-screen
             isPlayerShot(); // this will check if the player is shot and will take away a life (unless a powerup prevents that)
+            doEnemiesHitPlayer(); // this will check if the enemies are low enough so that they can touch the player
             isPlayerDead(); // this will check if the player is dead
             hud.update(batch); // this will update the heads up display
         }
@@ -166,7 +169,7 @@ public class Main extends ApplicationAdapter {
         return counter; // returns the amount of dead enemies
     }
 
-    private void inverseShipDirection() { // this will make the ship go left, right, and down when called
+    private void inverseShipDirection() { // this will make the ship go left, right, and down when called. Also detects if collision with the player is made
         for (int i = 0; i < enemies.size(); i++) {
             for (int n = 0; n < enemies.get(i).size(); n++) {
                 enemies.get(i).get(n).setY(enemies.get(i).get(n).getRect().y - 25); // this will make the ships go down by 25
@@ -174,6 +177,17 @@ public class Main extends ApplicationAdapter {
             }
         }
     }
+
+    private void doEnemiesHitPlayer(){ // checks whether the enemies hit the player
+        for (int i = 0; i < enemies.size(); i++) {
+            for (int n = 0; n < enemies.get(i).size(); n++) {
+                if (player.isCollidingWith(enemies.get(i).get(n)) && !enemies.get(i).get(n).isDead()){
+                    player.kill(); // kills the player immediately
+                }
+            }
+        }
+    }
+
     private void youWin(){ // displays text and will
         music.stop(); // stops the music
         Music win= Gdx.audio.newMusic(Gdx.files.internal("Assets/Sound/win.mp3")); // will load the win audio
@@ -259,7 +273,7 @@ public class Main extends ApplicationAdapter {
         for (int i = 0; i < enemies.size(); i++) {
             for (int n = 0; n < enemies.get(i).size(); n++) {
                 shootChance = enemyShootChance.nextInt(100); // will get a random number
-                if (shootChance < 2 && !enemies.get(i).get(n).isDead()) // if it is less than two and the enemy is still alive it will get to shoot
+                if (shootChance < 10 && !enemies.get(i).get(n).isDead()) // if it is less than ten and the enemy is still alive it will get to shoot
                     enemyBullets.add(enemies.get(i).get(n).shootBullet()); // will add the enemy's bullet to the arraylist
             }
         }

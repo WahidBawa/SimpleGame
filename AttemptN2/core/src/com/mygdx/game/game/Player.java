@@ -28,7 +28,7 @@ public class Player {
     private ArrayList<Integer> powerupID = new ArrayList<Integer>(); // will store the id of the powerup
     private int points = 0; // will store the points
     private int lives = 3; // stores the amount of lives left
-    private boolean invincible = false; // used to determine invincibility
+    private boolean invincible = true; // used to determine invincibility
     private Sprite barrier = new Sprite(new Texture("Assets/barriers.png")); // sprite of the barrier
     boolean musicPlaying = false; // checks if music is playing
     private boolean mirror_activated = false; // checks if the mirror powerup is active
@@ -153,7 +153,11 @@ public class Player {
     }
 
     public boolean isCollidingWith(Bullet bullet) { // checks if the player is colliding with a bullet and returns a boolean
-        return bullet.getRect().intersects(this.getRect()) && bullet.getType() == 1;
+        return bullet.getRect().intersects(this.getRect());
+    }
+
+    public boolean isCollidingWith(Enemy enemy) { // checks if the player is colliding with a bullet and returns a boolean
+        return enemy.getRect().intersects(this.getRect());
     }
 
     public Rectangle getRect() { // returns the Rectangle
@@ -175,6 +179,10 @@ public class Player {
     public void takeAwayLife() { // takes away a life
         if (!invincible) lives -= 1;
         else invincible = false; // if the player was invincible then the ability will end
+    }
+
+    public void kill(){ // kills the player immediately
+        lives = 0;
     }
 
 }
