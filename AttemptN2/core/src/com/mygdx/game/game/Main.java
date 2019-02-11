@@ -10,7 +10,6 @@ import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.audio.Music;
-import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
@@ -92,7 +91,7 @@ public class Main extends ApplicationAdapter {
         bg = new Texture("Assets/jpgs/space-1.jpg");
         batch = new SpriteBatch(); // initialized the new batch
         player = new Player(0, 50); // initializes the player and sets the x and y
-        createEnemies();
+        createEnemies(); // creates enemies
 
         hud = new HUD(); // initializes the heads up display
 
@@ -222,7 +221,7 @@ public class Main extends ApplicationAdapter {
         enemies = new ArrayList<ArrayList<Enemy>>(); // this stores all the enemies
         player = new Player(0, 50);
 
-        createEnemies();
+        createEnemies(); // creates enemies
 
         hud = new HUD(); // initializes the heads up display
         aliveEnemies = numOfAliveEnemies(); // this will store the number of alive enemies
