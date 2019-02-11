@@ -10,6 +10,7 @@ import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.audio.Music;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
@@ -21,7 +22,7 @@ import java.util.Random;
 import static com.badlogic.gdx.Gdx.graphics;
 
 public class Main extends ApplicationAdapter {
-    private boolean soundisPlaying=false;
+    private boolean soundPlayed=false;
     private boolean end = false; //indicating the end of introduction
     Music intro_music; //main theme
     private static SpriteBatch batch;
@@ -184,27 +185,33 @@ public class Main extends ApplicationAdapter {
     private void youWin(){ // displays text and will
         music.stop(); // stops the music
         Music win= Gdx.audio.newMusic(Gdx.files.internal("Assets/Sound/win.mp3")); // will load the win audio
-        if(soundisPlaying==false) { // plays the sound once
+        if(soundPlayed==false) { // plays the sound once
             win.play();
-            soundisPlaying = true;
+            soundPlayed = true;
         }
-        diedFont.draw(batch,"YOU WON!!!",300,HEIGHT/2-400); // displays "YOU WON" on the screen
-        if (Gdx.input.isKeyPressed(Input.Keys.P)) restart();
+        diedFont.draw(batch,"YOU WON!!!",300,612); // displays "YOU WON" on the screen
+        diedFont.draw(batch,"Continue?",335,512); // displays "YOU WON" on the screen
+        diedFont.draw(batch,"Yes - Y",385,412); // displays "YOU WON" on the screen
+        diedFont.draw(batch,"No - N",385,312); // displays "YOU WON" on the screen
+        if (Gdx.input.isKeyPressed(Input.Keys.Y)){
+            restart(); // restarts the game if yes
+        }else if (Gdx.input.isKeyPressed(Input.Keys.N)) {
+            System.exit(0); // exits the game if no
+        }
     }
 
     private void youDied(){ // this will display choice words and a sound when the player loses
-        music.stop(); // stops the music
-        Music lose= Gdx.audio.newMusic(Gdx.files.internal("Assets/Sound/death.mp3")); // will load in sound
-        if(soundisPlaying==false){ // will play the sound once
-            lose.play();
-            soundisPlaying=true;
-        }
-        // displays a series of text on the screen
         diedFont.draw(batch, "YOU DIED.....", 350, 950);
         diedFont.draw(batch, "YOU FAILED THE GALAXY",150, 800);
         diedFont.draw(batch, "YOU FAILED HUMANITY", 180,660);
         diedFont.draw(batch, "Frankly speaking, YOU SUCK!",100,500);
-        if (Gdx.input.isKeyPressed(Input.Keys.P)) restart();
+        diedFont.draw(batch,"Yes - Y",385,400); // displays "YOU WON" on the screen
+        diedFont.draw(batch,"No - N",385,300); // displays "YOU WON" on the screen
+        if (Gdx.input.isKeyPressed(Input.Keys.Y)){
+            restart();// restarts the game if yes
+        }else if (Gdx.input.isKeyPressed(Input.Keys.N)) {
+            System.exit(0); // exits the game if no
+        }
     }
 
     public void restart(){ // this method will restart the game
