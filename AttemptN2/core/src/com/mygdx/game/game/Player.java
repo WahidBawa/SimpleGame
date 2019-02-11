@@ -38,7 +38,7 @@ public class Player {
     }
 
     //updates character's position
-    public void render(SpriteBatch batch) {
+    private void render(SpriteBatch batch) {
         if (invincible) {
             barrier.setX(player.getX() - 35);
             barrier.setY(player.getY() - 40);

@@ -15,13 +15,14 @@ import java.util.Random;
 import static com.badlogic.gdx.Gdx.graphics;
 
 public class Main extends ApplicationAdapter {
-    public boolean end = false; //indicating the end of introduction
+    private boolean soundisPlaying=false;
+    private boolean end = false; //indicating the end of introduction
     Music intro_music; //main theme
-    public static SpriteBatch batch;
+    private static SpriteBatch batch;
     boolean starting1 = false; //boolean to switch to 2nd phase of intro
     boolean starting2 = false; //boolean to switch to 3rd phase of intro
     Texture background;
-    BitmapFont font, font2, font3, font4; //fonts used
+    BitmapFont font2, font3, font4; //fonts used
     Texture intro_player;
     Texture bullet;
     Texture powerup1, powerup2, powerup3; //pictures of pu
@@ -46,8 +47,8 @@ public class Main extends ApplicationAdapter {
 
     public static Texture[] explosion = new Texture[73];
 
-    public boolean playerAlive = true;
-    public boolean gameStarted = false;
+    private boolean playerAlive = true;
+    private boolean gameStarted = false;
     private int aliveEnemies;
     private BitmapFont diedFont;
     @Override
@@ -66,15 +67,13 @@ public class Main extends ApplicationAdapter {
         powerup2 = new Texture("Assets/spiritBomb.png");
         powerup3 = new Texture("Assets/invincible.png");
         intro_explosion = new Texture("Assets/Explosion/29.png");
-        font = new BitmapFont(Gdx.files.internal("Assets/one/impact.fnt")); //title font
-        font2 = new BitmapFont(Gdx.files.internal("Assets/one/adventures.fnt")); //description font
-        font3 = new BitmapFont(Gdx.files.internal("Assets/one/text.fnt")); //description but smaller
+        font2 = new BitmapFont(Gdx.files.internal("Assets/one/intro.fnt")); //description font
+        font3 = new BitmapFont(Gdx.files.internal("Assets/one/sub.fnt")); //description but smaller
         font4 = new BitmapFont(Gdx.files.internal("Assets/one/sub.fnt")); //for instructions
         diedFont = new BitmapFont(Gdx.files.internal("ASSETS/one/died.fnt"));
-        font3.getData();
-        font.getData();
-        font2.getData();
-        background = new Texture("Assets/start.png");
+        font3.getData().setScale(2f);
+        font2.getData().setScale(0.8f);
+        background = new Texture("Assets/start.jpg");
         intro_music = Gdx.audio.newMusic(Gdx.files.internal("Assets/1.mp3"));
         intro_music.play();
         //next up are assets used in main game
@@ -149,17 +148,20 @@ public class Main extends ApplicationAdapter {
         batch.dispose();
     }
 
-    public int numOfAliveEnemies() {
+    private int numOfAliveEnemies() {
         int counter = 0;
         for (int i = 0; i < enemies.size(); i++) {
             for (int n = 0; n < enemies.get(i).size(); n++) {
                 if (!enemies.get(i).get(n).isDead()) counter++;
             }
         }
+        if(counter==0){
+            youWin();
+        }
         return counter;
     }
 
-    public void inverseShipDirection() {
+    private void inverseShipDirection() {
         for (int i = 0; i < enemies.size(); i++) {
             for (int n = 0; n < enemies.get(i).size(); n++) {
                 enemies.get(i).get(n).setY(enemies.get(i).get(n).getRect().y - 25);
@@ -167,16 +169,32 @@ public class Main extends ApplicationAdapter {
             }
         }
     }
+    private void youWin(){
+        music.stop();
+        Music win= Gdx.audio.newMusic(Gdx.files.internal("Assets/Sound/win.mp3"));
+        if(soundisPlaying==false) {
+            win.play();
+            soundisPlaying = true;
+        }
+        diedFont.draw(batch,"YOU WON!!!",300,HEIGHT/2-400);
+    }
 
-    public void youDied(){
-        diedFont.draw(batch, "YOU DIED", WIDTH / 2 - 150, HEIGHT / 2 + 25);
-        diedFont.draw(batch, "YOU FAILED THE GALACTIC COUNCIL",WIDTH/2-300,HEIGHT / 2 -25);
-        diedFont.draw(batch, "YOU FAILED HUMANITY", WIDTH/2 -250,HEIGHT/2-75);
-        diedFont.draw(batch, "Frankly speaking, YOU SUCK",WIDTH/2-250,HEIGHT-150);
+    private void youDied(){
+        music.stop();
+        Music lose= Gdx.audio.newMusic(Gdx.files.internal("Assets/Sound/death.mp3"));
+        if(soundisPlaying==false){
+            lose.play();
+            soundisPlaying=true;
+        }
+        diedFont.draw(batch, "YOU DIED.....", 350, 950);
+        diedFont.draw(batch, "YOU FAILED THE GALAXY",150, 800);
+        diedFont.draw(batch, "YOU FAILED HUMANITY", 180,660);
+        diedFont.draw(batch, "Frankly speaking, YOU SUCK!",100,500);
     }
 
 
-    public void dropPowerup() {
+
+    private void dropPowerup() {
         Random powerupDrop = new Random();
 //        int isDrop = powerupDrop.nextInt(1000);
         int isDrop = powerupDrop.nextInt(100);
@@ -191,8 +209,7 @@ public class Main extends ApplicationAdapter {
             }
         }
     }
-
-    public void isEnemyShot() {
+    private void isEnemyShot() {
         for (int i = 0; i < enemies.size(); i++) {
             for (int n = 0; n < enemies.get(i).size(); n++) {
                 enemies.get(i).get(n).update(batch);
@@ -210,7 +227,7 @@ public class Main extends ApplicationAdapter {
         }
     }
 
-    public void isPlayerShot() {
+    private void isPlayerShot() {
         for (int i = 0; i < enemybullets.size(); i++) {
             if (player.isCollidingWith(enemybullets.get(i)) && enemybullets.get(i).getType() == 1) {
                 enemybullets.remove(i);
@@ -220,7 +237,7 @@ public class Main extends ApplicationAdapter {
         }
     }
 
-    public void bulletsUpdate() {
+    private void bulletsUpdate() {
         for (int i = 0; i < bullets.size(); i++) {
             bullets.get(i).update(batch);
             if (bullets.get(i).getY() > HEIGHT) {
@@ -230,7 +247,7 @@ public class Main extends ApplicationAdapter {
         }
     }
 
-    public ArrayList<Bullet> chooseShootingEnemies() {
+    private ArrayList<Bullet> chooseShootingEnemies() {
         ArrayList<Bullet> enemyBullets = new ArrayList<Bullet>();
         int shootChance;
         Random enemyShootChance = new Random();
@@ -244,7 +261,7 @@ public class Main extends ApplicationAdapter {
         return enemyBullets;
     }
 
-    public void enemiesShoot() {
+    private void enemiesShoot() {
         if (enemybullets.size() == 0) enemybullets = chooseShootingEnemies();
         for (int i = 0; i < enemybullets.size(); i++) {
             enemybullets.get(i).update(batch);
@@ -252,13 +269,13 @@ public class Main extends ApplicationAdapter {
         }
     }
 
-    public void isPlayerDead() {
+    private void isPlayerDead() {
         if (player.getLives() <= 0) {
             playerAlive = false;
         }
     }
 
-    public void intro() {
+    private void intro() {
         if (end == false) { //intro starts here
             if (Gdx.input.isKeyPressed(Input.Keys.SPACE) && starting1 == false) {//starting to play
 
@@ -285,43 +302,45 @@ public class Main extends ApplicationAdapter {
             batch.draw(background, Main.WIDTH - background.getWidth(), Main.HEIGHT - background.getHeight());
 //            batch.draw(background, 0, 0);
             if (starting1 == false) { //drawing lots of texts and diagrams
-                font.draw(batch, " SPACE LEGEND", 50, 300);
-                font2.draw(batch, "Press Space to initiate your mission", 105, 120);
-                batch.draw(enemy1, 265, 400);
-                batch.draw(bullet, 285, 365);
+                font3.draw(batch, "Press Space to initiate your mission", 100, 1000);
+                batch.draw(enemy1, 950, 800);
+                batch.draw(bullet, 970, 765);
             }
             if (starting2 == false) { //second phase including explosion
-                batch.draw(intro_player, 275, 0);
-                batch.draw(ship, 60, 150);
-                batch.draw(intro_explosion, 500, 150);
-                batch.draw(bulletside, 300, 180);
+                batch.draw(intro_player, 950, 50);
+                batch.draw(ship, 0, 50);
+                batch.draw(intro_explosion, 800, 140);
+                batch.draw(bulletside, 270, 140);
                 if (starting1 == true) {
-                    batch.draw(intro_explosion, 250, 360);
-                    font2.draw(batch, "Your Mission Initiates in T-7", 150, 320);
+                    batch.draw(intro_explosion, 930, 760);
+                    font3.draw(batch, "Your Mission Initiates in T-7", 170, 1000);
                 }
-            } else if (starting2 = true) { //3rd phase screen including ships powerups and controls
-                font3.draw(batch, "Commander Shepard was abroad the normandy when he", 50, 460);
-                font3.draw(batch, "encountered a fleet of hostile ships with the intention of", 50, 420);
-                font3.draw(batch, "ruining balance in the universe.The Galactic council will ", 50, 380);
-                font3.draw(batch, "send reinforcements as power-ups, use them wisely!", 50, 340);
-                font4.draw(batch, "ENEMIES", 50, 300);
-                font4.draw(batch, "POWER-UPS", 450, 300);
-                font4.draw(batch, "40 pts", 0, 250);
-                font4.draw(batch, "20 pts", 0, 150);
-                font4.draw(batch, "10 pts", 0, 50);
-                font4.draw(batch, "Controls:", 260, 300);
-                font4.draw(batch, "Start: X", 260, 250);
-                font4.draw(batch, "Shoot: Space", 235, 150);
-                font4.draw(batch, "Power-up: Shift", 230, 50);
-                batch.draw(enemy1, 130, 210);
-                batch.draw(enemy2, 140, 110);
-                batch.draw(enemy3, 130, 10);
-                batch.draw(powerup1, 455, 210);
-                batch.draw(powerup2, 455, 110);
-                batch.draw(powerup3, 455, 10);
-                font4.draw(batch, "Mirror", 550, 250);
-                font4.draw(batch, "Bomb", 550, 150);
-                font4.draw(batch, "Invincible", 520, 50);
+            }
+            else if (starting2 = true) { //3rd phase screen including ships powerups and controls
+                batch.draw(bg,0,0);
+                font2.draw(batch, "Commander Shepard was on the normandy when", 0, 1000);
+                font2.draw(batch, "he encountered a fleet of hostile ships with", 0, 930);
+                font2.draw(batch, "the intention of disturbing the peace.", 0, 860);
+                font2.draw(batch, "The Galactic council will send power-ups as", 0, 790);
+                font2.draw(batch,"reinforcements, use them wisely!",0,720);
+                font3.draw(batch, "ENEMIES", 50, 600);
+                font3.draw(batch, "POWER-UPS", 650, 600);
+                font3.draw(batch, "40 pts", 0, 450);
+                font3.draw(batch, "20 pts", 0, 300);
+                font3.draw(batch, "10 pts", 0, 150);
+                font4.draw(batch, "Controls:", 400, 500);
+                font4.draw(batch, "Start: X", 400, 400);
+                font4.draw(batch, "Shoot: Space", 360, 300);
+                font4.draw(batch, "Power-up: Shift", 360, 200);
+                batch.draw(enemy1, 200, 400);
+                batch.draw(enemy2, 210, 250);
+                batch.draw(enemy3, 200, 100);
+                batch.draw(powerup1, 950, 400);
+                batch.draw(powerup2, 950, 250);
+                batch.draw(powerup3, 950, 100);
+                font3.draw(batch, "Mirror", 650, 450);
+                font3.draw(batch, "Bomb", 650, 300);
+                font3.draw(batch, "Invincible", 650, 150);
             }
         } else {
             gameStarted = true;
