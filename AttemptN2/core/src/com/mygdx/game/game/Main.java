@@ -114,6 +114,10 @@ public class Main extends ApplicationAdapter {
             bullets.add(player.shootBullet());
 
         batch.begin();
+//        OrthographicCamera camera = new OrthographicCamera();
+//        camera.position.set(512, 512, 0);
+//        FillViewport viewport = new FillViewport(1024, 1024, camera);
+//        viewport.update(1600,1600,true);
         intro();
         aliveEnemies = numOfAliveEnemies();
         if (playerAlive && gameStarted && aliveEnemies > 0) {
@@ -253,9 +257,6 @@ public class Main extends ApplicationAdapter {
 
     public void intro() {
         if (end == false) { //intro starts here
-            OrthographicCamera camera = new OrthographicCamera();
-            camera.position.set(512, 512, 0);
-            FillViewport viewport = new FillViewport(1024, 1024, camera);
             graphics.setWindowedMode(WIDTH, HEIGHT);
             if (Gdx.input.isKeyPressed(Input.Keys.SPACE) && starting1 == false) {//starting to play
 
@@ -282,7 +283,8 @@ public class Main extends ApplicationAdapter {
                 System.out.println("hi");
                 end = true; //boolean that intro has ended
             }
-            batch.draw(background, 0, 0);
+            batch.draw(background, Main.WIDTH - background.getWidth(), Main.HEIGHT - background.getHeight());
+//            batch.draw(background, 0, 0);
             if (starting1 == false) { //drawing lots of texts and diagrams
                 font.draw(batch, " SPACE LEGEND", 50, 300);
                 font2.draw(batch, "Press Space to initiate your mission", 105, 120);
