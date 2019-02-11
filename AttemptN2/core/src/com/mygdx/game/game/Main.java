@@ -51,7 +51,7 @@ public class Main extends ApplicationAdapter {
     public boolean playerAlive = true;
     public boolean gameStarted = false;
     private int aliveEnemies;
-
+    private BitmapFont diedFont;
     @Override
     public void create() {
         start0 = Gdx.audio.newMusic(Gdx.files.internal("Assets/Sound/start0.mp3")); //first sound in intro
@@ -72,6 +72,7 @@ public class Main extends ApplicationAdapter {
         font2 = new BitmapFont(Gdx.files.internal("Assets/one/adventures.fnt")); //description font
         font3 = new BitmapFont(Gdx.files.internal("Assets/one/text.fnt")); //description but smaller
         font4 = new BitmapFont(Gdx.files.internal("Assets/one/sub.fnt")); //for instructions
+        diedFont = new BitmapFont(Gdx.files.internal("ASSETS/one/died.fnt"));
         font3.getData();
         font.getData();
         font2.getData();
@@ -104,7 +105,7 @@ public class Main extends ApplicationAdapter {
 
     @Override
     public void render() {
-        Gdx.gl.glClearColor(1, 0, 0, 1);
+        Gdx.gl.glClearColor(0, 0, 0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) player.goLeft();
         if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) player.goRight();
@@ -140,9 +141,10 @@ public class Main extends ApplicationAdapter {
             isPlayerDead();
             hud.update(batch);
         } else {
-            if (aliveEnemies > 0) {
+            if (aliveEnemies > 0 && !playerAlive) {
                 System.out.println("YOU LOST BUDDY");
-            } else {
+                youDied();
+            } else if (playerAlive){
                 System.out.println("YOU WON BUDDY");
             }
         }
@@ -171,6 +173,10 @@ public class Main extends ApplicationAdapter {
                 enemies.get(i).get(n).inverseSpeed();
             }
         }
+    }
+
+    public void youDied(){
+        diedFont.draw(batch, "YOU DIED", WIDTH / 2 - 150, HEIGHT / 2 + 25);
     }
 
     public void dropPowerup() {
