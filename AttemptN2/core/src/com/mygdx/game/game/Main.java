@@ -5,11 +5,9 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.GL20;
-import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.utils.viewport.FillViewport;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -36,8 +34,8 @@ public class Main extends ApplicationAdapter {
     Music start0;
     Music music;
     Texture bg;
-    ArrayList<Bullet> enemybullets = new ArrayList<Bullet>();
-    ArrayList<Bullet> bullets = new ArrayList<Bullet>();
+    public static ArrayList<Bullet> enemybullets = new ArrayList<Bullet>();
+    public static ArrayList<Bullet> bullets = new ArrayList<Bullet>();
     ArrayList<PowerUp> powerups = new ArrayList<PowerUp>();
     public static ArrayList<ArrayList<Enemy>> enemies = new ArrayList<ArrayList<Enemy>>();
     public static final int WIDTH = 1024;
@@ -115,10 +113,6 @@ public class Main extends ApplicationAdapter {
         }
 
         batch.begin();
-//        OrthographicCamera camera = new OrthographicCamera();
-//        camera.position.set(512, 512, 0);
-//        FillViewport viewport = new FillViewport(1024, 1024, camera);
-//        viewport.update(1600,1600,true);
         intro();
         aliveEnemies = numOfAliveEnemies();
         if (playerAlive && gameStarted && aliveEnemies > 0) {

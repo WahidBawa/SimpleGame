@@ -14,7 +14,6 @@ public class Player {
     private boolean shooting = false;
     private final static int SPIRITBOMB = 0;
     private final static int INVINCIBLE = 1;
-    public boolean isAlive = true;
     private final static int MIRROR = 2;
     private boolean using_spiritbomb = false;
     private SpiritBomb spiritbomb;
@@ -24,6 +23,8 @@ public class Player {
     private boolean invincible = false;
     private Sprite barrier = new Sprite(new Texture("Assets/barriers.png"));
     boolean musicPlaying = false;
+    private boolean mirror_activated = false;
+    private Mirror[] mirrors = new Mirror[3];
     Rectangle rect;
 
     public Player(float x, float y) {
@@ -41,6 +42,7 @@ public class Player {
         if (invincible) {
             barrier.setX(player.getX() - 35);
             barrier.setY(player.getY() - 40);
+            barrier.rotate(1);
             barrier.draw(batch);
         }
         player.draw(batch);
@@ -50,7 +52,6 @@ public class Player {
         player.setX(x);
         player.setY(y);
         rect = new Rectangle((int) player.getX(), (int) player.getY(), (int) player.getWidth(), (int) player.getHeight());
-//        System.out.println(rect.toString());
         if (using_spiritbomb) {
             spiritbomb.update(batch);
             if (spiritbomb.getRect().y > Main.HEIGHT) {
@@ -65,6 +66,22 @@ public class Player {
                 }
             }
         }
+
+        if (mirror_activated){
+            for (int i = 0; i < mirrors.length; i++){
+                mirrors[i].update(batch, i);
+                for (int n = 0; n < Main.enemybullets.size(); n++){
+                    if (mirrors[i].isCollidesWith(Main.enemybullets.get(n))){
+                        Main.enemybullets.get(n).reflect();
+                        mirrors[i].hit();
+                    }
+//                    if (mirrors[i].getTimesHit() <= 0) {
+//                        mirrors.
+//                    }
+                }
+            }
+
+        }
         render(batch);
     }
 
@@ -75,6 +92,11 @@ public class Player {
                 spiritbomb = new SpiritBomb(player.getX(), player.getY(), player.getWidth());
             } else if (powerupID.get(0) == INVINCIBLE) {
                 invincible = true;
+            }else if (powerupID.get(0) == MIRROR){
+                for (int i = 0; i < mirrors.length; i++){
+                    mirrors[i] = new Mirror();
+                }
+                mirror_activated = true;
             }
             powerupID.remove(0);
             Main.hud.removePowerup();

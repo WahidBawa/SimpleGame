@@ -11,6 +11,7 @@ public class Bullet {
     private static final int PLAYER = 0;
     private static final int ENEMY = 1;
     private float x, y, width;
+    private int speed = 12;
     Texture bullet_sprite;
     Sprite bullet;
     Rectangle rect;
@@ -25,6 +26,7 @@ public class Bullet {
         } else if (type == ENEMY) {
             bullet_sprite = new Texture("Assets/1flipped.png");
         }
+        speed = (type == 0 ? 12 : -12);
         bullet = new Sprite(bullet_sprite);
         rect = new Rectangle((int) bullet.getX(), (int) bullet.getY(), (int) bullet.getWidth(), (int) bullet.getHeight());
     }
@@ -37,9 +39,9 @@ public class Bullet {
 
     public void update(SpriteBatch batch) {
         if (this.type == PLAYER) {
-            y += 12;
+            y += speed;
         } else if (this.type == ENEMY) {
-            y -= 12;
+            y += speed;
         }
         bullet.setY(y);
         this.render(batch);
@@ -60,4 +62,15 @@ public class Bullet {
     public int getType() {
         return type;
     }
+
+    public void reflect(){
+        speed *= -1;
+        bullet_sprite = new Texture("Assets/1.png");
+        bullet = new Sprite(bullet_sprite);
+        type = 0;
+        Main.enemybullets.remove(Main.enemybullets.indexOf(this));
+        Main.bullets.add(this);
+    }
+
+
 }
