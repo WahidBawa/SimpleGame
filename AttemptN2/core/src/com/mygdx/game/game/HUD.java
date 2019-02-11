@@ -31,7 +31,7 @@ public class HUD {
         batch.draw(powerups_hud, Main.WIDTH - powerups_hud.getWidth(), Main.HEIGHT - powerups_hud.getHeight()); // draws the powerup HUD background
         batch.draw(points_hud, 0, Main.HEIGHT - points_hud.getHeight()); // draws the COOL text for points
         font.draw(batch, "" + Main.player.getPoints(), 235, Main.HEIGHT - 25); // draws the point value on screen
-        batch.draw(powerup_sprites.get(0), 790, Main.HEIGHT - 105);
+        if (powerup_sprites.size() > 0) batch.draw(powerup_sprites.get(0), 790, Main.HEIGHT - 105); // draws the powerup sprites on screen
         for (int i = 0; i < Main.player.getLives(); i++) { // draws the players life represented by hearts at the top of the screen
             batch.draw(heart, 375 + i * (heart.getWidth() / 3 + 10), Main.HEIGHT - heart.getHeight() / 3 - 25, heart.getWidth() / 3, heart.getHeight() / 3);
         }
