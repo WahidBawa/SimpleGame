@@ -268,7 +268,6 @@ public class Main extends ApplicationAdapter {
 
     public void intro() {
         if (end == false) { //intro starts here
-            graphics.setWindowedMode(WIDTH, HEIGHT);
             if (Gdx.input.isKeyPressed(Input.Keys.SPACE) && starting1 == false) {//starting to play
 
                 starting1 = true; //starting 2nd phase
