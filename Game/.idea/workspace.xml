@@ -2,310 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3334021c-14e3-48a6-8976-5750fc87d5d6" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/0.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/1.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/1flipped.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/1rotated.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/ASU_19/ASU.exe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/ASU_19/ASU.exe.config" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/ASU_19/ASU.pdb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/ASU_19/ASU.vshost.exe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/ASU_19/ASU.vshost.exe.config" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/ASU_19/ASU.vshost.exe.manifest" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/ASU_19/ForkandBeard.Logic.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/ASU_19/ForkandBeard.Logic.pdb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/ASU_19/ForkandBeard.Util.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/ASU_19/ForkandBeard.Util.pdb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/ASU_19/ImageQuantizers.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/ASU_19/READ_ME.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/ASU_19/kisspng-sprite-spaceshiptwo-spacecraft-spaceshipone-openga-space-invaders-5acc8596a36e17.6179693015233529826694.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/ASU_19/third_party_image_converter/Formats.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/ASU_19/third_party_image_converter/Help.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/ASU_19/third_party_image_converter/Plugins.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/ASU_19/third_party_image_converter/ReadMe.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/ASU_19/third_party_image_converter/Usage.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/ASU_19/third_party_image_converter/WhatsNew.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/ASU_19/third_party_image_converter/license.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/ASU_19/third_party_image_converter/nconvert.exe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/EXPLOSION/0.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/EXPLOSION/1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/EXPLOSION/10.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/EXPLOSION/11.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/EXPLOSION/12.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/EXPLOSION/13.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/EXPLOSION/14.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/EXPLOSION/15.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/EXPLOSION/16.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/EXPLOSION/17.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/EXPLOSION/18.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/EXPLOSION/19.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/EXPLOSION/2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/EXPLOSION/20.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/EXPLOSION/21.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/EXPLOSION/22.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/EXPLOSION/23.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/EXPLOSION/24.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/EXPLOSION/25.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/EXPLOSION/26.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/EXPLOSION/27.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/EXPLOSION/28.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/EXPLOSION/29.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/EXPLOSION/3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/EXPLOSION/30.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/EXPLOSION/31.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/EXPLOSION/32.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/EXPLOSION/33.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/EXPLOSION/34.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/EXPLOSION/35.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/EXPLOSION/36.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/EXPLOSION/37.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/EXPLOSION/38.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/EXPLOSION/39.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/EXPLOSION/4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/EXPLOSION/40.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/EXPLOSION/41.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/EXPLOSION/42.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/EXPLOSION/43.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/EXPLOSION/44.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/EXPLOSION/45.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/EXPLOSION/46.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/EXPLOSION/47.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/EXPLOSION/48.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/EXPLOSION/49.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/EXPLOSION/5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/EXPLOSION/50.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/EXPLOSION/51.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/EXPLOSION/52.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/EXPLOSION/53.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/EXPLOSION/54.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/EXPLOSION/55.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/EXPLOSION/56.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/EXPLOSION/57.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/EXPLOSION/58.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/EXPLOSION/59.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/EXPLOSION/6.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/EXPLOSION/60.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/EXPLOSION/61.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/EXPLOSION/62.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/EXPLOSION/63.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/EXPLOSION/64.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/EXPLOSION/65.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/EXPLOSION/66.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/EXPLOSION/67.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/EXPLOSION/68.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/EXPLOSION/69.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/EXPLOSION/7.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/EXPLOSION/70.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/EXPLOSION/71.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/EXPLOSION/72.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/EXPLOSION/8.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/EXPLOSION/9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/Enemies/0.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/Enemies/1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/Enemies/2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/Mirror.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/Mirror/0.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/MirrorP.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/ORBS.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/Sound/death.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/Sound/kill.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/Sound/kill2.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/Sound/kill3.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/Sound/kill4.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/Sound/losealife.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/Sound/main.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/Sound/powerup.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/Sound/start.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/Sound/start0.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/Sound/start2.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/Sound/win.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/barriers.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/heart.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/invincible.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/jpgs/space-1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/jpgs/space-2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/license.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/one/adventures.fnt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/one/adventures.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/one/died.fnt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/one/died.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/one/impact.fnt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/one/impact1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/one/impact2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/one/impact3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/one/impact4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/one/impact5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/one/intro.fnt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/one/intro.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/one/sub.fnt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/one/sub.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/one/text.fnt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/one/text.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/points.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/powerupsHUD.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/runnable-hiero.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/spiritBomb.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/spiritbomb_attack.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/spritesheet1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/Assets/start.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/badlogic.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/build.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/core/assets/badlogic.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/core/assets/sr3_shields_and_other_stuff_by_shadicles.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/core/build.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/core/out/production/classes/META-INF/AttemptN2.core.main.kotlin_module" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/core/src/Main.gwt.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/core/src/com/mygdx/game/game/Bullet.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/core/src/com/mygdx/game/game/Enemy.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/core/src/com/mygdx/game/game/HUD.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/core/src/com/mygdx/game/game/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/core/src/com/mygdx/game/game/Mirror.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/core/src/com/mygdx/game/game/Player.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/core/src/com/mygdx/game/game/PowerUp.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/core/src/com/mygdx/game/game/SpiritBomb.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/desktop/build.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/desktop/src/com/mygdx/game/desktop/DesktopLauncher.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/gradle.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/gradlew" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/gradlew.bat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/html/build.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/html/src/com/mygdx/game/GdxDefinition.gwt.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/html/src/com/mygdx/game/GdxDefinitionSuperdev.gwt.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/html/src/com/mygdx/game/client/HtmlLauncher.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/html/webapp/WEB-INF/web.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/html/webapp/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/html/webapp/refresh.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/html/webapp/soundmanager2-jsmin.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/html/webapp/soundmanager2-setup.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/html/webapp/styles.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/out/production/core/Main.gwt.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/out/production/html/com/mygdx/game/GdxDefinition.gwt.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/out/production/html/com/mygdx/game/GdxDefinitionSuperdev.gwt.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AttemptN2/settings.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.6/fileContent/annotation-processors.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.6/fileContent/fileContent.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.6/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.6/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.6/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.6/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.6/fileHashes/resourceHashesCache.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.6/taskHistory/taskHistory.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.6/taskHistory/taskHistory.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/Gradle___Game___html_1_0_war.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/Gradle___Game___html_1_0_war.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/Gradle___Game___html_1_0_war__exploded_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/Gradle___Game___html_1_0_war__exploded_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/Gradle___Game___html_draft_1_0_war.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/Gradle___Game___html_draft_1_0_war.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/Gradle___Game___html_draft_1_0_war__exploded_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/Gradle___Game___html_draft_1_0_war__exploded_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__ant_ant_1_6_5.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__ant_ant_1_6_5.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__colt_colt_1_2_0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__colt_colt_1_2_0.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_badlogicgames_gdx_gdx_1_9_8.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_badlogicgames_gdx_gdx_1_9_8.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_badlogicgames_gdx_gdx_backend_gwt_1_9_8.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_badlogicgames_gdx_gdx_backend_gwt_1_9_8.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_badlogicgames_gdx_gdx_backend_gwt_sources_1_9_8.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_badlogicgames_gdx_gdx_backend_gwt_sources_1_9_8.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_badlogicgames_gdx_gdx_backend_lwjgl_1_9_8.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_badlogicgames_gdx_gdx_backend_lwjgl_1_9_8.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_badlogicgames_gdx_gdx_platform_natives_desktop_1_9_8.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_badlogicgames_gdx_gdx_platform_natives_desktop_1_9_8.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_badlogicgames_gdx_gdx_sources_1_9_8.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_badlogicgames_gdx_gdx_sources_1_9_8.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_badlogicgames_jlayer_jlayer_1_0_1_gdx.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_badlogicgames_jlayer_jlayer_1_0_1_gdx.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_code_gson_gson_2_6_2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_code_gson_gson_2_6_2.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_gwt_gwt_codeserver_2_8_0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_gwt_gwt_codeserver_2_8_0.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_gwt_gwt_dev_2_8_0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_gwt_gwt_dev_2_8_0.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_gwt_gwt_user_2_8_0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_gwt_gwt_user_2_8_0.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_jsinterop_jsinterop_annotations_1_0_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_jsinterop_jsinterop_annotations_1_0_1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_jsinterop_jsinterop_annotations_sources_1_0_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_jsinterop_jsinterop_annotations_sources_1_0_1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_ibm_icu_icu4j_50_1_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_ibm_icu_icu4j_50_1_1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__commons_codec_commons_codec_1_10.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__commons_codec_commons_codec_1_10.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__commons_collections_commons_collections_3_2_2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__commons_collections_commons_collections_3_2_2.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__commons_io_commons_io_2_4.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__commons_io_commons_io_2_4.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__commons_logging_commons_logging_1_2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__commons_logging_commons_logging_1_2.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__javax_annotation_javax_annotation_api_1_2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__javax_annotation_javax_annotation_api_1_2.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__javax_servlet_javax_servlet_api_3_1_0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__javax_servlet_javax_servlet_api_3_1_0.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__javax_validation_validation_api_1_0_0_GA.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__javax_validation_validation_api_1_0_0_GA.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__javax_validation_validation_api_sources_1_0_0_GA.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__javax_validation_validation_api_sources_1_0_0_GA.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__net_java_jinput_jinput_2_0_5.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__net_java_jinput_jinput_2_0_5.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__net_java_jinput_jinput_platform_natives_linux_2_0_5.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__net_java_jinput_jinput_platform_natives_linux_2_0_5.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__net_java_jinput_jinput_platform_natives_osx_2_0_5.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__net_java_jinput_jinput_platform_natives_osx_2_0_5.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__net_java_jinput_jinput_platform_natives_windows_2_0_5.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__net_java_jinput_jinput_platform_natives_windows_2_0_5.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__net_java_jutils_jutils_1_0_0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__net_java_jutils_jutils_1_0_0.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__net_sourceforge_cssparser_cssparser_0_9_18.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__net_sourceforge_cssparser_cssparser_0_9_18.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__net_sourceforge_htmlunit_htmlunit_2_19.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__net_sourceforge_htmlunit_htmlunit_2_19.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__net_sourceforge_htmlunit_htmlunit_core_js_2_17.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__net_sourceforge_htmlunit_htmlunit_core_js_2_17.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__net_sourceforge_nekohtml_nekohtml_1_9_22.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__net_sourceforge_nekohtml_nekohtml_1_9_22.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_apache_commons_commons_lang3_3_4.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_apache_commons_commons_lang3_3_4.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_apache_httpcomponents_httpclient_4_5_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_apache_httpcomponents_httpclient_4_5_1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_apache_httpcomponents_httpcore_4_4_3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_apache_httpcomponents_httpcore_4_4_3.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_apache_httpcomponents_httpmime_4_5_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_apache_httpcomponents_httpmime_4_5_1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_eclipse_jetty_apache_jsp_9_2_14_v20151106.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_eclipse_jetty_apache_jsp_9_2_14_v20151106.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_eclipse_jetty_jetty_annotations_9_2_14_v20151106.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_eclipse_jetty_jetty_annotations_9_2_14_v20151106.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_eclipse_jetty_jetty_continuation_9_2_14_v20151106.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_eclipse_jetty_jetty_continuation_9_2_14_v20151106.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_eclipse_jetty_jetty_http_9_2_14_v20151106.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_eclipse_jetty_jetty_http_9_2_14_v20151106.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_eclipse_jetty_jetty_io_9_2_14_v20151106.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_eclipse_jetty_jetty_io_9_2_14_v20151106.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_eclipse_jetty_jetty_jndi_9_2_14_v20151106.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_eclipse_jetty_jetty_jndi_9_2_14_v20151106.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_eclipse_jetty_jetty_plus_9_2_14_v20151106.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_eclipse_jetty_jetty_plus_9_2_14_v20151106.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_eclipse_jetty_jetty_security_9_2_14_v20151106.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_eclipse_jetty_jetty_security_9_2_14_v20151106.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_eclipse_jetty_jetty_server_9_2_14_v20151106.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_eclipse_jetty_jetty_server_9_2_14_v20151106.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_eclipse_jetty_jetty_servlet_9_2_14_v20151106.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_eclipse_jetty_jetty_servlet_9_2_14_v20151106.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_eclipse_jetty_jetty_servlets_9_2_14_v20151106.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_eclipse_jetty_jetty_servlets_9_2_14_v20151106.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_eclipse_jetty_jetty_util_9_2_14_v20151106.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_eclipse_jetty_jetty_util_9_2_14_v20151106.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_eclipse_jetty_jetty_webapp_9_2_14_v20151106.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_eclipse_jetty_jetty_webapp_9_2_14_v20151106.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_eclipse_jetty_jetty_xml_9_2_14_v20151106.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_eclipse_jetty_jetty_xml_9_2_14_v20151106.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_eclipse_jetty_toolchain_jetty_schemas_3_1_M0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_eclipse_jetty_toolchain_jetty_schemas_3_1_M0.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_eclipse_jetty_websocket_websocket_api_9_2_13_v20150730.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_eclipse_jetty_websocket_websocket_api_9_2_13_v20150730.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_eclipse_jetty_websocket_websocket_client_9_2_13_v20150730.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_eclipse_jetty_websocket_websocket_client_9_2_13_v20150730.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_eclipse_jetty_websocket_websocket_common_9_2_13_v20150730.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_eclipse_jetty_websocket_websocket_common_9_2_13_v20150730.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_jcraft_jorbis_0_0_17.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_jcraft_jorbis_0_0_17.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_lwjgl_lwjgl_lwjgl_2_9_2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_lwjgl_lwjgl_lwjgl_2_9_2.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_lwjgl_lwjgl_lwjgl_platform_natives_linux_2_9_2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_lwjgl_lwjgl_lwjgl_platform_natives_linux_2_9_2.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_lwjgl_lwjgl_lwjgl_platform_natives_osx_2_9_2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_lwjgl_lwjgl_lwjgl_platform_natives_osx_2_9_2.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_lwjgl_lwjgl_lwjgl_platform_natives_windows_2_9_2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_lwjgl_lwjgl_lwjgl_platform_natives_windows_2_9_2.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_lwjgl_lwjgl_lwjgl_util_2_9_2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_lwjgl_lwjgl_lwjgl_util_2_9_2.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_mortbay_jasper_apache_el_8_0_9_M3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_mortbay_jasper_apache_el_8_0_9_M3.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_mortbay_jasper_apache_jsp_8_0_9_M3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_mortbay_jasper_apache_jsp_8_0_9_M3.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_ow2_asm_asm_5_0_3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_ow2_asm_asm_5_0_3.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_ow2_asm_asm_commons_5_0_3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_ow2_asm_asm_commons_5_0_3.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_ow2_asm_asm_tree_5_0_3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_ow2_asm_asm_tree_5_0_3.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_ow2_asm_asm_util_5_0_3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_ow2_asm_asm_util_5_0_3.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_w3c_css_sac_1_3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_w3c_css_sac_1_3.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__tapestry_tapestry_4_0_2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__tapestry_tapestry_4_0_2.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__xalan_serializer_2_7_2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__xalan_serializer_2_7_2.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__xalan_xalan_2_7_2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__xalan_xalan_2_7_2.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__xerces_xercesImpl_2_11_0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__xerces_xercesImpl_2_11_0.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__xml_apis_xml_apis_1_4_01.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__xml_apis_xml_apis_1_4_01.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/gradle_wrapper.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/Game.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/Game.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/core/Game.core.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/core/Game.core.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/core/Game.core.main.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/core/Game.core.main.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/core/Game.core.test.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/core/Game.core.test.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/desktop/Game.desktop.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/desktop/Game.desktop.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/desktop/Game.desktop.main.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/desktop/Game.desktop.main.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/desktop/Game.desktop.test.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/desktop/Game.desktop.test.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/html/Game.html.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/html/Game.html.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AttemptN2/.idea/workspace.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/modules/html/Game.html.main.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/html/Game.html.main.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/html/Game.html.test.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/html/Game.html.test.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/build/classes/java/main/com/mygdx/game/game/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/build/classes/java/main/com/mygdx/game/game/Player$MyInputProcessor.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/build/classes/java/main/com/mygdx/game/game/Player.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/build/classes/java/main/com/mygdx/game/game/Walls.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/build/classes/java/main/com/mygdx/game/world/TiledGameMap.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/build/libs/core-1.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/build/tmp/jar/MANIFEST.MF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/core.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/desktop/build/classes/java/main/com/mygdx/game/desktop/DesktopLauncher.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/desktop/desktop.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/build/tmp/draftWar/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/html/build/tmp/draftWar/MANIFEST.MF" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/build/tmp/war/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/html/build/tmp/war/MANIFEST.MF" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/html.iml" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/" />
@@ -338,7 +37,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/desktop/src/com/mygdx/game/desktop/DesktopLauncher.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="204">
@@ -347,11 +46,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/core/src/com/mygdx/game/game/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2346">
-              <caret line="393" selection-start-line="393" selection-end-line="393" />
+            <state relative-caret-position="401">
+              <caret line="386" column="37" selection-start-line="386" selection-start-column="37" selection-end-line="386" selection-end-column="37" />
             </state>
           </provider>
         </entry>
@@ -387,7 +86,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/com/mygdx/game/game/Player.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2771">
+            <state relative-caret-position="2431">
               <caret line="168" selection-start-line="168" selection-end-line="168" />
             </state>
           </provider>
@@ -509,9 +208,9 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="951" />
-    <option name="width" value="978" />
-    <option name="height" value="1089" />
+    <option name="x" value="950" />
+    <option name="width" value="979" />
+    <option name="height" value="1090" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -520,14 +219,35 @@
     </navigator>
     <panes>
       <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="Game" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Game" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+            </path>
+            <path>
+              <item name="Game" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Game" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="core" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+            </path>
+            <path>
+              <item name="Game" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Game" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="core" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
       <pane id="PackagesPane" />
-      <pane id="ProjectPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1549881658549" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1549881693032" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -589,18 +309,19 @@
       <workItem from="1549633897094" duration="7491000" />
       <workItem from="1549666981242" duration="972000" />
       <workItem from="1549726691660" duration="72696000" />
-      <workItem from="1549881535136" duration="123000" />
+      <workItem from="1549881535136" duration="161000" />
+      <workItem from="1549881768602" duration="68000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="106042000" />
+    <option name="totallyTimeSpent" value="106148000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="878" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2872483" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.29127517" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -610,7 +331,7 @@
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3297587" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49932885" visible="true" weight="0.3297587" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4986577" visible="true" weight="0.3297587" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -618,7 +339,7 @@
       <window_info anchor="bottom" id="Build" order="7" weight="0.3297587" />
       <window_info anchor="bottom" id="Terminal" order="8" />
       <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50067115" side_tool="true" visible="true" weight="0.3297587" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5013423" side_tool="true" visible="true" weight="0.3297587" />
       <window_info anchor="bottom" id="Messages" order="11" weight="0.3324397" />
       <window_info anchor="bottom" id="Java Enterprise" order="12" />
       <window_info anchor="bottom" id="Database Changes" order="13" />
@@ -682,13 +403,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/mygdx/game/game/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2346">
-          <caret line="393" selection-start-line="393" selection-end-line="393" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/mygdx/game/game/Enemy.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
@@ -715,7 +429,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/mygdx/game/game/Player.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2771">
+        <state relative-caret-position="2431">
           <caret line="168" selection-start-line="168" selection-end-line="168" />
         </state>
       </provider>
@@ -758,6 +472,13 @@
             <element signature="imports" expanded="true" />
             <element signature="e#2175#2176#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/mygdx/game/game/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="401">
+          <caret line="386" column="37" selection-start-line="386" selection-start-column="37" selection-end-line="386" selection-end-column="37" />
         </state>
       </provider>
     </entry>

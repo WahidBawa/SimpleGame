@@ -35,7 +35,6 @@
       <sourceFolder url="file://$MODULE_DIR$/../../../html/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../../../html/src/main/resources" type="java-resource" />
     </content>
-    <content url="file://$MODULE_DIR$/../../../html/webapp" />
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="Game.core.main" />
