@@ -122,7 +122,6 @@ public class Main extends ApplicationAdapter {
         intro();
         aliveEnemies = numOfAliveEnemies();
         if (playerAlive && gameStarted && aliveEnemies > 0) {
-
             music.play();
             music.setOnCompletionListener(new Music.OnCompletionListener() {//once the song is over repeat it!
                 @Override
@@ -140,7 +139,8 @@ public class Main extends ApplicationAdapter {
             isPlayerShot();
             isPlayerDead();
             hud.update(batch);
-        } else {
+        }
+        else {
             if (aliveEnemies > 0 && !playerAlive) {
                 youDied();
             } else if (playerAlive && aliveEnemies == 0){
@@ -176,6 +176,9 @@ public class Main extends ApplicationAdapter {
 
     public void youDied(){
         diedFont.draw(batch, "YOU DIED", WIDTH / 2 - 150, HEIGHT / 2 + 25);
+        diedFont.draw(batch, "YOU FAILED THE GALACTIC COUNCIL",WIDTH/2-300,HEIGHT / 2 -25);
+        diedFont.draw(batch, "YOU FAILED HUMANITY", WIDTH/2 -250,HEIGHT/2-75);
+        diedFont.draw(batch, "Frankly speaking, YOU SUCK",WIDTH/2-250,HEIGHT-150);
     }
 
 
@@ -263,7 +266,6 @@ public class Main extends ApplicationAdapter {
 
     public void intro() {
         if (end == false) { //intro starts here
-            graphics.setWindowedMode(WIDTH, HEIGHT);
             if (Gdx.input.isKeyPressed(Input.Keys.SPACE) && starting1 == false) {//starting to play
 
                 starting1 = true; //starting 2nd phase
